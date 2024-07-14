@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+    <header>
+        <img src="apple.png" alt="quiz">Quiz
+        <div class="menu-icons">
+            <a href="tajmahal.html"> <img src="back4.png"></a>
+            <a><img src="home3.png" alt=""></a>
+            
+        </div>
+    </header>
+    <div class="progress">
+        <div class="step" id="one">01</div>
+        <div class="line" id="o"></div>
+        <div class="step" id="two">02</div>
+        <div class="line" id="t"></div>
+        <div class="step" id="three">03</div>
+        <div class="line" id="th"></div>
+        <div class="step" id="four">04</div>
+        <div class="line" id="f"></div>
+        <div class="step" id="five">05</div>
+    </div>
+    <button id="start" onclick="begin()">Start</button><br>
+    <div class="container">
+       
+        
+            <div class="title" id="ques"></div>
+            <div class="options">
+                <input type="button" id="optionA" value="" onclick="opt(optionA.value)">
+                <input type="button" id="optionB" value="" onclick="opt(optionB.value)">
+                <input type="button" id="optionC" value="" onclick="opt(optionC.value)">
+            </div>
+        
+    </div>
+    <div id ="score">Score</div>
+    <footer>
+        <img src="apple.png" alt="Footer Logo">
+    </footer>
+    <script src="new.js"></script>
+</body>
+</html>

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <!-- <link rel="stylesheet" href="new.css"> -->
+     <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right,#003c1b, #016531, #008f47);
+    color: #fff;
+    /* #003d1c, #005a2b, #047a3f */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 3rem;
+}
+
+header img {
+    height: 40px;
+}
+
+.menu-icons img {
+    height: 20px;
+    margin-left: 10px;
+}
+
+
+#start{
+    font-size: 2rem;
+    font-family: 'Arial', sans-serif;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin-top: 5rem;
+}
+
+.container {
+    /* text-align: center; */
+    /* max-width: 800px; */
+    width: 100%;
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+
+.progress {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.step {
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    background-color: #2d5a53;
+    color: #fff;
+    border-radius: 50%;
+    /* margin: 0 30px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.line{
+    width: 50px;
+    align-self: center;
+    background-color: #2e877a;
+    height: 2px;
+    
+   
+}
+.currentline{
+    width: 50px;
+    align-self: center;
+    background-color: white;
+    height: 2px;
+    
+   
+}
+.current {
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    background-color: #fff;
+    color: #0e4238;
+    border-radius: 50%;
+    /* margin: 0 30px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+#qa{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* justify-content: left; */
+}
+
+.title {
+    font-size: 35px;
+    margin-bottom: 20px;
+    margin-right: 20%;
+    display: inline-block;
+    margin-top: 50px;
+    
+
+   
+}
+
+.options {
+    /* margin-left: 20%; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.options input {
+    display: none;
+    background-color: transparent;
+    border: 2px solid #ffffff55;
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-top-right-radius:10px ;
+    border-bottom-left-radius: 10px;
+    min-width: 14rem;
+}
+
+input:hover {
+    background-color: rgba(255, 255, 255, 0.452);
+}
+
+footer {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+footer img {
+    height: 40px;
+}
+
+#score{
+    font-size: 2rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header img {
+        height: 30px;
+    }
+
+    .menu-icons img {
+        height: 18px;
+    }
+
+    .step {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 12px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .options button {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    footer img {
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .options button {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    footer {
+        padding: 10px;
+    }
+
+    footer img {
+        height: 20px;
+    }
+}
+
+     </style>
+</head>
+<body>
+    <header>
+        <img src="apple.png" alt="quiz">Quiz
+        <div class="menu-icons">
+            <a href="indiagate.html"> <img src="back4.png"></a>
+            <a><img src="home3.png" alt=""></a>
+            
+        </div>
+    </header>
+    <div class="progress">
+        <div class="step" id="one">01</div>
+        <div class="line" id="o"></div>
+        <div class="step" id="two">02</div>
+        <div class="line" id="t"></div>
+        <div class="step" id="three">03</div>
+        <div class="line" id="th"></div>
+        <div class="step" id="four">04</div>
+        <div class="line" id="f"></div>
+        <div class="step" id="five">05</div>
+    </div>
+    <button id="start" onclick="begin()">Start</button><br>
+    <div class="container">
+       
+        
+            <div class="title" id="ques"></div>
+            <div class="options">
+                <input type="button" id="optionA" value="" onclick="opt(optionA.value)">
+                <input type="button" id="optionB" value="" onclick="opt(optionB.value)">
+                <input type="button" id="optionC" value="" onclick="opt(optionC.value)">
+            </div>
+        
+    </div>
+    <div id ="score">Score</div>
+    <footer>
+        <img src="apple.png" alt="Footer Logo">
+    </footer>
+    <script>
+        let ques = document.getElementById("ques");
+let optionA = document.getElementById("optionA");
+let optionB = document.getElementById("optionB");
+let optionC = document.getElementById("optionC");
+let start = document.getElementById("start");
+let counter = document.getElementById("counter");
+let score = document.getElementById("score");
+let one = document.getElementById("one");
+let two = document.getElementById("two");
+let three = document.getElementById("three");
+let four = document.getElementById("four");
+let five = document.getElementById("five");
+let o = document.getElementById("o");
+let t = document.getElementById("t");
+let th= document.getElementById("th");
+let f= document.getElementById("f");
+let s = 0;
+
+let conf;
+let num = 2;
+// score.style.display="none";
+
+function begin() {
+
+    question1();
+    score.style.display="flex";
+
+
+}
+
+function question1() {
+
+    start.style.display = "none";
+    ques.textContent = "Which city in India is home to India Gate?";
+        optionA.value = "Mumbai";
+        optionB.value = "Delhi";
+        optionC.value = "Kolkata";
+
+    optionA.style.display = "inline-block";
+    optionB.style.display = "inline-block";
+    optionC.style.display = "inline-block";
+    one.classList.add("current");
+    
+
+}
+
+function question2() {
+
+    start.style.display = "none";
+    ques.textContent = "India Gate is a memorial to which war?";
+        optionA.value = "World War I";
+        optionB.value = "Kargil War";
+        optionC.value = "Indo-Pakistani War of 1947";
+
+    optionA.style.display = "inline-block";
+    optionB.style.display = "inline-block";
+    optionC.style.display = "inline-block";
+    // one.classList.remove("current");
+    two.classList.add("current");
+    o.classList.add("currentline");
+
+}
+
+function question3() {
+
+    start.style.display = "none";
+    ques.textContent = "Who designed India Gate?";
+        optionA.value = "Herbert Baker";
+        optionB.value = "Edwin Lutyens";
+        optionC.value = "Le Corbusier";
+
+    optionA.style.display = "inline-block";
+    optionB.style.display = "inline-block";
+    optionC.style.display = "inline-block";
+    // two.classList.remove("current");
+    three.classList.add("current");
+    t.classList.add("currentline");
+
+}
+
+function question4() {
+
+    start.style.display = "none";
+    ques.textContent = "How tall is India Gate?";
+        optionA.value = "42 meters";
+        optionB.value = "30 meters";
+        optionC.value = "25 meters";
+
+    optionA.style.display = "inline-block";
+    optionB.style.display = "inline-block";
+    optionC.style.display = "inline-block";
+    // three.classList.remove("current");
+    four.classList.add("current");
+    th.classList.add("currentline");
+
+}
+
+function question5() {
+
+    start.style.display = "none";
+    ques.textContent = "In which year was India Gate's foundation laid?";
+        optionA.value = "1921";
+        optionB.value = "1956";
+        optionC.value = "1947";
+
+    optionA.style.display = "inline-block";
+    optionB.style.display = "inline-block";
+    optionC.style.display = "inline-block";
+    // four.classList.remove("current");
+    five.classList.add("current");
+    f.classList.add("currentline");
+
+}
+
+function opt(ele) {
+
+    console.log(ele);
+    switch (ele) {
+
+        case 'Delhi': optionB.style.backgroundColor = " rgb(20, 255, 20)";
+            optionB.style.color = "black";
+            s++;
+            break;
+
+        case 'Mumbai': optionA.style.backgroundColor = " #ff0011"
+            optionA.style.color = "black";
+            break;
+
+        case 'Kolkata': optionC.style.backgroundColor = " #ff0011"
+            optionC.style.color = "black";
+            break;
+
+        case 'World War I': optionA.style.backgroundColor = " rgb(20, 255, 20)";
+            s++;
+            optionA.style.color = "black";
+            break;
+
+        case 'Kargil War': optionB.style.backgroundColor = " #ff0011"
+            optionB.style.color = "black";
+            break;
+
+        case 'Indo-Pakistan War of 1947': optionC.style.backgroundColor = " #ff0011"
+            optionC.style.color = "black";
+            break;
+
+        case 'Le Corbusier': optionC.style.backgroundColor = " #ff0011";
+            optionC.style.color = "black";
+            break;
+
+        case 'Edwin Lutyens': optionB.style.backgroundColor = "rgb(20, 255, 20)";
+            s++;
+            optionB.style.color = "black";
+            break;
+
+        case 'Herbert Baker': optionA.style.backgroundColor = " #ff0011"
+            optionA.style.color = "black";
+            break;
+
+        case '25 meters': optionC.style.backgroundColor = " #ff0011";
+            optionC.style.color = "black";
+            break;
+
+        case '30 meters': optionB.style.backgroundColor = "#ff0011";
+            optionB.style.color = "black";
+            break;
+
+        case '42 meters': optionA.style.backgroundColor = "rgb(20, 255, 20)";
+            s++;
+            optionA.style.color = "black";
+            break;
+
+        case '1947': optionC.style.backgroundColor = "#ff0011";
+            optionC.style.color = "black";
+            break;
+
+        case '1956': optionB.style.backgroundColor = "#ff0011";
+            optionB.style.color = "black";
+            break;
+
+        case '1921': optionA.style.backgroundColor = "rgb(20, 255, 20)";
+            s++;
+            optionA.style.color = "black";
+            break;
+
+
+    }
+
+    optionB.disabled = true;
+    optionA.disabled = true;
+    optionC.disabled = true;
+
+
+
+    score.textContent = `Score : ${s}`;
+
+    setTimeout(() => { clean(); }, 1500);
+    conf = true;
+    console.log(conf);
+    if (conf) {
+
+        switch (num) {
+            case 2: setTimeout(() => { question2(); }, 1500);
+                break;
+            case 3: setTimeout(() => { question3(); }, 1500);
+                break;
+            case 4: setTimeout(() => { question4(); }, 1500);
+                break;
+            case 5: setTimeout(() => { question5(); }, 1500);
+                break;
+            default: score.textContent = `Score ${s}/5`;
+                optionA.style.display = "none";
+                optionB.style.display = "none";
+                optionC.style.display = "none";
+                ques.textContent = "";
+                let nele=document.createElement("H1");
+                nele.textContent=`Score ${s}/5`;
+                document.header.append(nele);
+                setTimeout(()=>{
+                    // window.location.replace("http://127.0.0.1:5500/quiz/quiz.html");
+                    // window.location.href = "http://127.0.0.1:5500/quiz/quiz.html";
+                },1500);
+
+
+        }
+        conf = false;
+        num++;
+
+    }
+    console.log(num);
+
+    return ele;
+
+}
+
+function clean() {
+    // optionA.style.display="none";
+    // optionB.style.display="none";
+    // optionC.style.display="none";
+    optionC.style.backgroundColor = " transparent";
+    optionA.style.backgroundColor = " transparent";
+    optionB.style.backgroundColor = " transparent";
+
+    optionA.style.color = "white";
+    optionB.style.color = "white";
+    optionC.style.color = "white";
+
+    optionC.disabled = false;
+    optionA.disabled = false;
+    optionB.disabled = false;
+
+    console.log("this clean is called");
+}
+
+const b1 = document.getElementById('optionA');
+
+b1.addEventListener('mouseover', () => {
+    b1.style.backgroundColor = 'rgba(255, 255, 255, 0.452)';
+});
+
+b1.addEventListener('mouseout', () => {
+    b1.style.backgroundColor = 'transparent';
+});
+
+const b2 = document.getElementById('optionB');
+
+b2.addEventListener('mouseover', () => {
+    b2.style.backgroundColor = 'rgba(255, 255, 255, 0.452)';
+});
+
+b2.addEventListener('mouseout', () => {
+    b2.style.backgroundColor = 'transparent';
+});
+
+const b3 = document.getElementById('optionC');
+
+b3.addEventListener('mouseover', () => {
+    b3.style.backgroundColor = 'rgba(255, 255, 255, 0.452)';
+});
+
+b3.addEventListener('mouseout', () => {
+    b3.style.backgroundColor = 'transparent';
+});
+
+    </script>
+</body>
+</html>
