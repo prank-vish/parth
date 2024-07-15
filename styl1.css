@@ -1,40 +1,15 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
-}
-
-/* .navbar {
-  background-color: #333;
-  overflow: hidden;
-}
-
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  overflow: hidden; /* Prevent scroll bars */
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  min-height: 100vh;
+  background-color: #f5f5f5; /* Light background color */
 }
 
-.navbar ul li {
-  float: left;
-}
-
-.navbar ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-}
-
-.navbar ul li a:hover {
-  background-color: #ddd;
-  color: black;
-}
- */
- nav {
+nav {
   width: 100%;
   background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
   backdrop-filter: blur(10px); /* Glassy effect */
@@ -71,51 +46,80 @@ nav a:hover {
   color: #ff5722; /* Bright orange color on hover */
 }
 
-.slider {
-  position: relative;
+.container {
   width: 100%;
-  /* max-width: 800px; */
-  margin: auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  border: 2px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width:100%;
-}
-
-.slide {
-  min-width: 100%;
-  box-sizing: border-box;
-}
-
-.slide img {
+a .frame {
   width: 100%;
-  vertical-align: middle;
-  height:100vh;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-.navigation {
+.frame::before {
+  content: '';
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1; /* Ensure the overlay is above the images but below the arrows */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.frame.fade-in::before {
+  opacity: 1;
+}
+
+.slider {
   display: flex;
-  justify-content: space-between;
+  transition: transform 0.5s ease;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  z-index: 2; /* Ensure arrows are above the overlay */
 }
 
-.navigation button {
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 18px;
+.left {
+  left: 10px;
 }
 
-.navigation button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+.right {
+  right: 10px;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .arrow {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arrow {
+    width: 30px;
+    height: 30px;
+  }
 }
