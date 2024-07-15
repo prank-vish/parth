@@ -214,7 +214,7 @@ function opt(ele) {
                 ques.textContent = "";
                 setTimeout(()=>{
                     // window.location.replace("http://127.0.0.1:5500/quiz/quiz.html");
-                    window.location.href = "http://127.0.0.1:5500/quiz/quiz.html";
+                    // window.location.href = "http://127.0.0.1:5500/quiz/quiz.html";
                 },1500);
 
 
