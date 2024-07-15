@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Litti Chokha</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Georgia', serif;
+            scroll-behavior: smooth;
+            background-color: #fffaf0;
+        }
+
+        .parallax {
+            background-image: url('litti chokha.jpg');
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .parallax::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .content {
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #2f4f4f;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #4b0082;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            font-weight: bold;
+            background-color: #6b8e23;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .links a:hover {
+            background-color: #556b2f;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fdf5e6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            color: #8b4513;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            color: #696969;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax">
+        <div class="content">
+            <h1>About Litti Chokha</h1>
+            <p>Litti Chokha is a traditional dish from the Indian state of Bihar. Litti is a stuffed whole wheat dough ball filled with roasted gram flour and spices, while Chokha is a mashed mixture of roasted eggplant, tomatoes, and potatoes.</p>
+            <div class="links">
+                <a href="mains.html">Back to Main Dishes</a>
+                <a href="quizlittichokha.html">Try Quiz</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Ingredients</h2>
+        <p>The main ingredients for Litti are whole wheat flour, roasted gram flour (sattu), and spices. Chokha is made from roasted eggplant, tomatoes, potatoes, onions, green chilies, and spices. The dish is traditionally served with ghee or clarified butter.</p>
+    </div>
+
+    <div class="section">
+        <h2>History</h2>
+        <p>Litti Chokha is a popular dish in Bihar and has a rich cultural heritage. It is often prepared during festivals and special occasions. The dish is known for its earthy flavors and rustic appeal.</p>
+    </div>
+</body>
+</html>
