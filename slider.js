@@ -1,13 +1,13 @@
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');
 const slider = document.querySelector('.slider');
-const images = document.querySelectorAll('.image');
 const frame = document.querySelector('.frame');
+const images = document.querySelectorAll('.image');
 
 let slideNumber = 0;
 
 const updateSlideWidth = () => {
-  const slideWidth = document.querySelector('.frame').clientWidth;
+  const slideWidth = frame.clientWidth;
   slider.style.transform = `translateX(-${slideNumber * slideWidth}px)`;
 };
 
@@ -19,7 +19,7 @@ const showGradient = () => {
 };
 
 const nextSlide = () => {
-  const slideWidth = document.querySelector('.frame').clientWidth;
+  const slideWidth = frame.clientWidth;
   if (slideNumber < images.length - 1) {
     slideNumber++;
   } else {
@@ -30,7 +30,7 @@ const nextSlide = () => {
 };
 
 const prevSlide = () => {
-  const slideWidth = document.querySelector('.frame').clientWidth;
+  const slideWidth = frame.clientWidth;
   if (slideNumber > 0) {
     slideNumber--;
   } else {
@@ -69,41 +69,3 @@ const handleTouchEnd = () => {
 slider.addEventListener('touchstart', handleTouchStart);
 slider.addEventListener('touchmove', handleTouchMove);
 slider.addEventListener('touchend', handleTouchEnd);
-
-// Mouse events for desktop
-let isDragging = false;
-let startPos;
-let currentTranslate;
-let prevTranslate = 0;
-
-const handleMouseDown = (e) => {
-  isDragging = true;
-  startPos = e.clientX;
-};
-
-const handleMouseMove = (e) => {
-  if (isDragging) {
-    const currentPos = e.clientX;
-    currentTranslate = prevTranslate + currentPos - startPos;
-    slider.style.transform = `translateX(${currentTranslate}px)`;
-  }
-};
-
-const handleMouseUp = () => {
-  isDragging = false;
-  const slideWidth = document.querySelector('.frame').clientWidth;
-  const movedBy = currentTranslate - prevTranslate;
-  if (movedBy < -100) {
-    nextSlide();
-  } else if (movedBy > 100) {
-    prevSlide();
-  } else {
-    slider.style.transform = `translateX(-${slideNumber * slideWidth}px)`;
-  }
-  prevTranslate = -slideNumber * slideWidth;
-};
-
-slider.addEventListener('mousedown', handleMouseDown);
-slider.addEventListener('mousemove', handleMouseMove);
-slider.addEventListener('mouseup', handleMouseUp);
-slider.addEventListener('mouseleave', handleMouseUp);

@@ -117,12 +117,12 @@ function opt(ele) {
     console.log(ele);
     switch (ele) {
 
-        case 'Shah Jahaan': optionB.style.backgroundColor = " rgb(20, 255, 20)";
+        case 'Shahjhaan': optionB.style.backgroundColor = " rgb(20, 255, 20)";
             optionB.style.color = "black";
             s++;
             break;
 
-        case 'Babar': optionA.style.backgroundColor = " #ff0011"
+        case 'Babur': optionA.style.backgroundColor = " #ff0011"
             optionA.style.color = "black";
             break;
 
