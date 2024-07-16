@@ -14,6 +14,58 @@
             background-color: #f5f5dc;
         }
 
+        .navbar {
+            background-color: rgba(139, 69, 19, 0); /* Transparent background */
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            display: block;
+            color: #703104;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #8B4513;
+            color: #DAA520;
+        }
+
+        .navbar .title {
+            flex-grow: 1;
+            text-align: left;
+            font-size: 1.5em;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        .navbar .title a {
+            color: #8B4513;
+        }
+
+        .navbar .title a:hover {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
         .parallax {
             background-image: url('taj mahal.jpg');
             height: 100vh;
@@ -95,6 +147,7 @@
             border: 5px solid #8B4513;
             border-radius: 10px;
         }
+
         .footer {
             background-color: #8B4513;
             color: #FFD700;
@@ -117,56 +170,6 @@
 
         .footer a:hover {
             color: #DAA520;
-        }
-        .navbar {
-            background-color: #8b451300;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .navbar ul li {
-            display: inline;
-        }
-
-        .navbar ul li a {
-            display: block;
-            color: #703104;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        .navbar ul li a:hover {
-            background-color: #8B4513;
-            color: #DAA520;
-        }
-
-        .navbar .title {
-            flex-grow: 1;
-            text-align: left;
-            font-size: 1.5em;
-            font-weight: bold;
-            padding-left: 20px;
-        }
-
-        .navbar .title a {
-            color: #8B4513;
-        }
-
-        .navbar .title a:hover {
-            color: #FFD700;
-            text-decoration: none;
         }
     </style>
 </head>
