@@ -38,14 +38,18 @@ body {
 }
 
 .navbar ul li a:hover {
-  background-color: #8B4513;
+  background-color: #8b4513d6;
   color: white;
   border-radius: 10px;
 }
 
 .navbar ul li:first-child a {
   font-size: 22px;
-  color: #DAA520;
+  color: #8B4513;
+}
+.navbar ul li:first-child a:hover {
+  color:#DAA520;
+  background-color: #8B4513;
 }
 
 .slider {
@@ -113,5 +117,5 @@ body {
 }
 
 .footer-content a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }

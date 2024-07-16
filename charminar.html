@@ -95,9 +95,92 @@
             border: 5px solid #8B4513;
             border-radius: 10px;
         }
+        .footer {
+            background-color: #8B4513;
+            color: #FFD700;
+            padding: 20px;
+            text-align: center;
+            font-size: 1em;
+            border-top: 5px solid #DAA520;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            color:#FFD700;
+        }
+
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            color: #DAA520;
+        }
+        .navbar {
+            background-color: #8b451300;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            display: block;
+            color: #703104;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #8B4513;
+            color: #DAA520;
+        }
+
+        .navbar .title {
+            flex-grow: 1;
+            text-align: left;
+            font-size: 1.5em;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        .navbar .title a {
+            color: #8B4513;
+        }
+
+        .navbar .title a:hover {
+            color: #FFD700;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="tajmahal.html">Taj Mahal</a></li>
+            <li><a href="qutubminar.html">Qutub Minar</a></li>
+            <li><a href="hawamahal.html">Hawa Mahal</a></li>
+            <li><a href="redfort.html">Red Fort</a></li>
+            <li><a href="charminar.html">Charminar</a></li>
+            <li><a href="indiagate.html">India Gate</a></li>
+        </ul>
+    </nav>
     <div class="parallax">
         <div class="content">
             <h1>About Charminar</h1>
@@ -124,5 +207,12 @@
         <h2>History</h2>
         <p>The Charminar was built to commemorate the eradication of a deadly plague that had ravaged the city. It served as a centerpiece of Hyderabad and a landmark from which major thoroughfares diverged. Over the centuries, it has witnessed numerous historical events and continues to be a focal point for the city's cultural and social activities.</p>
     </div>
+    <footer class="footer">
+        <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
+            <p>
+                <a href="mailto:u23cs113@coed.svnit.ac.in">&#9993; u23cs113@coed.svnit.ac.in</a>
+            </p>
+            <p>&#9742; 9695732481</p>
+    </footer>
 </body>
 </html>
