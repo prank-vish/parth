@@ -1,12 +1,17 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Times New Roman', serif;
   overflow-x: hidden;
+  background-color: #f5f5dc;
 }
 
 .navbar {
-  background-color: #333;
+  background-color: rgba(255, 255, 255, 0.7);
   overflow: hidden;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar ul {
@@ -15,6 +20,7 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .navbar ul li {
@@ -23,32 +29,38 @@ body {
 
 .navbar ul li a {
   display: block;
-  color: white;
+  color: #8B4513;
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .navbar ul li a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #8B4513;
+  color: white;
+  border-radius: 10px;
 }
 
+.navbar ul li:first-child a {
+  font-size: 22px;
+  color: #DAA520;
+}
 
 .slider {
   position: relative;
   width: 100%;
-  /* max-width: 800px; */
-  margin: auto;
+  margin: 0;
   overflow: hidden;
-  border: 2px solid #ddd;
+  border: 2px solid #8B4513;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .slides {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  width:100%;
+  width: 100%;
 }
 
 .slide {
@@ -59,7 +71,7 @@ body {
 .slide img {
   width: 100%;
   vertical-align: middle;
-  height:100vh;
+  height: 100vh;
 }
 
 .navigation {
@@ -82,4 +94,24 @@ body {
 
 .navigation button:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.footer {
+  background-color: #8B4513;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin-top: -2px; /* Adjust as needed to remove any gap */
+}
+.footer-content a {
+  color: #DAA520;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-content a:hover {
+  text-decoration: none;
 }

@@ -9,13 +9,13 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', serif;
             scroll-behavior: smooth;
+            background-color: #f5f5dc;
         }
 
         .parallax {
-            /* Parallax background image */
-            background-image: url('hawa mahal.jpg');
+            background-image: url('hawa mahal.webp');
             height: 100vh;
             background-attachment: fixed;
             background-position: center;
@@ -27,7 +27,7 @@
         }
 
         .content {
-            background: rgba(255, 255, 255, 0.255);
+            background: rgba(255, 255, 224, 0.6);
             padding: 20px;
             border-radius: 10px;
             max-width: 600px;
@@ -40,12 +40,13 @@
 
         h1 {
             font-size: 3em;
-            color: #f2f2f2;
+            color: #8B4513;
+            text-shadow: 2px 2px #DAA520;
         }
 
         p {
             font-size: 1.2em;
-            color: #6b13c9;
+            color: #8B4513;
             line-height: 1.6;
         }
 
@@ -55,24 +56,19 @@
 
         .links a {
             text-decoration: none;
-            color: #007BFF;
+            color: #8B0000;
             margin: 0 10px;
             font-weight: bold;
-            background-color: #f2f2f2;
-            padding: 10px 10px;
+            background-color: #FFD700;
+            padding: 10px 20px;
             border-radius: 15px;
-            text-decoration: none;
+            box-shadow: 2px 2px #DAA520;
         }
-/* 
-        .links a:hover {
-            text-decoration: underline;
-        } */
 
         .section {
             padding: 50px 20px;
             text-align: center;
-            background-color: #20989869;
-            /* height: 100vh; Ensure sections cover the full viewport height */
+            background-color: #FFDEAD;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -80,15 +76,24 @@
 
         .section h2 {
             font-size: 2.5em;
-            color: #333;
+            color: #8B4513;
+            text-shadow: 2px 2px #DAA520;
         }
 
         .section p {
             font-size: 1.2em;
-            color: #666;
+            color: #8B4513;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 5px solid #8B4513;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -96,28 +101,28 @@
     <div class="parallax">
         <div class="content">
             <h1>About Hawa Mahal</h1>
-            <p>Hawa Mahal, located in Jaipur, India, is a palace known for its unique and intricate architecture. It was built in 1799 by Maharaja Sawai Pratap Singh.</p>
-            <p>The palace is renowned for its 953 small windows called jharokhas, decorated with intricate latticework. It was designed to allow royal ladies to observe street festivals while remaining unseen from the outside.</p>
-            <p>Hawa Mahal, also known as the Palace of Winds, is a symbol of the rich architectural heritage of Rajasthan.</p>
+            <p>Hawa Mahal, located in Jaipur, India, is an exquisite palace known for its unique architecture and historical significance. Built in 1799 by Maharaja Sawai Pratap Singh, it was designed by Lal Chand Ustad.</p>
+            <p>The palace is constructed from red and pink sandstone and stands at the edge of the City Palace, extending to the women's chambers or Zenana.</p>
+            <p>Hawa Mahal is a prominent landmark in Jaipur and attracts visitors from all over the world who come to admire its beauty and historical significance.</p>
             <div class="links">
                 <a href="monument.html">Back to Monuments</a>
-                <a href="quizhawa.html">Try Quiz</a>
+                <a href="new.html">Try Quiz</a>
             </div>
         </div>
     </div>
 
     <div class="section">
         <h2>Architecture</h2>
-        <p>Hawa Mahal's architecture is a blend of Hindu Rajput and Islamic Mughal styles. The five-story exterior is akin to a honeycomb with small windows, allowing cool air to pass through, making the entire area more pleasant during the high temperatures in Jaipur.</p>
+        <p>Hawa Mahal is a five-story pyramidal structure, famous for its 953 small windows, called jharokhas, decorated with intricate latticework. The purpose of the lattice was to allow royal ladies to observe everyday life and festivals celebrated in the street below without being seen, as was the custom of the purdah.</p>
     </div>
 
     <div class="section">
-       <img src="hawa mahal.webp" alt="">
+        <img src="hawa mahal.jpg" alt="Hawa Mahal">
     </div>
 
     <div class="section">
         <h2>History</h2>
-        <p>Built in 1799, Hawa Mahal was constructed by Maharaja Sawai Pratap Singh. Its purpose was to allow the royal ladies to observe the everyday life and festivals celebrated in the streets below without being seen, in line with the strict purdah system.</p>
+        <p>The Hawa Mahal was constructed to extend the Zenana, or women's chambers, and provide the royal ladies a place to observe the street festivals while remaining unseen from the outside. The design of the Hawa Mahal also helped keep the palace cool during hot summer months, thanks to its unique structure and the airflow created by its many windows.</p>
     </div>
 </body>
 </html>
