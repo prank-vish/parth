@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Pani Puri</title>
+    <title>About Panipuri</title>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             height: 100%;
             font-family: 'Georgia', serif;
             scroll-behavior: smooth;
             background-color: #fffaf0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0); /* Transparent black background */
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #8B4513; /* Brown text color */
+            font-size: 1.2em;
+            margin: 0 15px;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ffa500; /* Orange color on hover */
         }
 
         .parallax {
@@ -34,7 +57,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .content {
@@ -46,6 +69,7 @@
             text-align: center;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #8B4513; /* Brown text color */
         }
 
         h1 {
@@ -88,31 +112,65 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            color: #8B4513; /* Brown text color */
         }
 
         .section h2 {
             font-size: 2.5em;
-            color: #8b4513;
             margin-bottom: 20px;
         }
 
         .section p {
             font-size: 1.2em;
-            color: #696969;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
             margin-bottom: 20px;
         }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0);
+            color: #8B4513; /* Brown text color */
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-family: 'Garamond', serif;
+        }
+
+        .footer-content p {
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: #ffa500;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: none;
+        }
     </style>
 </head>
+
 <body>
+    <div class="navbar">
+        <a href="panipuri.html">Panipuri</a>
+        <a href="cholebhature.html">Chole Bhature</a>
+        <a href="dahi jalebi.html">Dahi Jalebi</a>
+        <a href="dosa.html">Dosa</a>
+        <a href="idli-vada.html">Idli-Vada</a>
+        <a href="litti chokha.html">Litti Chokha</a>
+        <a href="sarso ka saag.html">Sarso Ka Saag</a>
+    </div>
     <div class="parallax">
         <div class="content">
-            <h1>About Pani Puri</h1>
-            <p>Pani Puri, also known as Golgappa or Puchka, is a popular street snack in India. It consists of a round, hollow puri filled with spicy, tangy water, tamarind chutney, chili, chaat masala, potato, onion, and chickpeas.</p>
+            <h1>About Panipuri</h1>
+            <p>Panipuri, also known as golgappa, is a popular street food in India. It consists of hollow, crispy
+                puris filled with spicy, tangy water (pani), tamarind chutney, and a mixture of flavored water.</p>
             <div class="links">
-                <a href="cuisine.html">Back to Snacks</a>
+                <a href="snacks.html">Back to Snacks</a>
                 <a href="quizpanipuri.html">Try Quiz</a>
             </div>
         </div>
@@ -120,12 +178,27 @@
 
     <div class="section">
         <h2>Ingredients</h2>
-        <p>The key ingredients of Pani Puri are puris, tamarind chutney, spicy water (pani), mashed potatoes, boiled chickpeas, and chaat masala.</p>
+        <p>The key ingredients for Panipuri include semolina (sooji), wheat flour, chickpeas, tamarind, spices like
+            cumin and black salt, and mint leaves. The preparation involves frying puris and assembling them with the
+            flavorful fillings.</p>
     </div>
 
     <div class="section">
         <h2>History</h2>
-        <p>Pani Puri has its roots in the Indian subcontinent and has been a beloved street food for generations. It is enjoyed in various forms across different regions, with slight variations in ingredients and flavors.</p>
+        <p>Panipuri originated in the Indian subcontinent, where it is enjoyed as a popular street snack. Its name
+            varies by region—golgappa in North India, puchka in West Bengal, and gupchup in Odisha—reflecting its
+            widespread popularity and regional adaptations.</p>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
+            <p>
+                <a href="mailto:u23cs113@coed.svnit.ac.in">&#9993; u23cs113@coed.svnit.ac.in</a>
+            </p>
+            <p>&#9742; 9695732481</p>
+        </div>
+    </footer>
 </body>
+
 </html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Dahi Jalebi</title>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -46,6 +48,7 @@
             text-align: center;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #8B4513; /* Brown text color */
         }
 
         h1 {
@@ -88,31 +91,84 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            color: #8B4513; /* Brown text color */
         }
 
         .section h2 {
             font-size: 2.5em;
-            color: #8b4513;
             margin-bottom: 20px;
         }
 
         .section p {
             font-size: 1.2em;
-            color: #696969;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
             margin-bottom: 20px;
         }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0);
+            color: #8B4513; /* Brown text color */
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-family: 'Garamond', serif;
+        }
+
+        .footer-content p {
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: #ffa500;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: none;
+        }.navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0); /* Transparent black background */
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #8B4513; /* Brown text color */
+            font-size: 1.2em;
+            margin: 0 15px;
+            padding: 10px 15px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ffa500; /* Orange color on hover */
+        }
     </style>
 </head>
+
 <body>
+    <div class="navbar">
+        <a href="panipuri.html">Panipuri</a>
+        <a href="cholebhature.html">Chole Bhature</a>
+        <a href="dahi jalebi.html">Dahi Jalebi</a>
+        <a href="dosa.html">Dosa</a>
+        <a href="idli-vada.html">Idli-Vada</a>
+        <a href="litti chokha.html">Litti Chokha</a>
+        <a href="sarso ka saag.html">Sarso Ka Saag</a>
+    </div>
     <div class="parallax">
         <div class="content">
             <h1>About Dahi Jalebi</h1>
-            <p>Dahi Jalebi is a popular Indian dessert made by combining sweet, crispy jalebis with tangy, creamy yogurt. It is a delightful blend of flavors and textures enjoyed across India.</p>
+            <p>Dahi Jalebi is a traditional Indian dessert where crispy jalebis are soaked in sweetened yogurt. It is
+                a popular street food item enjoyed across India during festivals and special occasions.</p>
             <div class="links">
-                <a href="cuisine.html">Back to Snacks</a>
+                <a href="snacks.html">Back to Snacks</a>
                 <a href="quizdahijalebi.html">Try Quiz</a>
             </div>
         </div>
@@ -120,12 +176,27 @@
 
     <div class="section">
         <h2>Ingredients</h2>
-        <p>The key ingredients for Dahi Jalebi are flour, sugar, yogurt, and ghee for the jalebis, and fresh yogurt for serving. The jalebis are deep-fried and soaked in sugar syrup before being paired with yogurt.</p>
+        <p>The key ingredients for Dahi Jalebi include maida (refined flour), curd, sugar, saffron, and cardamom. The
+            jalebis are deep-fried to golden perfection and then soaked in sweetened yogurt flavored with saffron and
+            cardamom.</p>
     </div>
 
     <div class="section">
         <h2>History</h2>
-        <p>Dahi Jalebi has been enjoyed in India for many years, often served during festivals and special occasions. It is a perfect example of how Indian cuisine blends contrasting flavors to create unique dishes.</p>
+        <p>Dahi Jalebi has its roots in North Indian cuisine, where it is considered a delicacy during festivals like
+            Holi and Diwali. The combination of crispy jalebis with creamy yogurt represents a harmonious blend of
+            textures and flavors.</p>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
+            <p>
+                <a href="mailto:u23cs113@coed.svnit.ac.in">&#9993; u23cs113@coed.svnit.ac.in</a>
+            </p>
+            <p>&#9742; 9695732481</p>
+        </div>
+    </footer>
 </body>
+
 </html>
