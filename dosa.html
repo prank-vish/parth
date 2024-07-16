@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Dosa</title>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -46,6 +48,7 @@
             text-align: center;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #8B4513; /* Brown text color */
         }
 
         h1 {
@@ -88,31 +91,56 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            color: #8B4513; /* Brown text color */
         }
 
         .section h2 {
             font-size: 2.5em;
-            color: #8b4513;
             margin-bottom: 20px;
         }
 
         .section p {
             font-size: 1.2em;
-            color: #696969;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
             margin-bottom: 20px;
         }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0);
+            color: #8B4513; /* Brown text color */
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-family: 'Garamond', serif;
+        }
+
+        .footer-content p {
+            margin: 10px 0;
+        }
+
+        .footer a {
+            color: #ffa500;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: none;
+        }
     </style>
 </head>
+
 <body>
     <div class="parallax">
         <div class="content">
             <h1>About Dosa</h1>
-            <p>Dosa is a traditional South Indian dish made from fermented rice and urad dal batter, cooked into a thin, crispy pancake. It is often served with sambar and coconut chutney.</p>
+            <p>Dosa is a fermented crepe made from rice and black lentils. It is a staple dish in South Indian cuisine
+                and is typically served with coconut chutney and sambar.</p>
             <div class="links">
-                <a href="cuisine.html">Back to Snacks</a>
+                <a href="snacks.html">Back to Snacks</a>
                 <a href="quizdosa.html">Try Quiz</a>
             </div>
         </div>
@@ -120,12 +148,25 @@
 
     <div class="section">
         <h2>Ingredients</h2>
-        <p>The key ingredients for Dosa are rice, urad dal (black gram), fenugreek seeds, and water. The batter is fermented overnight and then spread thin on a hot griddle to make crispy dosas.</p>
+        <p>The key ingredients for dosa include rice, black lentils, fenugreek seeds, and salt. The batter is
+            fermented overnight to achieve the characteristic taste and texture.</p>
     </div>
 
     <div class="section">
         <h2>History</h2>
-        <p>Dosa has its origins in South India and has been a staple food in the region for centuries. It is now enjoyed across India and globally for its unique taste and texture.</p>
+        <p>Dosa has ancient origins in South India and has evolved into various regional variations. It is known for
+            its crispiness and nutritious value, making it a popular choice for breakfast or dinner.</p>
     </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
+            <p>
+                <a href="mailto:u23cs113@coed.svnit.ac.in">&#9993; u23cs113@coed.svnit.ac.in</a>
+            </p>
+            <p>&#9742; 9695732481</p>
+        </div>
+    </footer>
 </body>
+
 </html>
