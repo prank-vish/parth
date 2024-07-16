@@ -6,7 +6,7 @@ body {
 }
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0); /* Transparent background */
     overflow: hidden;
     position: absolute;
     width: 100%;
@@ -28,29 +28,28 @@ body {
     position: relative;
     color: #8B4513; /* Warm, earthy brown color */
     font-family: 'Garamond', serif; /* Traditional, elegant font style */
-    font-size: large;
 }
 
 .navbar ul li a {
     display: block;
-    color: #8B4513; /* Warm, earthy brown color */
+    color: #f55a07; /* Warm, earthy brown color */
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
 .navbar ul li a:hover {
-    background-color: #8B4513; /* Brown background color on hover */
+    background-color: #f55a07; /* Brown background color on hover */
     color: white; /* White text on hover */
     border-radius: 10px;
 }
 
-.navbar ul li:first-child a {
+.navbar ul li:first-child {
     font-size: 22px;
-    color: #DAA520; /* Goldenrod color for the first link */
+    color: #c8830d; /* Goldenrod color for the first link */
 }
 
 .slider {
@@ -102,7 +101,7 @@ body {
 
 .footer {
     background-color: rgba(0, 0, 0, 0); /* Dark background */
-    color: #8B4513; /* White text */
+    color: #f55a07; /* White text */
     text-align: center; /* Centered text */
     padding: 20px 0; /* Top and bottom padding */
     position: relative;
