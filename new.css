@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right,#003c1b, #016531, #008f47);
+    background: linear-gradient(to bottom right,#345f5e, #5c9697, #294848);
     color: #fff;
     /* #003d1c, #005a2b, #047a3f */
     margin: 0;
@@ -22,11 +22,11 @@ header {
 }
 
 header img {
-    height: 40px;
+    height: 4rem;
 }
 
 .menu-icons img {
-    height: 20px;
+    height: 2rem;
     margin-left: 10px;
 }
 
@@ -150,14 +150,16 @@ footer {
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
+    font-size: 40px;
 }
 
 footer img {
-    height: 40px;
+    height: 30px;
 }
 
 #score{
-    font-size: 1rem;
+    font-size: 2rem;
+    color:rgb(10, 54, 129);
 }
 
 /* Media Queries */
@@ -185,9 +187,11 @@ footer img {
         padding: 12px 15px;
         font-size: 14px;
     }
-
+    footer{
+        font-size: 30px;
+    }
     footer img {
-        height: 30px;
+        height: 20px;
     }
 }
 
@@ -211,9 +215,10 @@ footer img {
 
     footer {
         padding: 10px;
+        font-size: 20px;
     }
 
     footer img {
-        height: 20px;
+        height: 10px;
     }
 }
