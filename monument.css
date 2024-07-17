@@ -19,8 +19,9 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 10px 20px;
 }
 
 .navbar ul li {
@@ -43,14 +44,14 @@ body {
   border-radius: 10px;
 }
 
-.navbar ul li:first-child a {
+.navbar ul li:first-child {
   font-size: 22px;
-  color: #8B4513;
+  color: #ffb700;
 }
-.navbar ul li:first-child a:hover {
+/* .navbar ul li:first-child a:hover {
   color:#DAA520;
   background-color: #8B4513;
-}
+} */
 
 .slider {
   position: relative;
