@@ -44,14 +44,16 @@ body {
   border-radius: 10px;
 }
 
+.navbar ul li a.active {
+  background-color: #8b4513d6;
+  color: white;
+  border-radius: 10px;
+}
+
 .navbar ul li:first-child {
   font-size: 22px;
   color: #ffb700;
 }
-/* .navbar ul li:first-child a:hover {
-  color:#DAA520;
-  background-color: #8B4513;
-} */
 
 .slider {
   position: relative;

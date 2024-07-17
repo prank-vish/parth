@@ -46,7 +46,11 @@ body {
     color: white; /* White text on hover */
     border-radius: 10px;
 }
-
+.navbar ul li a.active {
+    background-color: #f55a07;
+    color: white;
+    border-radius: 10px;
+  }
 .navbar ul li:first-child {
     font-size: 22px;
     color: #c8830d; /* Goldenrod color for the first link */
