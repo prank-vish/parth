@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right,#3c4648, #72858A,#5b6b6f);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow-x: hidden;
+            /* overflow-y: hidden; */
+            
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 3rem;
+        }
+
+        header img {
+            height: 4rem;
+        }
+
+        .menu-icons img {
+            height: 2rem;
+            margin-left: 10px;
+        }
+
+        #start {
+            font-size: 2rem;
+            border-radius: 5px;
+            padding: 0 10px;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 100%;
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* text-align: center; */
+            /* margin: auto; */
+        }
+
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .step {
+            width: 50px;
+            height: 50px;
+            background-color: #2d5a53;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .line {
+            width: 50px;
+            align-self: center;
+            background-color: #2e877a;
+            height: 2px;
+        }
+
+        .currentline {
+            width: 50px;
+            align-self: center;
+            background-color: white;
+            height: 2px;
+        }
+
+        .current {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            color: #0e4238;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        #qa {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        .title {
+            font-size: 35px;
+            margin-bottom: 20px;
+            /* margin-right: 20%; */
+            /* display: inline-block; */
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: row;
+            flex-grow:1;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .options img {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            border: 2px solid #ffffff55;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            /* display: inline-block; */
+        }
+
+        .options img:hover {
+            background-color: rgba(255, 255, 255, 0.452);
+        }
+
+        footer {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        footer img {
+            height: 30px;
+        }
+
+        #score {
+            font-size: 2rem;
+            color: rgb(0, 31, 58);
+        }
+
+        @media (max-width: 768px) {
+            header img {
+                height: 30px;
+            }
+
+            .menu-icons img {
+                height: 18px;
+            }
+
+            .step {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            footer {
+                font-size: 30px;
+            }
+
+            footer img {
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 18px;
+            }
+
+            footer {
+                font-size: 20px;
+            }
+
+            footer img {
+                height: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo3.png" alt="quiz">Quiz
+        <div class="menu-icons">
+            <a href="panipuri.html"><img src="back4.png"></a>
+            <!-- <a href="index.html"><img src="home3.png" alt="home"></a> -->
+        </div>
+    </header>
+    <div class="progress">
+        <div class="step" id="one">01</div>
+        <div class="line" id="o"></div>
+        <div class="step" id="two">02</div>
+        <div class="line" id="t"></div>
+        <div class="step" id="three">03</div>
+        <div class="line" id="th"></div>
+        <div class="step" id="four">04</div>
+        <div class="line" id="f"></div>
+        <div class="step" id="five">05</div>
+    </div>
+    <button id="start" onclick="begin()">Start</button><br>
+    <div class="container">
+        <div class="title" id="ques"></div>
+        <div class="options">
+            <img id="optionA" src="" alt="Option A" onclick="opt('A')">
+            <img id="optionB" src="" alt="Option B" onclick="opt('B')">
+            <img id="optionC" src="" alt="Option C" onclick="opt('C')">
+        </div>
+    </div>
+    <div id="score">Score</div>
+    <footer>
+        Tales <img src="logo3.png" alt="Footer Logo">f Bharat
+    </footer>
+    <script>
+        let ques = document.getElementById("ques");
+        let optionA = document.getElementById("optionA");
+        let optionB = document.getElementById("optionB");
+        let optionC = document.getElementById("optionC");
+        let start = document.getElementById("start");
+        let score = document.getElementById("score");
+        let one = document.getElementById("one");
+        let two = document.getElementById("two");
+        let three = document.getElementById("three");
+        let four = document.getElementById("four");
+        let five = document.getElementById("five");
+        let o = document.getElementById("o");
+        let t = document.getElementById("t");
+        let th= document.getElementById("th");
+        let f= document.getElementById("f");
+        let s = 0;
+
+        let conf;
+        let num = 2;
+        optionA.style.display = "none";
+            optionB.style.display = "none";
+            optionC.style.display = "none";
+
+        function begin() {
+            question1();
+            score.style.display = "flex";
+        }
+
+        function question1() {
+            start.style.display = "none";
+            ques.textContent = "Which is a common ingredient in Pani Puri?";
+            optionA.src = "mint1.jpeg";
+            optionB.src = "chocolate1.jpeg";
+            optionC.src = "strawberry1.webp";
+
+            optionA.style.display = "inline-block";
+            optionB.style.display = "inline-block";
+            optionC.style.display = "inline-block";
+            one.classList.add("current");
+        }
+
+        function question2() {
+            ques.textContent = "Which is a type of Pani Puri?";
+            optionA.src = "mangopuri1.jpeg";
+            optionB.src = "dahipuri1.jpeg";
+            optionC.src = "blueberrypuri1.webp";
+
+            two.classList.add("current");
+            o.classList.add("currentline");
+            score.textContent =`Score : ${s}`;
+        }
+
+        function question3() {
+            ques.textContent = "What is the filling in Pani Puri?";
+            optionA.src = "boiledpotato1.webp";
+            optionB.src = "jelly1.jpeg";
+            optionC.src = "icecream1.jpeg";
+
+            three.classList.add("current");
+            t.classList.add("currentline");
+            score.textContent =`Score : ${s}`;
+        }
+
+        function question4() {
+            ques.textContent = "Which is the spicy water in Pani Puri called?";
+            optionA.src = "pudinapani1.webp";
+            optionB.src = "cola1.jpeg";
+            optionC.src = "orangejuice1.webp";
+
+            four.classList.add("current");
+            th.classList.add("currentline");
+            score.textContent =`Score : ${s}`;
+        }
+
+        function question5() {
+            ques.textContent = "Which is a popular flavor of Pani Puri?";
+            optionA.src = "tamarindpani1.webp";
+            optionB.src = "cocacola1.webp";
+            optionC.src = "grapejuice1.webp";
+
+            five.classList.add("current");
+            f.classList.add("currentline");
+            score.textContent =`Score : ${s}`;
+        }
+
+        function finish() {
+            optionA.style.display = "none";
+            optionB.style.display = "none";
+            optionC.style.display = "none";
+            ques.style.display = "none";
+            score.textContent = "Your Score is " + s + "/5";
+        }
+
+        function opt(c) {
+            switch(num) {
+                case 2:
+                    if(c == 'A') s += 1;
+                    setTimeout(question2, 500);
+                    num += 1;
+                    // one.classList.remove("current");
+                    break;
+                case 3:
+                    if(c == 'B') s += 1;
+                    setTimeout(question3, 500);
+                    num += 1;
+                    // two.classList.remove("current");
+                    // o.classList.remove("currentline");
+                    break;
+                case 4:
+                    if(c == 'A') s += 1;
+                    setTimeout(question4, 500);
+                    num += 1;
+                    // three.classList.remove("current");
+                    // t.classList.remove("currentline");
+                    break;
+                case 5:
+                    if(c == 'A') s += 1;
+                    setTimeout(question5, 500);
+                    num += 1;
+                    // four.classList.remove("current");
+                    // th.classList.remove("currentline");
+                    break;
+                case 6:
+                    if(c == 'A') s += 1;
+                    setTimeout(finish, 500);
+                    num += 1;
+                    // five.classList.remove("current");
+                    // f.classList.remove("currentline");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
