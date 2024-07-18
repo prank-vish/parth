@@ -32,13 +32,14 @@ body {
 
 .navbar ul li a {
     display: block;
-    color: rgb(1, 248, 248); /* Warm, earthy brown color */
+    color: rgb(1, 194, 194); /* Warm, earthy brown color */
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
     transition: color 0.3s ease; /* Smooth transition for color change */
+    text-shadow: 2px 2px 4px rgb(0, 0, 0,0.5);
 }
 
 .navbar ul li a:hover {
