@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Birdiware</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Times New Roman', serif;
+            scroll-behavior: smooth;
+            background-color: #f5f5dc;
+        }
+
+        .parallax {
+            background-image: url('birdiware.jpg');
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            background: rgba(255, 255, 224, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #008080;
+            text-shadow: 2px 2px #20B2AA;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #008080;
+            line-height: 1.6;
+        }
+
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #008000;
+            margin: 0 10px;
+            font-weight: bold;
+            background-color: #FFD700;
+            padding: 10px 20px;
+            border-radius: 15px;
+            box-shadow: 2px 2px #20B2AA;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #E0FFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            color: #008080;
+            text-shadow: 2px 2px #20B2AA;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            color: #008080;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 5px solid #008080;
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: #008080;
+            color: #FFD700;
+            padding: 20px;
+            text-align: center;
+            font-size: 1em;
+            border-top: 5px solid #20B2AA;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            color: #FFD700;
+        }
+
+        .footer a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            color: #20B2AA;
+        }
+
+        .navbar {
+            background-color: #00808000;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul li {
+            display: inline;
+            padding: 10px 20px;
+        }
+
+        .navbar ul li a {
+            display: block;
+            color: #89f8f8;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #008080;
+            color: #89f8f8;
+        }
+        
+        .navbar ul a.active {
+            background-color: #006666;
+            color: #89f8f8;
+            font-size: 22px;
+        }
+
+        .navbar .title {
+            flex-grow: 1;
+            text-align: left;
+            font-size: 1.5em;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        .navbar .title a {
+            color: #008080;
+        }
+
+        .navbar .title a:hover {
+            color: #FFD700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="woodcraft.html">Wood Craft</a></li>
+            <li><a href="pottery.html">Pottery</a></li>
+            <li><a href="birdiware.html" class="active">Birdiware</a></li>
+            <li><a href="madhubani.html">Madhubani</a></li>
+            <li><a href="warli.html">Warli</a></li>
+        </ul>
+    </nav>
+    <div class="parallax">
+        <div class="content">
+            <h1>About Birdiware</h1>
+            <p>Birdiware is a traditional craft form of bird carving from Rajasthan. It is known for its intricate designs and vibrant colors, depicting various birds and wildlife.</p>
+            <p>Birdiware artisans use wood and metal to create detailed sculptures and artifacts that reflect the rich cultural heritage of the region.</p>
+            <p>This craft form has been passed down through generations and continues to be a vital part of the cultural identity of the region.</p>
+            <div class="links">
+                <a href="arts.html">Back to Arts</a>
+                <a href="quizbirdiware.html">Try Quiz</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Styles and Techniques</h2>
+        <p>Birdiware involves the use of wood and metal to create detailed sculptures and artifacts. Artisans use traditional tools and techniques to carve intricate designs and patterns that reflect the natural beauty of birds and wildlife.</p>
+    </div>
+
+    <div class="section">
+        <img src="birdiware.jpg" alt="Birdiware">
+    </div>
+
+    <div class="section">
+        <h2>History and Significance</h2>
+        <p>Birdiware has its roots in the rich cultural traditions of Rajasthan. It has gained recognition and appreciation both in India and internationally for its unique style and cultural significance.</p>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
+        <p>
+            <a href="mailto:u23cs113@coed.svnit.ac.in">&#9993; u23cs113@coed.svnit.ac.in</a>
+        </p>
+        <p>&#9742; 9695732481</p>
+    </footer>
+</body>
+</html>
