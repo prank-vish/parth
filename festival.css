@@ -32,7 +32,7 @@ body {
 
 .navbar ul li a {
     display: block;
-    color: #c85400; /* Warm, earthy brown color */
+    color: #ff0400; /* Warm, earthy brown color */
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
@@ -42,15 +42,17 @@ body {
 }
 
 .navbar ul li a:hover {
-    background-color: #c85400; /* Brown background color on hover */
+    background-color: #ff0400; /* Brown background color on hover */
     color: white; /* White text on hover */
     border-radius: 10px;
 }
+
 .navbar ul li a.active {
-    background-color: #c85400;
+    background-color: #ff0400;
     color: white;
     border-radius: 10px;
-  }
+}
+
 .navbar ul li:first-child {
     font-size: 22px;
     color: #c8830d; /* Goldenrod color for the first link */
@@ -105,13 +107,12 @@ body {
 
 .footer {
     background-color: rgba(0, 0, 0, 0); /* Dark background */
-    color: #c85400; /* White text */
+    color: #ff0400; /* White text */
     text-align: center; /* Centered text */
     padding: 20px 0; /* Top and bottom padding */
     position: relative;
     bottom: 0;
     width: 100%;
-    font-size: 20px;
     font-family: 'Garamond', serif; /* Match the font style of the nav bar */
 }
 
