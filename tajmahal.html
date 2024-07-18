@@ -32,6 +32,7 @@
 
         .navbar ul li {
             display: inline;
+            padding: 10px 20px;
         }
 
         .navbar ul li a {
@@ -43,6 +44,12 @@
             font-weight: bold;
             font-size: 20px;
             border-radius: 10px;
+        }
+
+        .navbar ul a.active{
+            background-color: #703104;
+            color: #DAA520;
+            font-size: 22px;
         }
 
         .navbar ul li a:hover {
@@ -177,7 +184,7 @@
 <body>
     <nav class="navbar">
         <ul>
-            <li><a href="tajmahal.html">Taj Mahal</a></li>
+            <li><a href="tajmahal.html" class="active">Taj Mahal</a></li>
             <li><a href="qutubminar.html">Qutub Minar</a></li>
             <li><a href="hawamahal.html">Hawa Mahal</a></li>
             <li><a href="redfort.html">Red Fort</a></li>
