@@ -76,12 +76,36 @@ body {
 .slide {
     min-width: 100%;
     box-sizing: border-box;
+    position: relative; /* Needed for tooltip positioning */
 }
 
 .slide img {
     width: 100%;
     vertical-align: middle;
     height: 100vh; /* Full height of the viewport */
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 14px;
+}
+
+.slide:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
 }
 
 .navigation {
