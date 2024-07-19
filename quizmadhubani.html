@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diwali Quiz</title>
+    <title>Madhubani Paintings Quiz</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #c8895f, #cc8c54, #f5b67f);
+            background: linear-gradient(to bottom right, #483550, #765088, #9a78aa);
             color: #fff;
             margin: 0;
             padding: 0;
@@ -114,7 +114,6 @@
         .options {
             display: flex;
             flex-direction: row;
-            flex-grow: 1;
             gap: 30px;
             justify-content: center;
             align-items: center;
@@ -140,42 +139,46 @@
 
         #hint{
             font-size: 2rem;
-            /* margin-bottom: 10px; */
             color: #210d38;
         }
-        #answer{
-            /* font-size: 1.5rem; */
+
+        #answer {
             text-align: center;
             border-radius: 5px;
-            height:2.5rem;
+            height: 2.5rem;
             font-size: 1.5rem;
-            margin:15px 10px;
+            margin: 15px 10px;
             background-color: rgb(213, 236, 255);
             border: none;
             transition: all 0.3s ease;
             color: #1d0304;
+        }
 
+        #answer::placeholder {
+            color: rgb(0, 0, 0);
         }
-        #answer::placeholder{
-           color: rgb(0, 0, 0);
+
+        #answer:hover {
+             background-color:rgb(201, 213, 225);
         }
-        #answer:hover{
-            background-color: rgb(201, 213, 225);
-        }
-        #sub{
-            border-radius: 5px;
+
+        .btn {
+            border-radius: 50%;
             border: none;
             background-color: rgb(247, 251, 255);
             color: rgb(0, 0, 0);
-            font-size: 1.5rem;
+            font-size: 1rem;
             margin-top: 15px;
             padding: 5px 10px;
+            height: 4rem;
+            width:4rem;
             transition: all 0.3s ease;
+
         }
-        #sub:hover{
+
+        .btn:hover {
             background-color: rgb(206, 227, 250);
         }
-        
 
         @media (max-width: 768px) {
             header img {
@@ -203,19 +206,23 @@
             footer img {
                 height: 20px;
             }
-            #hint{
-            font-size: 1.3rem;
-            }
-            #answer{
-            height:2rem;
-            font-size: 1rem;
-            }
-            #sub{
-            font-size: 1rem;
-            margin-top: 15px;
-            padding: 3px 7px;
+
+            #hint {
+                font-size: 1.3rem;
             }
 
+            #answer {
+                height: 2rem;
+                font-size: 1rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                margin-top: 15px;
+                padding: 3px 7px;
+                height: 3rem;
+                width: 3rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -238,18 +245,23 @@
             footer img {
                 height: 10px;
             }
-            #hint{
-            font-size: 0.8rem;
+
+            #hint {
+                font-size: 0.8rem;
             }
-            #answer{
-            /* font-size: 1.5rem; */
-            height:1.2rem;
-            font-size: 0.8rem;
+
+            #answer {
+                height: 1.2rem;
+                font-size: 0.8rem;
             }
-            #sub{
-            font-size: 0.8rem;
-            margin-top: 15px;
-            padding: 2px 5px;
+
+            .btn {
+                font-size: 0.6rem;
+                margin-top: 15px;
+                padding: 2px 5px;
+                height: 2rem;
+                width: 2rem;
+                
             }
         }
     </style>
@@ -258,7 +270,7 @@
     <header>
         <img src="logo3.png" alt="quiz">Quiz
         <div class="menu-icons">
-            <a href="diwali.html"><img src="back4.png"></a>
+            <a href="madhubani.html"><img src="back4.png"></a>
         </div>
     </header>
     <div class="progress">
@@ -275,18 +287,18 @@
     <button id="start" onclick="begin()">Start</button><br>
     
     <div class="container">
-        <div id="hint">Hint</div>
         <div class="title" id="ques"></div>
-        <div><input type="text" id="answer" placeholder="Rearrange the letters" autocomplete="off">
-            <button onclick="checkAnswer()" id="sub">Submit</button></div>
+        <div class="options">
+            <button class="btn" id="trueBtn" onclick="checkAnswer(true)">True</button>
+            <button class="btn" id="falseBtn" onclick="checkAnswer(false)">False</button>
+        </div>
     </div>
     <div id="score">Score</div>
     <footer>
-        Tales <img src="logo3.png" alt="Footer Logo"> of Bharat
+        Tales <img src="logo3.png" alt="Footer Logo">f Bharat
     </footer>
     <script>
         let ques = document.getElementById("ques");
-        let answerInput = document.getElementById("answer");
         let start = document.getElementById("start");
         let score = document.getElementById("score");
         let one = document.getElementById("one");
@@ -298,29 +310,25 @@
         let t = document.getElementById("t");
         let th = document.getElementById("th");
         let f = document.getElementById("f");
-        let sub = document.getElementById("sub");
-        let hint = document.getElementById("hint");
+        let trueBtn = document.getElementById("trueBtn");
+        let falseBtn = document.getElementById("falseBtn");
 
         let s = 0;
-        let num = 1;
         let currentQuestion = 0;
-        answerInput.style.display="none";
-        sub.style.display="none";
-        hint.style.display="none";
+        trueBtn.style.display="none";
+        falseBtn.style.display="none";
         const questions = [
-            { jumbled: "A R N G I O L", answer: "RANGOLI" },
-            { jumbled: "D W I A L I", answer: "DIWALI" },
-            { jumbled: "C K A E R R", answer: "CRAKER" },
-            { jumbled: "D E C A S L N", answer: "CANDLES" },
-            { jumbled: "H S I G T L", answer: "LIGHTS" }
+            { question: "Madhubani painting is a form of traditional Indian art.", answer: true },
+            { question: "Madhubani paintings are traditionally done using synthetic colors.", answer: false },
+            { question: "Madhubani paintings often depict scenes of nature and mythology.", answer: true },
+            { question: "Madhubani art originated in the state of Rajasthan.", answer: false },
+            { question: "Madhubani art originated in the state of Bihar.", answer: true }
         ];
 
         function begin() {
             currentQuestion = 0;
-            answerInput.style.display="inline";
-            sub.style.display="inline";
-            hint.style.display="flex";
-            hint.textContent="Hint : It's a design made on floor with different colours."
+            trueBtn.style.display = "inline";
+            falseBtn.style.display = "inline";
             displayQuestion();
             start.style.display = "none";
             score.style.display = "flex";
@@ -329,59 +337,72 @@
 
         function displayQuestion() {
             if (currentQuestion < questions.length) {
-                ques.textContent = questions[currentQuestion].jumbled;
-                answerInput.value = "";
+                ques.textContent = questions[currentQuestion].question;
             } else {
                 finish();
             }
         }
 
-        function checkAnswer() {
-            const userAnswer = answerInput.value.toUpperCase();
+        function checkAnswer(userAnswer) {
             if (userAnswer === questions[currentQuestion].answer) {
                 s += 1;
+                if(userAnswer==true){
+                    trueBtn.style.backgroundColor="#98FB98";
+                }
+                else{
+                    falseBtn.style.backgroundColor="#98FB98";
+                }
+                
             }
+            
+            if(userAnswer==false && questions[currentQuestion].answer==true){
+                falseBtn.style.backgroundColor="#F08080";
+            }
+            else if(userAnswer==true && questions[currentQuestion].answer==false){
+                trueBtn.style.backgroundColor="#F08080";
+            }
+            
 
             switch (currentQuestion) {
                 case 0:
+                    setTimeout(()=>{
                     two.classList.add("current");
-                    o.classList.add("currentline");
+                    o.classList.add("currentline");},1000);
                     break;
                 case 1:
+                    setTimeout(()=>{
                     three.classList.add("current");
-                    t.classList.add("currentline");
+                    t.classList.add("currentline");},1000);
                     break;
                 case 2:
+                    setTimeout(()=>{
                     four.classList.add("current");
                     th.classList.add("currentline");
+                    },1000);
                     break;
                 case 3:
+                    setTimeout(()=>{
                     five.classList.add("current");
                     f.classList.add("currentline");
+                    },1000);
                     break;
             }
 
             currentQuestion += 1;
-            displayQuestion();
-            switch(currentQuestion){
-                case 1: hint.textContent="Hint : It's the festival of colours.";
-                        break;
-                case 2: hint.textContent="Hint : It's small explosive thing, makes noise when explodes  .";
-                        break;
-                case 3: hint.textContent="Hint : It's lit as a subsitute to earthen lamps.";
-                        break;
-                case 4: hint.textContent="Hint : It's is used to decorate houses, available in vibrant colours .";
-                        break;
-            }
+
+            setTimeout(() => {
+                displayQuestion();
+                falseBtn.style.backgroundColor = "rgb(247, 251, 255)";
+                trueBtn.style.backgroundColor = "rgb(247, 251, 255)";
+            }, 1000);
             score.textContent = `Score: ${s}`;
         }
 
         function finish() {
             ques.style.display = "none";
-            answerInput.style.display = "none";
+            trueBtn.style.display = "none";
+            falseBtn.style.display = "none";
             score.textContent = "Your Score is " + s + "/5";
-            sub.style.display="none";
-            hint.style.display="none";
         }
     </script>
 </body>
