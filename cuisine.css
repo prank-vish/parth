@@ -127,3 +127,61 @@ body {
 .footer a:hover {
     text-decoration: none; /* Underline on hover */
 }
+@media (max-width: 1024px) {
+    .navbar ul {
+      flex-direction: column;
+    }
+  
+    .navbar ul li {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .navbar ul li a {
+      padding: 10px;
+      font-size: 16px;
+    }
+  
+    .slide img {
+      height: auto;
+    }
+  
+    .footer {
+      padding: 15px 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar ul {
+      padding: 5px;
+    }
+  
+    .navbar ul li a {
+      font-size: 14px;
+    }
+  
+    .navigation button {
+      padding: 8px;
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar ul {
+      padding: 0;
+    }
+  
+    .navbar ul li a {
+      font-size: 12px;
+    }
+  
+    .navigation button {
+      padding: 6px;
+      font-size: 14px;
+    }
+  
+    .footer {
+      padding: 10px 0;
+    }
+  }
+  
