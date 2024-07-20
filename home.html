@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tales of Bharat</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1f1f1f;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #ff5722;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        nav a:hover {
+            color: #ff5722;
+        }
+        .section {
+            padding: 40px 20px;
+            border-bottom: 1px solid #333;
+        }
+        .section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .section h2 {
+            color: #ff5722;
+        }
+        .section p {
+            margin: 10px 0;
+        }
+        .poll {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .poll h2 {
+            margin-top: 0;
+        }
+        footer {
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+            padding: 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .responsive {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .responsive div {
+            flex: 1;
+            min-width: 300px;
+        }
+        .responsive div a{
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+            nav a {
+                font-size: 0.9em;
+            }
+            .section {
+                padding: 20px;
+            }
+            .responsive {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tales of Bharat</h1>
+        <nav>
+            <a href="#monuments">Monuments</a>
+            <a href="#cuisine">Cuisine</a>
+            <a href="#arts">Arts and Crafts</a>
+            <a href="#festivals">Festivals</a>
+            <a href="#music">Music and Dance</a>
+            <a href="#literature">Literature</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <section class="section" id="welcome">
+        <h2>Welcome to Tales of Bharat</h2>
+        <p>Welcome to Tales of Bharat, where we celebrate the rich heritage and culture of India. Explore our sections on monuments, cuisine, arts and crafts, festivals, music and dance, and literature to dive into the essence of our nation's legacy.</p>
+    </section>
+
+    <section class="section" id="about">
+        <h2>About Us</h2>
+        <p>Tales of Bharat is dedicated to showcasing the diverse cultural heritage of India. Our mission is to educate, inspire, and connect people through the stories and traditions that define our nation.</p>
+    </section>
+
+    <section class="section" id="monuments">
+        <div class="responsive">
+            <div>
+                <h2>Monuments</h2>
+                <p>Explore the architectural marvels of India, from the majestic Taj Mahal to the historic Red Fort.</p>
+                <a href="monuments.html">Learn More</a>
+            </div>
+            <div>
+                <img src="qutub minar.jpg" alt="Historical Monuments">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="cuisine">
+        <div class="responsive">
+            <div>
+                <h2>Cuisine</h2>
+                <p>Discover the flavors of Indian cuisine, from spicy street food to traditional home-cooked meals.</p>
+                <a href="cuisine.html">Learn More</a>
+            </div>
+            <div>
+                <img src="dahipuri1.jpeg" alt="Indian Cuisine">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="arts">
+        <div class="responsive">
+            <div>
+                <h2>Arts and Crafts</h2>
+                <p>Delve into the intricate world of Indian arts and crafts, from pottery to traditional paintings.</p>
+                <a href="arts.html">Learn More</a>
+            </div>
+            <div>
+                <img src="wood craft.jpg" alt="Indian Arts and Crafts">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="festivals">
+        <div class="responsive">
+            <div>
+                <h2>Festivals</h2>
+                <p>Experience the vibrant festivals of India, celebrated with zeal and fervor across the country.</p>
+                <a href="festivals.html">Learn More</a>
+            </div>
+            <div>
+                <img src="makar sankranti(2).jpg" alt="Indian Festivals">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="music">
+        <div class="responsive">
+            <div>
+                <h2>Music and Dance</h2>
+                <p>Enjoy the diverse musical heritage of India, from classical to folk, and the various dance forms.</p>
+                <a href="music.html">Learn More</a>
+            </div>
+            <div>
+                <img src="garba.jpg" alt="Indian Music and Dance">
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="literature">
+        <div class="responsive">
+            <div>
+                <h2>Literature</h2>
+                <p>Read about the rich literary tradition of India, encompassing a vast array of genres and styles.</p>
+                <a href="literature.html">Learn More</a>
+            </div>
+            <div>
+                <img src="literature.jpg" alt="Indian Literature">
+            </div>
+        </div>
+    </section>
+
+    <section class="section poll">
+        <h2>Poll</h2>
+        <p>Which is your favorite Indian festival?</p>
+        <form>
+            <input type="radio" id="diwali" name="festival" value="Diwali">
+            <label for="diwali">Diwali</label><br>
+            <input type="radio" id="holi" name="festival" value="Holi">
+            <label for="holi">Holi</label><br>
+            <input type="radio" id="durgaPuja" name="festival" value="Durga Puja">
+            <label for="durgaPuja">Durga Puja</label><br>
+            <input type="radio" id="makarSankranti" name="festival" value="Makar Sankranti">
+            <label for="makarSankranti">Makar Sankranti</label><br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Contact us: u23cs113@coed.svnit.ac.in | +91 9695732481</p>
+        <p>
+            <a href="#">Facebook</a> | 
+            <a href="#">Twitter</a> | 
+            <a href="#">Instagram</a>
+        </p>
+        <p>&copy; 2024 Tales of Bharat. All rights reserved.</p>
+    </footer>
+</body>
+</html>
