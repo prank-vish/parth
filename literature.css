@@ -6,7 +6,7 @@ body {
 }
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark background */
+    background-color: rgba(0, 0, 0, 0); /* Slightly transparent dark background */
     overflow: hidden;
     position: fixed;
     width: 100%;
@@ -153,7 +153,7 @@ body {
     .hamburger {
         display: block; /* Show hamburger button */
     }
-
+    
     .navbar-menu {
         display: none; /* Hide menu items by default */
         flex-direction: column; /* Stack menu items vertically */
