@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background-color: #fffff0; /* Ivory background color */
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark background */
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar ul li {
+    position: relative;
+    color: #ffd700; /* Golden color */
+    font-family: 'Garamond', serif; /* Traditional, elegant font style */
+}
+
+.navbar ul li a {
+    display: block;
+    color: #ffd700; /* Golden color */
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.navbar ul li a:hover {
+    background-color: #800000; /* Deep maroon background color on hover */
+    color: #ffd700; /* Golden text on hover */
+    border-radius: 10px;
+}
+
+.navbar ul li a.active {
+    background-color: #800000;
+    color: #ffd700;
+    border-radius: 10px;
+}
+
+.navbar ul li:first-child {
+    font-size: 22px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    margin: 0; /* No margin */
+    overflow: hidden;
+    border: 0; /* No border */
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    vertical-align: middle;
+    height: 100vh; /* Full height of the viewport */
+}
+
+.navigation {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.navigation button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.navigation button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark background */
+    color: #ffd700; /* Golden text color */
+    text-align: center; /* Centered text */
+    padding: 20px 0; /* Top and bottom padding */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 20px;
+    font-family: 'Garamond', serif; /* Match the font style of the nav bar */
+}
+
+.footer-content p {
+    margin: 10px 0; /* Margin around each paragraph */
+}
+
+.footer a {
+    color: #ffd700; /* Link color */
+    text-decoration: none; /* Remove underline from link */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+@media (max-width: 1024px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar ul li a {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .slide img {
+        height: auto;
+    }
+
+    .footer {
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        padding: 5px;
+    }
+
+    .navbar ul li a {
+        font-size: 14px;
+    }
+
+    .navigation button {
+        padding: 8px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        padding: 0;
+    }
+
+    .navbar ul li a {
+        font-size: 12px;
+    }
+
+    .navigation button {
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 10px 0;
+    }
+}
