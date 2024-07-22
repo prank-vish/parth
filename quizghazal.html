@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghazal Quiz</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #857ba0, #9388ae, #C1A8E4);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 3rem;
+        }
+
+        header img {
+            height: 4rem;
+        }
+
+        .menu-icons img {
+            height: 2rem;
+            margin-left: 10px;
+        }
+
+        #start {
+            font-size: 2rem;
+            border-radius: 5px;
+            padding: 0 10px;
+            margin-top: 5rem;
+        }
+
+        .container {
+            width: 100%;
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .step {
+            width: 50px;
+            height: 50px;
+            background-color: #5a2d53;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        .line {
+            width: 50px;
+            align-self: center;
+            background-color: #872e7a;
+            height: 2px;
+        }
+
+        .currentline {
+            width: 50px;
+            align-self: center;
+            background-color: white;
+            height: 2px;
+        }
+
+        .current {
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            color: #42100e;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
+
+        #qa {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
+        .title {
+            font-size: 35px;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        footer {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 40px;
+        }
+
+        footer img {
+            height: 30px;
+        }
+
+        #score {
+            font-size: 2rem;
+            color: rgb(58, 0, 31);
+        }
+
+        #hint{
+            font-size: 2rem;
+            color: #38210d;
+        }
+
+        #answer {
+            text-align: center;
+            border-radius: 5px;
+            height: 2.5rem;
+            font-size: 1.5rem;
+            margin: 15px 10px;
+            background-color: rgb(255, 213, 236);
+            border: none;
+            transition: all 0.3s ease;
+            color: #1d0304;
+        }
+
+        #answer::placeholder {
+            color: rgb(0, 0, 0);
+        }
+
+        #answer:hover {
+             background-color:rgb(225, 201, 213);
+        }
+
+        .btn {
+            border-radius: 50%;
+            border: none;
+            background-color: rgb(255, 247, 251);
+            color: rgb(0, 0, 0);
+            font-size: 1rem;
+            margin-top: 15px;
+            height: 4rem;
+            width:4rem;
+            transition: all 0.3s ease;
+            text-align: center;
+
+        }
+
+        .btn:hover {
+            background-color: rgb(250, 206, 227);
+        }
+
+        @media (max-width: 768px) {
+            header img {
+                height: 30px;
+            }
+
+            .menu-icons img {
+                height: 18px;
+            }
+
+            .step {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            footer {
+                font-size: 30px;
+            }
+
+            footer img {
+                height: 20px;
+            }
+
+            #hint {
+                font-size: 1.3rem;
+            }
+
+            #answer {
+                height: 2rem;
+                font-size: 1rem;
+            }
+
+            .btn {
+                font-size: 0.8rem;
+                margin-top: 15px;
+                height: 3rem;
+                width: 3rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 18px;
+            }
+
+            footer {
+                font-size: 20px;
+            }
+
+            footer img {
+                height: 10px;
+            }
+
+            #hint {
+                font-size: 0.8rem;
+            }
+
+            #answer {
+                height: 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .btn {
+                font-size: 0.6rem;
+                margin-top: 15px;
+                text-align: center;
+                height: 2rem;
+                width: 2rem;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo3.png" alt="quiz">Quiz
+        <div class="menu-icons">
+            <a href="ghazal.html"><img src="back4.png"></a>
+        </div>
+    </header>
+    <div class="progress">
+        <div class="step" id="one">01</div>
+        <div class="line" id="o"></div>
+        <div class="step" id="two">02</div>
+        <div class="line" id="t"></div>
+        <div class="step" id="three">03</div>
+        <div class="line" id="th"></div>
+        <div class="step" id="four">04</div>
+        <div class="line" id="f"></div>
+        <div class="step" id="five">05</div>
+    </div>
+    <button id="start" onclick="begin()">Start</button><br>
+    
+    <div class="container">
+        <div class="title" id="ques"></div>
+        <input type="text" id="answer" placeholder="Type your answer here..." autocomplete="off">
+        <div class="options">
+            <button class="btn" id="submitBtn" onclick="checkAnswer()">Submit</button>
+        </div>
+    </div>
+    <div id="score">Score</div>
+    <footer>
+        Tales <img src="logo3.png" alt="Footer Logo">f Bharat
+    </footer>
+    <script>
+        let ques = document.getElementById("ques");
+        let start = document.getElementById("start");
+        let score = document.getElementById("score");
+        let one = document.getElementById("one");
+        let two = document.getElementById("two");
+        let three = document.getElementById("three");
+        let four = document.getElementById("four");
+        let five = document.getElementById("five");
+        let o = document.getElementById("o");
+        let t = document.getElementById("t");
+        let th = document.getElementById("th");
+        let f = document.getElementById("f");
+        let submitBtn = document.getElementById("submitBtn");
+        let answer = document.getElementById("answer");
+
+        let s = 0;
+        let currentQuestion = 0;
+        submitBtn.style.display="none";
+        answer.style.display="none";
+
+        const questions = [
+            { question: "Ghazals are a form of (poetry/song).", answer: "poetry" },
+            { question: "The main themes of Ghazals are (love and loss/friendship and unity).", answer: "love and loss" },
+            { question: "A famous Ghazal singer is (Jagjit Singh/Lata Mangeshkar).", answer: "Jagjit Singh" },
+            { question: "Ghazals originated in (Persia/India).", answer:"Persia" },
+            { question: "A Ghazal typically consists of (couplets/quatrains).", answer: "couplets" }
+        ];
+
+        function begin() {
+            currentQuestion = 0;
+            submitBtn.style.display = "inline";
+            answer.style.display = "inline";
+            displayQuestion();
+            start.style.display = "none";
+            score.style.display = "flex";
+            one.classList.add("current");
+        }
+
+        function displayQuestion() {
+            if (currentQuestion < questions.length) {
+                ques.textContent = questions[currentQuestion].question;
+            } else {
+                finish();
+            }
+        }
+
+        function checkAnswer() {
+            let userAnswer = answer.value.trim();
+            if (userAnswer.toLowerCase() === questions[currentQuestion].answer.toLowerCase()) {
+                s += 1;
+                submitBtn.style.backgroundColor = "#98FB98";
+            } else {
+                submitBtn.style.backgroundColor = "#F08080";
+            }
+
+            switch (currentQuestion) {
+                case 0:
+                    setTimeout(() => {
+                        two.classList.add("current");
+                        o.classList.add("currentline");
+                    }, 1000);
+                    break;
+                case 1:
+                    setTimeout(() => {
+                        three.classList.add("current");
+                        t.classList.add("currentline");
+                    }, 1000);
+                    break;
+                case 2:
+                    setTimeout(() => {
+                        four.classList.add("current");
+                        th.classList.add("currentline");
+                    }, 1000);
+                    break;
+                case 3:
+                    setTimeout(() => {
+                        five.classList.add("current");
+                        f.classList.add("currentline");
+                    }, 1000);
+                    break;
+            }
+
+            currentQuestion += 1;
+
+            setTimeout(() => {
+                displayQuestion();
+                answer.value = "";
+                submitBtn.style.backgroundColor = "rgb(247, 251, 255)";
+            }, 1000);
+            score.textContent = `Score: ${s}`;
+        }
+
+        function finish() {
+            ques.style.display = "none";
+            submitBtn.style.display = "none";
+            answer.style.display = "none";
+            score.textContent = "Your Score is " + s + "/5";
+        }
+    </script>
+</body>
+</html>
