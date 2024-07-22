@@ -8,29 +8,48 @@ body {
 .navbar {
     background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark background */
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
 }
 
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.navbar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
 }
 
-.navbar ul li {
+.hamburger {
+    background: none;
+    border: none;
+    color: #ffd700; /* Golden color */
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    position: fixed; /* Fix the button to the viewport */
+    top: 10px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    z-index: 1001; /* Ensure it is above other content */
+}
+
+.navbar-menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.3s ease-out;
+}
+
+.navbar-menu li {
     position: relative;
     color: #ffd700; /* Golden color */
     font-family: 'Garamond', serif; /* Traditional, elegant font style */
+    padding: 0px 10px;
 }
 
-.navbar ul li a {
+.navbar-menu li a {
     display: block;
     color: #ffd700; /* Golden color */
     text-align: center;
@@ -41,19 +60,19 @@ body {
     transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
-.navbar ul li a:hover {
+.navbar-menu li a:hover {
     background-color: #800000; /* Deep maroon background color on hover */
     color: #ffd700; /* Golden text on hover */
     border-radius: 10px;
 }
 
-.navbar ul li a.active {
+.navbar-menu li a.active {
     background-color: #800000;
     color: #ffd700;
     border-radius: 10px;
 }
 
-.navbar ul li:first-child {
+.navbar-menu li:first-child {
     font-size: 22px;
 }
 
@@ -129,37 +148,44 @@ body {
     text-decoration: underline; /* Underline on hover */
 }
 
+/* Styles for screens 1024px and below (tablets and mobile devices) */
 @media (max-width: 1024px) {
-    .navbar ul {
-        flex-direction: column;
+    .hamburger {
+        display: block; /* Show hamburger button */
     }
 
-    .navbar ul li {
+    .navbar-menu {
+        display: none; /* Hide menu items by default */
+        flex-direction: column; /* Stack menu items vertically */
         width: 100%;
-        text-align: center;
+        background-color: rgba(0, 0, 0, 0.7); /* Background color for dropdown */
+        position: fixed; /* Position it fixed relative to viewport */
+        top: 60px; /*Adjust based on the height of the navbar */
+        left: 0;
+        z-index: 1000; /* Ensure it is below the hamburger button */
     }
 
-    .navbar ul li a {
-        padding: 10px;
-        font-size: 16px;
+    .navbar-menu li{
+        padding: 10px 10px;
     }
 
-    .slide img {
-        height: auto;
+    .navbar-menu.active {
+        display: flex; /* Show menu items when active */
+        max-height: auto; /* Adjust as needed for menu height */
     }
 
-    .footer {
-        padding: 15px 0;
+    .slider {
+        margin-top: 50px; /* Adjust for navbar height */
     }
 }
 
 @media (max-width: 768px) {
-    .navbar ul {
-        padding: 5px;
+    .navbar-menu li {
+        padding: 10px 10px;
     }
 
-    .navbar ul li a {
-        font-size: 14px;
+    .navbar-menu li a {
+        font-size: 16px;
     }
 
     .navigation button {
@@ -169,12 +195,12 @@ body {
 }
 
 @media (max-width: 480px) {
-    .navbar ul {
-        padding: 0;
+    .navbar-menu li {
+        padding: 10px 10px;
     }
 
-    .navbar ul li a {
-        font-size: 12px;
+    .navbar-menu li a {
+        font-size: 14px;
     }
 
     .navigation button {

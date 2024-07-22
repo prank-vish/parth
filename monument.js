@@ -8,5 +8,7 @@ function moveSlide(step) {
     slides.style.transform = `translateX(${offset}%)`;
 }
 
-// Auto slide every 5 seconds
-// setInterval(() => moveSlide(1), 5000);
+function toggleMenu() {
+    const menu = document.querySelector('.navbar-menu');
+    menu.classList.toggle('active');
+}
