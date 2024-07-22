@@ -6,65 +6,83 @@ body {
   background-color: #f5f5dc;
 }
 
-/* Navbar styles */
 .navbar {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(0, 0, 0, 0); /* Slightly transparent dark background */
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
 }
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.navbar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
 }
 
-.navbar ul li {
-  float: left;
+.hamburger {
+  background: none;
+  border: none;
+  color: #8B4513; /* Golden color */
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  position: fixed; /* Fix the button to the viewport */
+  top: 10px; /* Adjust the top position as needed */
+  right: 20px; /* Adjust the right position as needed */
+  z-index: 1001; /* Ensure it is above other content */
 }
 
-.navbar ul li a {
+.navbar-menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  transition: max-height 0.3s ease-out;
+}
+
+.navbar-menu li {
+  position: relative;
+  color: #8B4513; /* Golden color */
+  font-family: 'Garamond', serif; /* Traditional, elegant font style */
+  padding: 0px 10px;
+}
+
+.navbar-menu li a {
   display: block;
-  color: #8B4513;
+  color: #8B4513; /* Golden color */
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
-.navbar ul li a:hover {
-  background-color: #8b4513d6;
+.navbar-menu li a:hover {
+  background-color: #8B4513; /* Deep maroon background color on hover */
+  color: white; /* Golden text on hover */
+  border-radius: 10px;
+}
+
+.navbar-menu li a.active {
+  background-color: #6a2d02;
   color: white;
   border-radius: 10px;
 }
 
-.navbar ul li a.active {
-  background-color: #8b4513d6;
-  color: white;
-  border-radius: 10px;
-}
-
-.navbar ul li:first-child {
+.navbar-menu li:first-child {
   font-size: 22px;
-  color: #ffb700;
 }
 
-/* Slider styles */
 .slider {
   position: relative;
   width: 100%;
-  margin: 0;
+  margin: 0; /* No margin */
   overflow: hidden;
-  border: 2px solid #8B4513;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 0; /* No border */
 }
 
 .slides {
@@ -81,7 +99,7 @@ body {
 .slide img {
   width: 100%;
   vertical-align: middle;
-  height: 100vh;
+  height: 100vh; /* Full height of the viewport */
 }
 
 .navigation {
@@ -106,83 +124,92 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Footer styles */
 .footer {
-  background-color: #8B4513;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  width: 100%;
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark background */
+  color: #8B4513; /* Golden text color */
+  text-align: center; /* Centered text */
+  padding: 20px 0; /* Top and bottom padding */
   position: relative;
-  margin-top: -2px; /* Adjust as needed to remove any gap */
+  bottom: 0;
+  width: 100%;
+  font-size: 20px;
+  font-family: 'Garamond', serif; /* Match the font style of the nav bar */
 }
 
-.footer-content a {
-  color: #DAA520;
-  text-decoration: none;
-  font-weight: bold;
+.footer-content p {
+  margin: 10px 0; /* Margin around each paragraph */
 }
 
-.footer-content a:hover {
-  text-decoration: underline;
+.footer a {
+  color: #8B4513; /* Link color */
+  text-decoration: none; /* Remove underline from link */
 }
 
-/* Responsive styles */
+.footer a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Styles for screens 1024px and below (tablets and mobile devices) */
 @media (max-width: 1024px) {
-  .navbar ul {
-    flex-direction: column;
+  .hamburger {
+      display: block; /* Show hamburger button */
+  }
+  
+  .navbar-menu {
+      display: none; /* Hide menu items by default */
+      flex-direction: column; /* Stack menu items vertically */
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7); /* Background color for dropdown */
+      position: fixed; /* Position it fixed relative to viewport */
+      top: 60px; /*Adjust based on the height of the navbar */
+      left: 0;
+      z-index: 1000; /* Ensure it is below the hamburger button */
   }
 
-  .navbar ul li {
-    width: 100%;
-    text-align: center;
+  .navbar-menu li{
+      padding: 10px 10px;
   }
 
-  .navbar ul li a {
-    padding: 10px;
-    font-size: 16px;
+  .navbar-menu.active {
+      display: flex; /* Show menu items when active */
+      max-height: auto; /* Adjust as needed for menu height */
   }
 
-  .slide img {
-    height: auto;
-  }
-
-  .footer {
-    padding: 15px 0;
+  .slider {
+      margin-top: 50px; /* Adjust for navbar height */
   }
 }
 
 @media (max-width: 768px) {
-  .navbar ul {
-    padding: 5px;
+  .navbar-menu li {
+      padding: 10px 10px;
   }
 
-  .navbar ul li a {
-    font-size: 14px;
+  .navbar-menu li a {
+      font-size: 16px;
   }
 
   .navigation button {
-    padding: 8px;
-    font-size: 16px;
+      padding: 8px;
+      font-size: 16px;
   }
 }
 
 @media (max-width: 480px) {
-  .navbar ul {
-    padding: 0;
+  .navbar-menu li {
+      padding: 10px 10px;
   }
 
-  .navbar ul li a {
-    font-size: 12px;
+  .navbar-menu li a {
+      font-size: 14px;
   }
 
   .navigation button {
-    padding: 6px;
-    font-size: 14px;
+      padding: 6px;
+      font-size: 14px;
   }
 
   .footer {
-    padding: 10px 0;
+      padding: 10px 0;
   }
 }

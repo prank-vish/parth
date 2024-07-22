@@ -14,201 +14,200 @@ body {
     z-index: 1000;
 }
 
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
+.navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-.navbar ul li {
-    position: relative;
-    color: rgb(1, 248, 248); /* Warm, earthy brown color */
-    font-family: 'Garamond', serif; /* Traditional, elegant font style */
+.hamburger {
+  background: none;
+  border: none;
+  color: rgb(1, 194, 194); /* Golden color */
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  position: fixed; /* Fix the button to the viewport */
+  top: 10px; /* Adjust the top position as needed */
+  right: 20px; /* Adjust the right position as needed */
+  z-index: 1001; /* Ensure it is above other content */
 }
 
-.navbar ul li a {
-    display: block;
-    color: rgb(1, 194, 194); /* Warm, earthy brown color */
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    transition: color 0.3s ease; /* Smooth transition for color change */
-    text-shadow: 2px 2px 4px rgb(0, 0, 0,0.5);
+.navbar-menu {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  transition: max-height 0.3s ease-out;
+}
+.navbar-menu li {
+  position: relative;
+  color: rgb(1, 248, 248); /* Golden color */
+  font-family: 'Garamond', serif; /* Traditional, elegant font style */
+  padding: 0px 10px;
 }
 
-.navbar ul li a:hover {
-    background-color: rgb(1, 248, 248); /* Brown background color on hover */
-    color: white; /* White text on hover */
-    border-radius: 10px;
+.navbar-menu li a {
+  display: block;
+  color: rgb(1, 248, 248); /* Golden color */
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
-.navbar ul li a.active {
-    background-color: rgb(1, 248, 248);
-    color: white;
-    border-radius: 10px;
+.navbar-menu li a:hover {
+  background-color: rgb(1, 248, 248); /* Deep maroon background color on hover */
+  color: #fff; /* Golden text on hover */
+  border-radius: 10px;
 }
 
-.navbar ul li:first-child {
-    font-size: 22px;
-    color: #B87333; /* Goldenrod color for the first link */
+.navbar-menu li a.active {
+  background-color: rgb(1, 194, 194);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.navbar-menu li:first-child {
+  font-size: 22px;
 }
 
 .slider {
-    position: relative;
-    width: 100%;
-    margin: 0; /* No margin */
-    overflow: hidden;
-    border: 0; /* No border */
+  position: relative;
+  width: 100%;
+  margin: 0; /* No margin */
+  overflow: hidden;
+  border: 0; /* No border */
 }
 
 .slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
 
 .slide {
-    min-width: 100%;
-    box-sizing: border-box;
-    position: relative; /* Needed for tooltip positioning */
+  min-width: 100%;
+  box-sizing: border-box;
 }
 
 .slide img {
-    width: 100%;
-    vertical-align: middle;
-    height: 100vh; /* Full height of the viewport */
-}
-
-.tooltip {
-    visibility: hidden;
-    width: 200px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px;
-    position: absolute;
-    z-index: 1;
-    bottom: 10px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    font-size: 14px;
-}
-
-.slide:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
+  width: 100%;
+  vertical-align: middle;
+  height: 100vh; /* Full height of the viewport */
 }
 
 .navigation {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    top: 50%;
-    transform: translateY(-50%);
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .navigation button {
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 .navigation button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .footer {
-    background-color: rgba(0, 0, 0, 0); /* Transparent background */
-    color: rgb(20, 197, 197); /* Warm, earthy brown text color */
-    text-align: center; /* Centered text */
-    padding: 20px 0; /* Top and bottom padding */
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    font-size: 20px;
-    font-family: 'Garamond', serif; /* Match the font style of the nav bar */
+  background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent dark background */
+  color: rgb(1, 248, 248); /* Golden text color */
+  text-align: center; /* Centered text */
+  padding: 20px 0; /* Top and bottom padding */
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 20px;
+  font-family: 'Garamond', serif; /* Match the font style of the nav bar */
 }
 
 .footer-content p {
-    margin: 10px 0; /* Margin around each paragraph */
+  margin: 10px 0; /* Margin around each paragraph */
 }
 
 .footer a {
-    color: rgb(20, 197, 197); /* Link color */
-    text-decoration: none; /* Remove underline from link */
+  color: rgb(1, 248, 248); /* Link color */
+  text-decoration: none; /* Remove underline from link */
 }
 
 .footer a:hover {
-    text-decoration: none; /* Underline on hover */
+  text-decoration: underline; /* Underline on hover */
 }
+
+/* Styles for screens 1024px and below (tablets and mobile devices) */
 @media (max-width: 1024px) {
-    .navbar ul {
-      flex-direction: column;
-    }
-  
-    .navbar ul li {
-      width: 100%;
-      text-align: center;
-    }
-  
-    .navbar ul li a {
-      padding: 10px;
-      font-size: 16px;
-    }
-  
-    .slide img {
-      height: auto;
-    }
-  
-    .footer {
-      padding: 15px 0;
-    }
+  .hamburger {
+      display: block; /* Show hamburger button */
   }
   
-  @media (max-width: 768px) {
-    .navbar ul {
-      padding: 5px;
-    }
-  
-    .navbar ul li a {
-      font-size: 14px;
-    }
-  
-    .navigation button {
+  .navbar-menu {
+      display: none; /* Hide menu items by default */
+      flex-direction: column; /* Stack menu items vertically */
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7); /* Background color for dropdown */
+      position: fixed; /* Position it fixed relative to viewport */
+      top: 60px; /*Adjust based on the height of the navbar */
+      left: 0;
+      z-index: 1000; /* Ensure it is below the hamburger button */
+  }
+
+  .navbar-menu li{
+      padding: 10px 10px;
+  }
+
+  .navbar-menu.active {
+      display: flex; /* Show menu items when active */
+      max-height: auto; /* Adjust as needed for menu height */
+  }
+
+  .slider {
+      margin-top: 50px; /* Adjust for navbar height */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-menu li {
+      padding: 10px 10px;
+  }
+
+  .navbar-menu li a {
+      font-size: 16px;
+  }
+
+  .navigation button {
       padding: 8px;
       font-size: 16px;
-    }
   }
-  
-  @media (max-width: 480px) {
-    .navbar ul {
-      padding: 0;
-    }
-  
-    .navbar ul li a {
-      font-size: 12px;
-    }
-  
-    .navigation button {
+}
+
+@media (max-width: 480px) {
+  .navbar-menu li {
+      padding: 10px 10px;
+  }
+
+  .navbar-menu li a {
+      font-size: 14px;
+  }
+
+  .navigation button {
       padding: 6px;
       font-size: 14px;
-    }
-  
-    .footer {
-      padding: 10px 0;
-    }
   }
-  
+
+  .footer {
+      padding: 10px 0;
+  }
+}
