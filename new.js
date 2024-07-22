@@ -213,6 +213,10 @@ function opt(ele) {
                 optionB.style.display = "none";
                 optionC.style.display = "none";
                 ques.textContent = "";
+                if(confirm("want your score on gmail?")){
+                    document.getElementById("scorecontainer").style.display="block";
+                }
+                msg=`Your final socre for this quiz is ${s}.`;
                 setTimeout(()=>{
                     // window.location.replace("http://127.0.0.1:5500/quiz/quiz.html");
                     // window.location.href = "http://127.0.0.1:5500/quiz/quiz.html";
@@ -248,6 +252,64 @@ function clean() {
 
     console.log("this clean is called");
 }
+
+
+let msg;
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const fromName = "Tales of Bharat"; // Change this to your desired sender name
+            const templateParams = {
+                from_name: fromName,
+                to_name: document.getElementById('to_name').value,
+                to_email: document.getElementById('to_email').value,
+                message: msg,
+            };
+
+            const serviceID = 'service_9axu2tx';
+            const templateID = 'template_c26akmu';
+            const userID = 'OR-criBA6YcVHdAcG';
+            const privateKey = 'bUk07UQUimSbJJ44PxAgR';
+
+            fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    service_id: serviceID,
+                    template_id: templateID,
+                    user_id: userID,
+                    template_params: templateParams
+                })
+            })
+            .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
+            .then(text => {
+                try {
+                    const data = JSON.parse(text);
+                    if (data.status === 'success') {
+                        console.log('SUCCESS!', data);
+                        alert('Email sent successfully!');
+                    } else {
+                        console.error('FAILED...', data);
+                        alert('Failed to send email. Please try again.');
+                    }
+                } catch (error) {
+                    // Handle non-JSON response (e.g., plain text "OK")
+                    if (text === "OK") {
+                        console.log('SUCCESS!', text);
+                        alert('Email sent successfully!');
+                    } else {
+                        console.error('FAILED...', text);
+                        alert('Failed to send email. Please try again.');
+                    }
+                }
+            })
+            .catch((error) => {
+                console.error('FAILED...', error);
+                alert('Failed to send email. Please try again.');
+            });
+        });
 
 const b1 = document.getElementById('optionA');
 
