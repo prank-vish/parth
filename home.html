@@ -159,6 +159,7 @@
             }
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </head>
 <body>
     <header>
@@ -264,18 +265,26 @@
 
     <section class="section poll">
         <h2>Poll</h2>
+        <div id="poll">
+            
         <p>Which is your favorite Indian festival?</p>
         <form>
             <input type="radio" id="diwali" name="festival" value="Diwali">
             <label for="diwali">Diwali</label><br>
             <input type="radio" id="holi" name="festival" value="Holi">
             <label for="holi">Holi</label><br>
-            <input type="radio" id="durgaPuja" name="festival" value="Durga Puja">
-            <label for="durgaPuja">Durga Puja</label><br>
-            <input type="radio" id="makarSankranti" name="festival" value="Makar Sankranti">
-            <label for="makarSankranti">Makar Sankranti</label><br>
-            <button type="submit">Submit</button>
+            <input type="radio"id="eid" name="festival" value="Eid">
+            <label for="eid">Eid</label><br>
+            <input type="radio" id="christmas" name="festival" value="Christmas">
+            <label for="christmas">Christmas</label><br>
+            <input type="radio" id="pongal" name="festival" value="Pongal">
+            <label for="pongal">Pongal</label><br><br>
+            <button type="button" onclick="submitPoll()">Submit</button>
         </form>
+        </div>
+        <div id="chartContainer" style="width: 50%; max-width: 600px; margin: 0 auto;">
+            <canvas id="pollChart"></canvas>
+        </div>
     </section>
     <section class="feedback">
         <h1>Let Us Know!</h1>
@@ -305,6 +314,132 @@
     </footer>
 
     <script>
+
+
+        var pollResults = {
+            "Diwali": 0,
+            "Holi": 0,
+            "Eid": 0,
+            "Christmas": 0,
+            "Pongal": 0
+        };
+
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Load saved content from localStorage
+            const d = localStorage.getItem('uD');
+            if (d) {
+                pollResults["Diwali"]=d;
+            }
+
+            const h = localStorage.getItem('uH');
+            if (h) {
+                pollResults["Holi"]=h;
+            }
+
+            const e = localStorage.getItem('uE');
+            if (e) {
+                pollResults["Eid"]=e;
+            }
+
+            const c = localStorage.getItem('uC');
+            if (c) {
+                pollResults["Christmas"]=c;
+            }
+
+            const p = localStorage.getItem('uP');
+            if (p) {
+                pollResults["Pongal"]=p;
+            }
+        });
+    
+
+
+
+        function submitPoll() {
+            var selectedFestival = document.querySelector('input[name="festival"]:checked').value;
+            pollResults[selectedFestival]++;
+            console.log(selectedFestival);
+
+
+            if(selectedFestival=="Diwali"){
+                const D = pollResults[selectedFestival];
+                localStorage.setItem('uD', D);
+                console.log(D);
+            }
+            
+            else if(selectedFestival=="Holi"){
+                const H = pollResults[selectedFestival];
+                localStorage.setItem('uH', H);
+            }
+            
+            else if(selectedFestival=="Eid"){
+                const E = pollResults[selectedFestival];
+                localStorage.setItem('uE', E);
+            }
+            
+            else if(selectedFestival=="Christmas"){
+                const C = pollResults[selectedFestival];
+                localStorage.setItem('uC', C);
+            }
+
+            else if(selectedFestival=="Pongal"){
+                const P = pollResults[selectedFestival];
+                localStorage.setItem('uP', P);
+            }
+
+            
+            
+
+
+            displayChart();
+            document.getElementById("poll").style.display="none";
+        }
+
+        function displayChart() {
+            var ctx = document.getElementById('pollChart').getContext('2d');
+            var chartData = {
+                labels: Object.keys(pollResults),
+                datasets: [{
+                    label: 'Poll Results',
+                    data: Object.values(pollResults),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1,
+                    barThickness: 5 // Adjust this value to change the bar width
+                }]
+            };
+
+            var pollChart = new Chart(ctx, {
+                type: 'bar',
+                data: chartData,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+
+
+
         let count=0;
         console.log(count);
 
