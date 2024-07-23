@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Sarso Ka Saag</title>
     <style>
-        body,
-        html {
+        body, html {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -17,7 +15,7 @@
         }
 
         .parallax {
-            background-image: url('sarso ka saag.jpg');
+            background-image: url('sarso ka saag.jpg'); /* Update with an appropriate image */
             height: 100vh;
             background-attachment: fixed;
             background-position: center;
@@ -26,62 +24,54 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-        }
-
-        .parallax::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
         }
 
         .content {
-            position: relative;
             background: rgba(255, 255, 255, 0.85);
-            padding: 30px;
+            padding: 20px;
             border-radius: 10px;
-            max-width: 700px;
+            max-width: 600px;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #f55a07; /* Brown text color */
+            color:#f55a07;
         }
 
         h1 {
-            font-size: 3em;
-            color: #2f4f4f;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 3.5em;
+            color: #2f4f4f; /* Tomato color for a vibrant look */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);  /* Dark red shadow for contrast */
         }
 
         p {
-            font-size: 1.2em;
-            color: #4b0082;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            font-size: 1.3em;
+            color: #005782; /* Dark red color for text */
+            line-height: 1.8;
         }
 
         .links {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Adjust spacing between buttons */
         }
 
         .links a {
             text-decoration: none;
             color: #fff;
-            margin: 0 10px;
+            transition: background-color 0.3s, color 0.3s;
             font-weight: bold;
-            background-color: #6b8e23;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            background-color: #6b8e23; /* Yellow for a vibrant look */
+            padding: 12px 24px;
+            border-radius: 15px;
+            font-size: 1.2em;
         }
 
         .links a:hover {
-            background-color: #556b2f;
+            background-color: #fff ;
+            color: #556b2f;
         }
 
         .section {
@@ -91,113 +81,227 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            color: #f55a07; /* Brown text color */
+            color:#f55a07
         }
 
         .section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: 2.8em;
+            color: #ff6347; /* Tomato color for headings */
+            text-shadow: 2px 2px #8f2901;
         }
 
         .section p {
-            font-size: 1.2em;
+            font-size: 1.3em;
+            color: #fb3d17;
             max-width: 800px;
             margin: 0 auto;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 5px solid #ff6347; /* Tomato color border */
+            border-radius: 10px;
         }
 
         .footer {
-            background-color: rgba(0, 0, 0, 0);
-            color: #f55a07; /* Brown text color */
+            background-color:#fdf5e6; /* Yellow background for footer */
+            color: #f55a07; /* Dark red text color */
+            padding: 20px;
             text-align: center;
-            padding: 20px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            font-family: 'Garamond', serif;
+            font-size: 1em;
         }
 
-        .footer-content p {
-            margin: 10px 0;
+        .footer p {
+            margin: 5px 0;
+            color: #8f2901;
         }
 
         .footer a {
             color: #ffa500;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
         }
 
         .footer a:hover {
-            text-decoration: none;
+            color: #c62828; /* Darker red for hover effect */
         }
 
         .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            background-color: rgba(0, 0, 0, 0); /* Transparent black background */
-            padding: 10px 0;
+            padding: 10px 20px;
         }
 
-        .navbar a {
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .navbar ul li {
+            padding: 10px 20px;
+        }
+
+        .navbar ul li a {
+            color: #f55a07; /* Yellow color for nav links */
+            text-align: center;
+            padding: 14px 20px;
             text-decoration: none;
-            color: #f55a07; /* Brown text color */
-            font-size: 1.2em;
-            margin: 0 15px;
-            padding: 10px 15px;
-            transition: color 0.3s ease;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 10px;
+            display: block;
         }
 
-        .navbar a:hover {
-            color: #ffa500; /* Orange color on hover */
+        .navbar ul li a:hover {
+            background-color: #f55a07;
+            color: #ffa500;
+        }
+
+        .navbar ul a.active {
+            background-color: #fb3d17;
+            color: #ffa500;
+            font-size: 22px;
+        }
+
+        .navbar .title {
+            flex-grow: 1;
+            text-align: left;
+            font-weight: bold;
+            color: #ffa500;
+            font-size: 30px;
+        }
+
+        .navbar .title a {
+            color: #f55a07;
+            text-decoration: none;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffa500;
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .navbar ul li a {
+                font-size: 18px;
+            }
+
+            .parallax {
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul li a {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar ul li a {
+                font-size: 14px;
+            }
+
+            .footer {
+                padding: 10px 0;
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="navbar">
-        <a href="panipuri.html">Panipuri</a>
-        <a href="cholebhature.html">Chole Bhature</a>
-        <a href="dahi jalebi.html">Dahi Jalebi</a>
-        <a href="dosa.html">Dosa</a>
-        <a href="idli-vada.html">Idli-Vada</a>
-        <a href="litti chokha.html">Litti Chokha</a>
-        <a href="sarso ka saag.html">Sarso Ka Saag</a>
-    </div>
+    <nav class="navbar">
+        <div class="title">Tales <img src="logo3.png" style="height: 20px;background-color: #ffa500;border-radius: 20px;" alt="Tales of Bharat"> of Bharat</div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <ul>
+            <li><a href="panipuri.html">Panipuri</a></li>
+            <li><a href="cholebhature.html">Chole Bhature</a></li>
+            <li><a href="dahi jalebi.html">Dahi Jalebi</a></li>
+            <li><a href="dosa.html">Dosa</a></li>
+            <li><a href="idli-vada.html">Idli-Vada</a></li>
+            <li><a href="litti chokha.html">Litti Chokha</a></li>
+            <li><a href="sarso ka saag.html" class="active">Sarso Ka Saag</a></li>
+        </ul>
+    </nav>
+    
     <div class="parallax">
         <div class="content">
             <h1>About Sarso Ka Saag</h1>
-            <p>Sarso Ka Saag is a traditional North Indian dish made from mustard greens and spices. It is often
-                accompanied by makki ki roti (cornmeal flatbread) and is popular during the winter months.</p>
+            <p>Sarso Ka Saag is a traditional Punjabi dish made from mustard greens cooked with spices. It is commonly enjoyed with makki di roti (cornflatbread).</p>
             <div class="links">
-                <a href="cuisine.html">Back to Cuisines</a>
+                <a href="cuisine.html">Back to Cuisine</a>
                 <a href="sarsoquiz.html">Try Quiz</a>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <h2>Ingredients</h2>
-        <p>The key ingredients for Sarso Ka Saag include mustard greens, spinach, ginger, garlic, green chilies,
-            spices, and ghee (clarified butter). The dish is simmered to perfection, resulting in a flavorful and
-            nutritious meal.</p>
+        <h2>Overview</h2>
+        <p>Sarso Ka Saag is a comforting and flavorful dish that showcases the richness of Punjabi cuisine. It is typically enjoyed during the winter months and is known for its spicy and hearty nature.</p>
     </div>
 
     <div class="section">
-        <h2>History</h2>
-        <p>Sarso Ka Saag has its origins in Punjab, India, where mustard greens are abundant. It has become a cultural
-            staple, celebrated during festivals like Lohri, where it symbolizes warmth and prosperity.</p>
+        <img src="sarso ka saag.jpg" alt="Sarso Ka Saag Image"> <!-- Update with an appropriate image -->
+    </div>
+
+    <div class="section">
+        <h2>Significance</h2>
+        <p>Sarso Ka Saag is an integral part of Punjabi cuisine and is often prepared during festive seasons. It represents the agricultural traditions of Punjab and is enjoyed by people across the region.</p>
     </div>
 
     <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
-            <p>
-                <a href="mailto:wetalesofbharat@gmail.com">&#9993; Mail Us</a>
-            </p>
-            <p>&#9742; 9695732481</p>
-        </div>
+        <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
+        <p>
+            <a href="mailto:u23cs113@coed.svnit.ac.in">&#9993; Mail Us</a>
+        </p>
+        <p>&#9742; 9695732481</p>
     </footer>
-</body>
 
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.navbar ul');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
 </html>
