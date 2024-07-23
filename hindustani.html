@@ -41,7 +41,6 @@
         h1 {
             font-size: 3.5em;
             color: #4CAF50;
-            text-shadow: 2px 2px #008000;
         }
 
         p {
@@ -52,6 +51,9 @@
 
         .links {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
         .links a {
@@ -64,6 +66,12 @@
             border-radius: 15px;
             box-shadow: 2px 2px #20B2AA;
             font-size: 1.2em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #008000;
+            color: #FFD700;
         }
 
         .section {
@@ -73,12 +81,12 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            color: #20B2AA;
         }
 
         .section h2 {
             font-size: 2.8em;
             color: #4CAF50;
-            text-shadow: 2px 2px #008000;
         }
 
         .section p {
@@ -103,7 +111,6 @@
             padding: 20px;
             text-align: center;
             font-size: 1em;
-            border-top: 5px solid #008000;
         }
 
         .footer p {
@@ -123,11 +130,15 @@
         }
 
         .navbar {
-            background-color: #4CAF50;
-            position: absolute;
+            background-color: rgba(0,0,0,0.7);
+            position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         .navbar ul {
@@ -171,20 +182,78 @@
             font-size: 1.6em;
             font-weight: bold;
             padding-left: 20px;
+            color: #89f8f8;
         }
 
         .navbar .title a {
             color: #008000;
+            text-decoration: none;
         }
 
-        .navbar .title a:hover {
-            color: #FFD700;
-            text-decoration: none;
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #89f8f8;
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .navbar ul li a {
+                font-size: 18px;
+            }
+
+            .parallax {
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul li a {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar ul li a {
+                font-size: 14px;
+            }
+
+            .footer {
+                padding: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
+        <div class="title">Tales <img src="logo3.png" style="height: 20px;background-color: #89f8f8;border-radius: 20px;" alt="Tales of Bharat">f Bharat</div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
         <ul>
             <li><a href="hindustani.html" class="active">Hindustani Classical</a></li>
             <li><a href="ghazal.html">Ghazal</a></li>
@@ -197,7 +266,7 @@
     <div class="parallax">
         <div class="content">
             <h1>About Hindustani Classical Music</h1>
-            <p>Hindustani Classical Music is one of the oldest musical traditions in the world, originating from northern India. It is characterized by its intricate melodies, rhythmic patterns, and improvisational techniques.</p>
+            <p>Hindustani Classical Music is one of the two major traditions of Indian classical music, originating from Northern India. It is known for its rich melodic structures and improvisational nature. The Sitar and Tabla are key instruments used in this tradition, offering a mesmerizing blend of melody and rhythm.</p>
             <div class="links">
                 <a href="music.html">Back to Music</a>
                 <a href="quizhindustani.html">Try Quiz</a>
@@ -206,17 +275,17 @@
     </div>
 
     <div class="section">
-        <h2>Styles and Instruments</h2>
-        <p>Hindustani Classical Music encompasses a wide range of musical styles (ragas) and rhythms (talas). Instruments such as the sitar, tabla, sarangi, and flute are commonly used to create mesmerizing compositions that evoke deep emotional responses.</p>
+        <h2>Instruments and Techniques</h2>
+        <p>The Sitar, a plucked string instrument, is renowned for its resonant sound and intricate fingerwork. The Tabla, a pair of hand-played drums, provides the rhythmic foundation. Together, these instruments create a harmonious and dynamic performance in Hindustani classical music.</p>
     </div>
 
     <div class="section">
-        <img src="hindustanimusic1.jpg" alt="Hindustani Classical Music">
+        <img src="hindustanimusic1.jpg" alt="Sitar and Tabla">
     </div>
 
     <div class="section">
-        <h2>History and Influence</h2>
-        <p>Hindustani Classical Music has evolved over centuries, drawing influences from ancient Vedic chants, Persian music, and folk traditions. It has enriched cultural diversity and spirituality, serving as a profound medium for artistic expression and social harmony.</p>
+        <h2>History and Significance</h2>
+        <p>Hindustani Classical Music has evolved over centuries, drawing from various influences including Persian, Afghan, and indigenous Indian traditions. It continues to be a vital part of Indian cultural heritage, celebrated for its depth and complexity.</p>
     </div>
     <footer class="footer">
         <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
@@ -225,5 +294,11 @@
         </p>
         <p>&#9742; 9695732481</p>
     </footer>
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.navbar ul');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
