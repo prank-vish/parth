@@ -52,17 +52,26 @@
 
         .links {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Adjust spacing between buttons */
         }
 
         .links a {
             text-decoration: none;
             color: #008000;
-            margin: 0 10px;
             font-weight: bold;
             background-color: #FFD700;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 15px;
             box-shadow: 2px 2px #20B2AA;
+            font-size: 1.2em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #20B2AA;
+            color: #ffd700;
         }
 
         .section {
@@ -75,17 +84,17 @@
         }
 
         .section h2 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             color: #008080;
             text-shadow: 2px 2px #20B2AA;
         }
 
         .section p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #008080;
             max-width: 800px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         .section img {
@@ -98,22 +107,22 @@
 
         .footer {
             background-color: #008080;
-            color: #FFD700;
+            color: #ffd700;
             padding: 20px;
             text-align: center;
             font-size: 1em;
-            border-top: 5px solid #20B2AA;
         }
 
         .footer p {
             margin: 5px 0;
-            color: #FFD700;
+            color: #ffd700;
         }
 
         .footer a {
-            color: #FFD700;
+            color:#ffd700;
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.9em;
         }
 
         .footer a:hover {
@@ -121,11 +130,15 @@
         }
 
         .navbar {
-            background-color: #00808000;
-            position: absolute;
-            top: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
             width: 100%;
+            top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         .navbar ul {
@@ -133,16 +146,14 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: row;
         }
 
         .navbar ul li {
-            display: inline;
             padding: 10px 20px;
         }
 
         .navbar ul li a {
-            display: block;
             color: #89f8f8;
             text-align: center;
             padding: 14px 20px;
@@ -150,13 +161,14 @@
             font-weight: bold;
             font-size: 20px;
             border-radius: 10px;
+            display: block;
         }
 
         .navbar ul li a:hover {
             background-color: #008080;
             color: #89f8f8;
         }
-        
+
         .navbar ul a.active {
             background-color: #006666;
             color: #89f8f8;
@@ -166,23 +178,85 @@
         .navbar .title {
             flex-grow: 1;
             text-align: left;
-            font-size: 1.5em;
             font-weight: bold;
-            padding-left: 20px;
+            color: #008080;
+            font-size: 30px;
         }
 
         .navbar .title a {
             color: #008080;
+            text-decoration: none;
         }
 
         .navbar .title a:hover {
             color: #FFD700;
             text-decoration: none;
         }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffd700;
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .navbar ul li a {
+                font-size: 18px;
+            }
+
+            .parallax {
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul li a {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar ul li a {
+                font-size: 14px;
+            }
+
+            .footer {
+                padding: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
+        <div class="title">Tales <img src="logo3.png" style="height: 20px;background-color: #008080;border-radius: 20px;" alt="Tales of Bharat">f Bharat</div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
         <ul>
             <li><a href="woodcraft.html" class="active">Wood Craft</a></li>
             <li><a href="pottery.html">Pottery</a></li>

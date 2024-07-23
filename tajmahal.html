@@ -14,66 +14,6 @@
             background-color: #f5f5dc;
         }
 
-        .navbar {
-            background-color: rgba(139, 69, 19, 0); /* Transparent background */
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .navbar ul li {
-            display: inline;
-            padding: 10px 20px;
-        }
-
-        .navbar ul li a {
-            display: block;
-            color: #703104;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 20px;
-            border-radius: 10px;
-        }
-
-        .navbar ul a.active{
-            background-color: #703104;
-            color: #DAA520;
-            font-size: 22px;
-        }
-
-        .navbar ul li a:hover {
-            background-color: #8B4513;
-            color: #DAA520;
-        }
-
-        .navbar .title {
-            flex-grow: 1;
-            text-align: left;
-            font-size: 1.5em;
-            font-weight: bold;
-            padding-left: 20px;
-        }
-
-        .navbar .title a {
-            color: #8B4513;
-        }
-
-        .navbar .title a:hover {
-            color: #FFD700;
-            text-decoration: none;
-        }
-
         .parallax {
             background-image: url('taj mahal.jpg');
             height: 100vh;
@@ -112,17 +52,25 @@
 
         .links {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
         .links a {
             text-decoration: none;
             color: #8B0000;
-            margin: 0 10px;
             font-weight: bold;
             background-color: #FFD700;
             padding: 10px 20px;
             border-radius: 15px;
             box-shadow: 2px 2px #DAA520;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #8B0000;
+            color: #FFD700;
         }
 
         .section {
@@ -167,7 +115,7 @@
 
         .footer p {
             margin: 5px 0;
-            color:#FFD700;
+            color: #FFD700;
         }
 
         .footer a {
@@ -179,10 +127,132 @@
         .footer a:hover {
             color: #DAA520;
         }
+
+        .navbar {
+            background-color: rgba(139, 69, 19, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .navbar ul li {
+            padding: 10px 20px;
+        }
+
+        .navbar ul li a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 10px;
+            display: block;
+            padding: 14px 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #8B4513;
+            color: #FFD700;
+        }
+
+        .navbar ul a.active {
+            background-color: #703104;
+            color: #FFD700;
+            font-size: 22px;
+        }
+
+        .navbar .title {
+            font-weight: bold;
+            color: #FFD700;
+            font-size: 30px;
+        }
+
+        .navbar .title a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .navbar .title a:hover {
+            color: #DAA520;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFD700;
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(139, 69, 19, 0.7);
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .navbar ul li a {
+                font-size: 18px;
+            }
+
+            .parallax {
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul li a {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar ul li a {
+                font-size: 14px;
+            }
+
+            .footer {
+                padding: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
+        <div class="title">Tales <img src="logo3.png" style="height: 20px; background-color: #FFD700; border-radius: 20px;" alt="Tales of Bharat">f Bharat</div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
         <ul>
             <li><a href="tajmahal.html" class="active">Taj Mahal</a></li>
             <li><a href="qutubminar.html">Qutub Minar</a></li>
@@ -192,6 +262,7 @@
             <li><a href="indiagate.html">India Gate</a></li>
         </ul>
     </nav>
+
     <div class="parallax">
         <div class="content">
             <h1>About Taj Mahal</h1>
@@ -218,6 +289,7 @@
         <h2>History</h2>
         <p>The story of the Taj Mahal is deeply rooted in love and loss. Shah Jahan commissioned this grand mausoleum as a final resting place for Mumtaz Mahal, who died during childbirth. The Emperor's deep love for her is reflected in the grandeur and beauty of the Taj Mahal, which stands as a testament to their eternal bond.</p>
     </div>
+
     <footer class="footer">
         <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
             <p>
@@ -225,5 +297,12 @@
             </p>
             <p>&#9742; 9695732481</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.navbar ul');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

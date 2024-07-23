@@ -52,18 +52,26 @@
 
         .links {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Adjust spacing between buttons */
         }
 
         .links a {
             text-decoration: none;
             color: #800000;
-            margin: 0 10px;
             font-weight: bold;
             background-color: #FFD700;
             padding: 12px 24px;
             border-radius: 15px;
             box-shadow: 2px 2px #800000;
             font-size: 1.2em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #800000;
+            color: #ffd700;
         }
 
         .section {
@@ -123,10 +131,14 @@
 
         .navbar {
             background-color: rgba(0, 0, 0, 0.7);
-            position: absolute;
-            top: 0;
+            position: fixed;
             width: 100%;
+            top: 0;
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
         }
 
         .navbar ul {
@@ -134,17 +146,14 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: row;
         }
 
         .navbar ul li {
-            display: inline;
             padding: 10px 20px;
-            color: #ffd700;
         }
 
         .navbar ul li a {
-            display: block;
             color: #ffd700;
             text-align: center;
             padding: 14px 20px;
@@ -152,6 +161,7 @@
             font-weight: bold;
             font-size: 20px;
             border-radius: 10px;
+            display: block;
         }
 
         .navbar ul li a:hover {
@@ -168,23 +178,85 @@
         .navbar .title {
             flex-grow: 1;
             text-align: left;
-            font-size: 1.6em;
+            /* font-size: 1.6em; */
             font-weight: bold;
-            padding-left: 20px;
+            color: #800000;
+            font-size: 30px;
         }
 
         .navbar .title a {
             color: #800000;
+            text-decoration: none;
         }
 
-        .navbar .title a:hover {
+        /* .navbar .title a:hover {
             color: #FFD700;
-            text-decoration: none;
+        } */
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffd700;
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .navbar ul li a {
+                font-size: 18px;
+            }
+
+            .parallax {
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul li a {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar ul li a {
+                font-size: 14px;
+            }
+
+            .footer {
+                padding: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
+        <div class="title">Tales <img src="logo3.png" style="height: 20px;background-color: #800000;border-radius: 20px;" alt="Tales of Bharat">f Bharat</div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
         <ul>
             <li><a href="mahabharat.html">Mahabharat</a></li>
             <li><a href="bhagavadgeeta.html">Bhagavad Geeta</a></li>
@@ -193,6 +265,7 @@
             <li><a href="madhushala.html">Madhushala</a></li>
         </ul>
     </nav>
+
     <div class="parallax">
         <div class="content">
             <h1>About Godan</h1>
@@ -225,5 +298,12 @@
         </p>
         <p>&#9742; 9695732481</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.navbar ul');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
