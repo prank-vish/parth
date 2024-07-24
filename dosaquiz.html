@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="scorecontainer.css">
+    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -203,6 +205,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="logo3.png" alt="quiz">Quiz
@@ -334,45 +337,45 @@
             optionC.style.display = "none";
             ques.style.display = "none";
             score.textContent = "Your Score is " + s + "/5";
-            if(confirm("want your score on gmail?")){
-                    document.getElementById("scorecontainer").style.display="block";
-                }
-            msg=`Your final socre for this quiz is ${s}.`;
+            if (confirm("want your score on gmail?")) {
+                document.getElementById("scorecontainer").style.display = "block";
+            }
+            msg = `Your final socre for this quiz is ${s}.`;
         }
 
         function opt(c) {
-            switch(num) {
+            switch (num) {
                 case 2:
-                    if(c == 'A') s += 1;
+                    if (c == 'A') s += 1;
                     setTimeout(question2, 500);
                     num += 1;
                     break;
                 case 3:
-                    if(c == 'A') s += 1;
+                    if (c == 'A') s += 1;
                     setTimeout(question3, 500);
                     num += 1;
                     break;
                 case 4:
-                    if(c == 'B') s += 1;
+                    if (c == 'B') s += 1;
                     setTimeout(question4, 500);
                     num += 1;
                     break;
                 case 5:
-                    if(c == 'A') s += 1;
+                    if (c == 'A') s += 1;
                     setTimeout(question5, 500);
                     num += 1;
                     break;
                 case 6:
-                    if(c == 'C') s += 1;
+                    if (c == 'C') s += 1;
                     setTimeout(finish, 500);
                     num += 1;
                     break;
             }
         }
         let msg;
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             const fromName = "Tales of Bharat"; // Change this to your desired sender name
             const templateParams = {
                 from_name: fromName,
@@ -398,33 +401,34 @@
                     template_params: templateParams
                 })
             })
-            .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
-            .then(text => {
-                try {
-                    const data = JSON.parse(text);
-                    if (data.status === 'success') {
-                        console.log('SUCCESS!', data);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', data);
-                        alert('Failed to send email. Please try again.');
+                .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.status === 'success') {
+                            console.log('SUCCESS!', data);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', data);
+                            alert('Failed to send email. Please try again.');
+                        }
+                    } catch (error) {
+                        // Handle non-JSON response (e.g., plain text "OK")
+                        if (text === "OK") {
+                            console.log('SUCCESS!', text);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', text);
+                            alert('Failed to send email. Please try again.');
+                        }
                     }
-                } catch (error) {
-                    // Handle non-JSON response (e.g., plain text "OK")
-                    if (text === "OK") {
-                        console.log('SUCCESS!', text);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', text);
-                        alert('Failed to send email. Please try again.');
-                    }
-                }
-            })
-            .catch((error) => {
-                console.error('FAILED...', error);
-                alert('Failed to send email. Please try again.');
-            });
+                })
+                .catch((error) => {
+                    console.error('FAILED...', error);
+                    alert('Failed to send email. Please try again.');
+                });
         });
     </script>
 </body>
+
 </html>

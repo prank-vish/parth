@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tales of Bharat</title>
+    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
     <style>
         body,html {
             margin: 0;
@@ -32,81 +34,100 @@
             padding: 10px 20px;
             background-color: #1f1f1f;
         }
+
         header h1 {
             margin: 0;
             font-size: 1.5em;
             color: #ff5722;
         }
+
         nav {
             display: flex;
             gap: 20px;
         }
+
         nav a {
             color: #e0e0e0;
             text-decoration: none;
             font-size: 1em;
         }
+
         nav a:hover {
             color: #ff5722;
         }
+
         .section {
             padding: 40px 20px;
             border-bottom: 1px solid #333;
         }
+
         .section img {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
         }
+
         .section h2 {
             color: #ff5722;
         }
+
         .section p {
             margin: 10px 0;
         }
+
         .poll {
             background-color: #1f1f1f;
             padding: 20px;
             border-radius: 8px;
             text-align: center;
         }
+
         .poll h2 {
             margin-top: 0;
         }
+
         footer {
             background-color: #1f1f1f;
             color: #e0e0e0;
             padding: 20px;
             text-align: center;
         }
+
         footer a {
             color: #ff5722;
             text-decoration: none;
         }
-        footer p a img{
+
+        footer p a img {
             height: 50px;
             width: 50px;
             border-radius: 25px;
         }
+
         footer a:hover {
             text-decoration: underline;
         }
+
         .responsive {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
+
         .responsive div {
             flex: 1;
             min-width: 300px;
         }
-        .responsive div a{
+
+        .responsive div a {
             text-decoration: none;
         }
-        .responsive div img{
+
+        .responsive div img {
             height: 400px;
             width: 615px;
         }
+
         .displayDiv {
             margin-top: 20px;
             margin-bottom: 15px;
@@ -120,67 +141,78 @@
             /* min-height: 300px; */
             display: none;
             text-align: center;
-            border-radius:10px ;
+            border-radius: 10px;
             background-color: antiquewhite;
             color: #ff5722;
 
         }
-        #feedemail{
+
+        #feedemail {
             width: 290px;
             margin-bottom: 10px;
         }
-        #showbox{
+
+        #showbox {
             display: flex;
             justify-content: center;
-            
+
         }
-        .feedback{
+
+        .feedback {
             text-align: center;
         }
-        #level{
+
+        #level {
             text-align: center;
             display: flex;
             justify-content: center;
             flex-grow: 1;
         }
-        #save{
+
+        #save {
             margin-left: 10px;
         }
-        
+
 
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.2em;
             }
+
             nav a {
                 font-size: 0.9em;
             }
+
             .section {
                 padding: 20px;
             }
+
             .responsive {
                 flex-direction: column;
                 gap: 10px;
             }
+
             .displayDiv {
-            margin-left: 5px;
-            padding: 3px;
-            font-size:small;
-            /* border: none; */
-            max-width: 100px;
-            max-height: 200px;
-            min-width: 100px;
+                margin-left: 5px;
+                padding: 3px;
+                font-size: small;
+                /* border: none; */
+                max-width: 100px;
+                max-height: 200px;
+                min-width: 100px;
             }
         }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </head>
+
 <body>
     <div id="particles-js"></div>
     <div class="content">
     <header>
-        <h1>Tales <img src="logo3.png" style="height: 20px;border-radius: 20px;background-color: #ff5722;" alt="Tales of Bharat"> of Bharat</h1>
+        <h1>Tales <img src="logo3.png" style="height: 20px;border-radius: 20px;background-color: #ff5722;"
+                alt="Tales of Bharat"> of Bharat</h1>
         <nav>
             <a href="#monuments">Monuments</a>
             <a href="#cuisine">Cuisine</a>
@@ -194,12 +226,15 @@
 
     <section class="section" id="welcome">
         <h2>Welcome to Tales of Bharat</h2>
-        <p>Welcome to Tales of Bharat, where we celebrate the rich heritage and culture of India. Explore our sections on monuments, cuisine, arts and crafts, festivals, music and dance, and literature to dive into the essence of our nation's legacy.</p>
+        <p>Welcome to Tales of Bharat, where we celebrate the rich heritage and culture of India. Explore our sections
+            on monuments, cuisine, arts and crafts, festivals, music and dance, and literature to dive into the essence
+            of our nation's legacy.</p>
     </section>
 
     <section class="section" id="about">
         <h2>About Us</h2>
-        <p>Tales of Bharat is dedicated to showcasing the diverse cultural heritage of India. Our mission is to educate, inspire, and connect people through the stories and traditions that define our nation.</p>
+        <p>Tales of Bharat is dedicated to showcasing the diverse cultural heritage of India. Our mission is to educate,
+            inspire, and connect people through the stories and traditions that define our nation.</p>
     </section>
 
     <section class="section" id="monuments">
@@ -283,21 +318,21 @@
     <section class="section poll">
         <h2>Poll</h2>
         <div id="poll">
-            
-        <p>Which is your favorite Indian festival?</p>
-        <form>
-            <input type="radio" id="diwali" name="festival" value="Diwali">
-            <label for="diwali">Diwali</label><br>
-            <input type="radio" id="holi" name="festival" value="Holi">
-            <label for="holi">Holi</label><br>
-            <input type="radio"id="eid" name="festival" value="Eid">
-            <label for="eid">Eid</label><br>
-            <input type="radio" id="christmas" name="festival" value="Christmas">
-            <label for="christmas">Christmas</label><br>
-            <input type="radio" id="pongal" name="festival" value="Pongal">
-            <label for="pongal">Pongal</label><br><br>
-            <button type="button" onclick="submitPoll()">Submit</button>
-        </form>
+
+            <p>Which is your favorite Indian festival?</p>
+            <form>
+                <input type="radio" id="diwali" name="festival" value="Diwali">
+                <label for="diwali">Diwali</label><br>
+                <input type="radio" id="holi" name="festival" value="Holi">
+                <label for="holi">Holi</label><br>
+                <input type="radio" id="eid" name="festival" value="Eid">
+                <label for="eid">Eid</label><br>
+                <input type="radio" id="christmas" name="festival" value="Christmas">
+                <label for="christmas">Christmas</label><br>
+                <input type="radio" id="pongal" name="festival" value="Pongal">
+                <label for="pongal">Pongal</label><br><br>
+                <button type="button" onclick="submitPoll()">Submit</button>
+            </form>
         </div>
         <div id="chartContainer" style="width: 50%; max-width: 600px; margin: 0 auto;">
             <canvas id="pollChart"></canvas>
@@ -305,7 +340,7 @@
     </section>
     <section class="feedback">
         <h1>Let Us Know!</h1>
-        <input type="email" id="feedemail" placeholder="enter your email" >
+        <input type="email" id="feedemail" placeholder="enter your email">
         <div id="level"> <textarea id="userInput" rows="2" cols="30"></textarea>
             <button onclick="saveInput()" id="save">Save</button>
         </div>
@@ -319,12 +354,13 @@
 
     </section>
 
-    
+
     <footer id="contact">
         <p>Contact us: u23cs113@coed.svnit.ac.in | +91 9695732481</p>
         <p>
-            <a href="#"><img src="facebook.png" alt="Facebook"></a>  
-            <a href="#"><img src="whatsapplogo.jpg" alt="Whatsapp"></a>  
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="whatsapplogo.jpg"
+                    alt="Whatsapp"></a>
             <a href="https://www.instagram.com/prankit.svnit/"><img src="Instagramlogo.webp" alt="Instagram"></a>
         </p>
         <p>&copy; 2024 Tales of Bharat. All rights reserved.</p>
@@ -460,30 +496,30 @@
             // Load saved content from localStorage
             const d = localStorage.getItem('uD');
             if (d) {
-                pollResults["Diwali"]=d;
+                pollResults["Diwali"] = d;
             }
 
             const h = localStorage.getItem('uH');
             if (h) {
-                pollResults["Holi"]=h;
+                pollResults["Holi"] = h;
             }
 
             const e = localStorage.getItem('uE');
             if (e) {
-                pollResults["Eid"]=e;
+                pollResults["Eid"] = e;
             }
 
             const c = localStorage.getItem('uC');
             if (c) {
-                pollResults["Christmas"]=c;
+                pollResults["Christmas"] = c;
             }
 
             const p = localStorage.getItem('uP');
             if (p) {
-                pollResults["Pongal"]=p;
+                pollResults["Pongal"] = p;
             }
         });
-    
+
 
 
 
@@ -493,38 +529,38 @@
             console.log(selectedFestival);
 
 
-            if(selectedFestival=="Diwali"){
+            if (selectedFestival == "Diwali") {
                 const D = pollResults[selectedFestival];
                 localStorage.setItem('uD', D);
                 console.log(D);
             }
-            
-            else if(selectedFestival=="Holi"){
+
+            else if (selectedFestival == "Holi") {
                 const H = pollResults[selectedFestival];
                 localStorage.setItem('uH', H);
             }
-            
-            else if(selectedFestival=="Eid"){
+
+            else if (selectedFestival == "Eid") {
                 const E = pollResults[selectedFestival];
                 localStorage.setItem('uE', E);
             }
-            
-            else if(selectedFestival=="Christmas"){
+
+            else if (selectedFestival == "Christmas") {
                 const C = pollResults[selectedFestival];
                 localStorage.setItem('uC', C);
             }
 
-            else if(selectedFestival=="Pongal"){
+            else if (selectedFestival == "Pongal") {
                 const P = pollResults[selectedFestival];
                 localStorage.setItem('uP', P);
             }
 
-            
-            
+
+
 
 
             displayChart();
-            document.getElementById("poll").style.display="none";
+            document.getElementById("poll").style.display = "none";
         }
 
         function displayChart() {
@@ -571,11 +607,11 @@
 
 
 
-        let count=0;
+        let count = 0;
         console.log(count);
 
         document.addEventListener('DOMContentLoaded', (event) => {
-            
+
             const savedC = localStorage.getItem('userC');
             const savedEE = localStorage.getItem('userEE');
 
@@ -587,13 +623,13 @@
 
                 // count=1;
             }
-                           
+
             const savedO = localStorage.getItem('userO');
             const savedM = localStorage.getItem('userM');
             if (savedO) {
-            document.getElementById('displayI').innerText = savedO;
-            document.getElementById('displayI').prepend(savedM);
-            document.getElementById('displayI').style.display = "inline";
+                document.getElementById('displayI').innerText = savedO;
+                document.getElementById('displayI').prepend(savedM);
+                document.getElementById('displayI').style.display = "inline";
 
                 // count=2;
             }
@@ -601,9 +637,9 @@
             const savedN = localStorage.getItem('userN');
             const savedA = localStorage.getItem('userA');
             if (savedN) {
-            document.getElementById('displayV').innerText = savedN;
-            document.getElementById('displayV').prepend(savedA);
-            document.getElementById('displayV').style.display = "inline";
+                document.getElementById('displayV').innerText = savedN;
+                document.getElementById('displayV').prepend(savedA);
+                document.getElementById('displayV').style.display = "inline";
 
                 // count=3;
             }
@@ -611,9 +647,9 @@
             const savedT = localStorage.getItem('userT');
             const savedI = localStorage.getItem('userI');
             if (savedT) {
-            document.getElementById('displayC').innerText = savedT;
-            document.getElementById('displayC').prepend(savedI);
-            document.getElementById('displayC').style.display = "inline";
+                document.getElementById('displayC').innerText = savedT;
+                document.getElementById('displayC').prepend(savedI);
+                document.getElementById('displayC').style.display = "inline";
 
                 // count=4;
             }
@@ -621,35 +657,35 @@
             const savedE = localStorage.getItem('userE');
             const savedL = localStorage.getItem('userL');
             if (savedN) {
-            document.getElementById('displayE').innerText = savedE;
-            document.getElementById('displayE').prepend(savedL);
-            document.getElementById('displayE').style.display = "inline";
+                document.getElementById('displayE').innerText = savedE;
+                document.getElementById('displayE').prepend(savedL);
+                document.getElementById('displayE').style.display = "inline";
 
                 // count=5;
             }
 
-                           
-           
-            
+
+
+
         });
 
         function saveInput() {
-            if(count==0){
+            if (count == 0) {
                 const userInput = document.getElementById('userInput').value;
                 let userEmail = document.getElementById('feedemail').value;
-                userEmail=userEmail.slice(0,userEmail.indexOf("@")).toUpperCase()+" :   ";
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
 
                 localStorage.setItem('userC', userInput);
                 localStorage.setItem('userEE', userEmail);
                 document.getElementById('displayD').innerText = userInput;
                 document.getElementById('displayD').prepend(userEmail);
                 document.getElementById('displayD').style.display = "inline";
-                
+
             }
-            else if(count==1){
+            else if (count == 1) {
                 const userInput = document.getElementById('userInput').value;
                 let userEmail = document.getElementById('feedemail').value;
-                userEmail=userEmail.slice(0,userEmail.indexOf("@")).toUpperCase()+" :   ";
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
                 localStorage.setItem('userO', userInput);
                 localStorage.setItem('userM', userEmail);
 
@@ -659,11 +695,11 @@
 
             }
 
-            else if(count==2){
+            else if (count == 2) {
                 const userInput = document.getElementById('userInput').value;
                 let userEmail = document.getElementById('feedemail').value;
-                userEmail=userEmail.slice(0,userEmail.indexOf("@")).toUpperCase()+" :   ";
-                
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+
                 localStorage.setItem('userN', userInput);
                 localStorage.setItem('userA', userEmail);
                 document.getElementById('displayV').innerText = userInput;
@@ -671,11 +707,11 @@
                 document.getElementById('displayV').style.display = "inline";
 
             }
-            else if(count==3){
+            else if (count == 3) {
                 const userInput = document.getElementById('userInput').value;
                 let userEmail = document.getElementById('feedemail').value;
-                userEmail=userEmail.slice(0,userEmail.indexOf("@")).toUpperCase()+" :   ";
-                
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+
                 localStorage.setItem('userT', userInput);
                 localStorage.setItem('userI', userEmail);
                 document.getElementById('displayC').innerText = userInput;
@@ -683,10 +719,10 @@
                 document.getElementById('displayC').style.display = "inline";
 
             }
-            else if(count==4){
+            else if (count == 4) {
                 const userInput = document.getElementById('userInput').value;
                 let userEmail = document.getElementById('feedemail').value;
-                userEmail=userEmail.slice(0,userEmail.indexOf("@")).toUpperCase()+" :   ";
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
                 localStorage.setItem('userE', userInput);
                 localStorage.setItem('userL', userEmail);
                 document.getElementById('displayE').innerText = userInput;
@@ -696,8 +732,8 @@
             }
 
 
-            
-            document.getElementById('userInput').value="";
+
+            document.getElementById('userInput').value = "";
             count++;
         }
 
@@ -717,4 +753,5 @@
         // }
     </script>
 </body>
+
 </html>
