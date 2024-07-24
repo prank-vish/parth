@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hindustani Classical Music Quiz</title>
     <link rel="stylesheet" href="scorecontainer.css">
+    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -138,7 +140,7 @@
             color: rgb(0, 31, 58);
         }
 
-        #hint{
+        #hint {
             font-size: 2rem;
             color: #210d38;
         }
@@ -160,7 +162,7 @@
         }
 
         #answer:hover {
-             background-color:rgb(201, 213, 225);
+            background-color: rgb(201, 213, 225);
         }
 
         .btn {
@@ -172,7 +174,7 @@
             margin-top: 15px;
             /* padding: 5px 10px; */
             height: 4rem;
-            width:4rem;
+            width: 4rem;
             transition: all 0.3s ease;
             text-align: center;
 
@@ -265,11 +267,12 @@
                 text-align: center;
                 height: 2rem;
                 width: 2rem;
-                
+
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="logo3.png" alt="quiz">Quiz
@@ -326,8 +329,8 @@
 
         let s = 0;
         let currentQuestion = 0;
-        submitBtn.style.display="none";
-        answer.style.display="none";
+        submitBtn.style.display = "none";
+        answer.style.display = "none";
 
         const questions = [
             { question: "Hindustani classical music is traditionally performed in (temples/halls).", answer: "halls" },
@@ -359,34 +362,36 @@
             let userAnswer = answer.value.trim();
             if (userAnswer.toLowerCase() === questions[currentQuestion].answer.toLowerCase()) {
                 s += 1;
-                submitBtn.style.backgroundColor="#98FB98";
+                submitBtn.style.backgroundColor = "#98FB98";
             }
-            else{
-                submitBtn.style.backgroundColor="#F08080";
+            else {
+                submitBtn.style.backgroundColor = "#F08080";
             }
 
             switch (currentQuestion) {
                 case 0:
-                    setTimeout(()=>{
-                    two.classList.add("current");
-                    o.classList.add("currentline");},1000);
+                    setTimeout(() => {
+                        two.classList.add("current");
+                        o.classList.add("currentline");
+                    }, 1000);
                     break;
                 case 1:
-                    setTimeout(()=>{
-                    three.classList.add("current");
-                    t.classList.add("currentline");},1000);
+                    setTimeout(() => {
+                        three.classList.add("current");
+                        t.classList.add("currentline");
+                    }, 1000);
                     break;
                 case 2:
-                    setTimeout(()=>{
-                    four.classList.add("current");
-                    th.classList.add("currentline");
-                    },1000);
+                    setTimeout(() => {
+                        four.classList.add("current");
+                        th.classList.add("currentline");
+                    }, 1000);
                     break;
                 case 3:
-                    setTimeout(()=>{
-                    five.classList.add("current");
-                    f.classList.add("currentline");
-                    },1000);
+                    setTimeout(() => {
+                        five.classList.add("current");
+                        f.classList.add("currentline");
+                    }, 1000);
                     break;
             }
 
@@ -395,7 +400,7 @@
             setTimeout(() => {
                 displayQuestion();
                 answer.value = "";
-                submitBtn.style.backgroundColor="rgb(247, 251, 255)";
+                submitBtn.style.backgroundColor = "rgb(247, 251, 255)";
             }, 1000);
             score.textContent = `Score: ${s}`;
         }
@@ -405,16 +410,16 @@
             submitBtn.style.display = "none";
             answer.style.display = "none";
             score.textContent = "Your Score is " + s + "/5";
-            if(confirm("want your score on gmail?")){
-                    document.getElementById("scorecontainer").style.display="block";
-                }
-            msg=`Your final socre for this quiz is ${s}.`;
+            if (confirm("want your score on gmail?")) {
+                document.getElementById("scorecontainer").style.display = "block";
+            }
+            msg = `Your final socre for this quiz is ${s}.`;
         }
 
         let msg;
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             const fromName = "Tales of Bharat"; // Change this to your desired sender name
             const templateParams = {
                 from_name: fromName,
@@ -440,33 +445,34 @@
                     template_params: templateParams
                 })
             })
-            .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
-            .then(text => {
-                try {
-                    const data = JSON.parse(text);
-                    if (data.status === 'success') {
-                        console.log('SUCCESS!', data);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', data);
-                        alert('Failed to send email. Please try again.');
+                .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.status === 'success') {
+                            console.log('SUCCESS!', data);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', data);
+                            alert('Failed to send email. Please try again.');
+                        }
+                    } catch (error) {
+                        // Handle non-JSON response (e.g., plain text "OK")
+                        if (text === "OK") {
+                            console.log('SUCCESS!', text);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', text);
+                            alert('Failed to send email. Please try again.');
+                        }
                     }
-                } catch (error) {
-                    // Handle non-JSON response (e.g., plain text "OK")
-                    if (text === "OK") {
-                        console.log('SUCCESS!', text);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', text);
-                        alert('Failed to send email. Please try again.');
-                    }
-                }
-            })
-            .catch((error) => {
-                console.error('FAILED...', error);
-                alert('Failed to send email. Please try again.');
-            });
+                })
+                .catch((error) => {
+                    console.error('FAILED...', error);
+                    alert('Failed to send email. Please try again.');
+                });
         });
     </script>
 </body>
+
 </html>

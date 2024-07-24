@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Durga Puja Quiz</title>
     <link rel="stylesheet" href="scorecontainer.css">
+    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -139,7 +141,7 @@
             color: rgb(0, 31, 58);
         }
 
-        #hint{
+        #hint {
             font-size: 2rem;
             color: #210d38;
         }
@@ -260,6 +262,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="logo3.png" alt="quiz">Quiz
@@ -291,7 +294,8 @@
         <div id="hint">Hint</div>
         <div class="title" id="ques"></div>
         <div><input type="text" id="answer" placeholder="Rearrange the letters" autocomplete="off">
-            <button onclick="checkAnswer()" id="sub">Submit</button></div>
+            <button onclick="checkAnswer()" id="sub">Submit</button>
+        </div>
     </div>
     <div id="score">Score</div>
     <footer>
@@ -316,11 +320,11 @@
 
         let s = 0;
         let currentQuestion = 0;
-        answerInput.style.display="none";
-        sub.style.display="none";
-        hint.style.display="none";
+        answerInput.style.display = "none";
+        sub.style.display = "none";
+        hint.style.display = "none";
         const questions = [
-            { jumbled: "G D A R U", answer: "DURGA", hint: "Hint : Goddess worshipped during the festival."},
+            { jumbled: "G D A R U", answer: "DURGA", hint: "Hint : Goddess worshipped during the festival." },
             { jumbled: "N A D U", answer: "DUNA", hint: "Hint : A type of leaf bowl used during the festival." },
             { jumbled: "O L O C R U S", answer: "COLOURS", hint: "Hint : Used to decorate pandals and idols." },
             { jumbled: "D I A L O B S", answer: "BAIDLAS", hint: "Hint : A musical instrument played during the festival." },
@@ -329,9 +333,9 @@
 
         function begin() {
             currentQuestion = 0;
-            answerInput.style.display="inline";
-            sub.style.display="inline";
-            hint.style.display="flex";
+            answerInput.style.display = "inline";
+            sub.style.display = "inline";
+            hint.style.display = "flex";
             hint.textContent = questions[currentQuestion].hint;
             displayQuestion();
             start.style.display = "none";
@@ -387,15 +391,15 @@
             score.textContent = "Your Score is " + s + "/5";
             sub.style.display = "none";
             hint.style.display = "none";
-            if(confirm("want your score on gmail?")){
-                    document.getElementById("scorecontainer").style.display="block";
-                }
-            msg=`Your final socre for this quiz is ${s}.`;
+            if (confirm("want your score on gmail?")) {
+                document.getElementById("scorecontainer").style.display = "block";
+            }
+            msg = `Your final socre for this quiz is ${s}.`;
         }
         let msg;
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             const fromName = "Tales of Bharat"; // Change this to your desired sender name
             const templateParams = {
                 from_name: fromName,
@@ -421,33 +425,34 @@
                     template_params: templateParams
                 })
             })
-            .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
-            .then(text => {
-                try {
-                    const data = JSON.parse(text);
-                    if (data.status === 'success') {
-                        console.log('SUCCESS!', data);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', data);
-                        alert('Failed to send email. Please try again.');
+                .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.status === 'success') {
+                            console.log('SUCCESS!', data);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', data);
+                            alert('Failed to send email. Please try again.');
+                        }
+                    } catch (error) {
+                        // Handle non-JSON response (e.g., plain text "OK")
+                        if (text === "OK") {
+                            console.log('SUCCESS!', text);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', text);
+                            alert('Failed to send email. Please try again.');
+                        }
                     }
-                } catch (error) {
-                    // Handle non-JSON response (e.g., plain text "OK")
-                    if (text === "OK") {
-                        console.log('SUCCESS!', text);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', text);
-                        alert('Failed to send email. Please try again.');
-                    }
-                }
-            })
-            .catch((error) => {
-                console.error('FAILED...', error);
-                alert('Failed to send email. Please try again.');
-            });
+                })
+                .catch((error) => {
+                    console.error('FAILED...', error);
+                    alert('Failed to send email. Please try again.');
+                });
         });
     </script>
 </body>
+
 </html>

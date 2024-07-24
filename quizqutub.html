@@ -1,247 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="scorecontainer.css">
     <!-- <link rel="stylesheet" href="new.css"> -->
-     <style>
+    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
+    <style>
         body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right,#794d1f, #64411b, #563717);
-    color: #fff;
-    /* #003d1c, #005a2b, #047a3f */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-}
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #794d1f, #64411b, #563717);
+            color: #fff;
+            /* #003d1c, #005a2b, #047a3f */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
 
-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    font-size: 3rem;
-}
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 3rem;
+        }
 
-header img {
-    height: 4rem;
-}
+        header img {
+            height: 4rem;
+        }
 
-.menu-icons img {
-    height: 2rem;
-    margin-left: 10px;
-}
+        .menu-icons img {
+            height: 2rem;
+            margin-left: 10px;
+        }
 
 
-#start{
-    font-size: 2rem;
-    font-family: 'Arial', sans-serif;
-    border-radius: 5px;
-    padding: 0 10px;
-    margin-top: 5rem;
-}
+        #start {
+            font-size: 2rem;
+            font-family: 'Arial', sans-serif;
+            border-radius: 5px;
+            padding: 0 10px;
+            margin-top: 5rem;
+        }
 
-.container {
-    /* text-align: center; */
-    /* max-width: 800px; */
-    width: 100%;
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    
-}
+        .container {
+            /* text-align: center; */
+            /* max-width: 800px; */
+            width: 100%;
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
 
-.progress {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
+        }
 
-.step {
-    width: 50px;
-    height: 50px;
-    line-height: 30px;
-    background-color: #2d5a53;
-    color: #fff;
-    border-radius: 50%;
-    /* margin: 0 30px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-}
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
 
-.line{
-    width: 50px;
-    align-self: center;
-    background-color: #2e877a;
-    height: 2px;
-    
-   
-}
-.currentline{
-    width: 50px;
-    align-self: center;
-    background-color: white;
-    height: 2px;
-    
-   
-}
-.current {
-    width: 50px;
-    height: 50px;
-    line-height: 30px;
-    background-color: #fff;
-    color: #0e4238;
-    border-radius: 50%;
-    /* margin: 0 30px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-}
+        .step {
+            width: 50px;
+            height: 50px;
+            line-height: 30px;
+            background-color: #2d5a53;
+            color: #fff;
+            border-radius: 50%;
+            /* margin: 0 30px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
 
-#qa{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    /* justify-content: left; */
-}
+        .line {
+            width: 50px;
+            align-self: center;
+            background-color: #2e877a;
+            height: 2px;
 
-.title {
-    font-size: 35px;
-    margin-bottom: 20px;
-    margin-right: 20%;
-    display: inline-block;
-    margin-top: 50px;
-    
 
-   
-}
+        }
 
-.options {
-    /* margin-left: 20%; */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+        .currentline {
+            width: 50px;
+            align-self: center;
+            background-color: white;
+            height: 2px;
 
-.options input {
-    display: none;
-    background-color: transparent;
-    border: 2px solid #ffffff55;
-    color: #fff;
-    padding: 15px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-top-right-radius:10px ;
-    border-bottom-left-radius: 10px;
-    min-width: 14rem;
-}
 
-input:hover {
-    background-color: rgba(255, 255, 255, 0.452);
-}
+        }
 
-footer {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    font-size: 40px;
-}
+        .current {
+            width: 50px;
+            height: 50px;
+            line-height: 30px;
+            background-color: #fff;
+            color: #0e4238;
+            border-radius: 50%;
+            /* margin: 0 30px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+        }
 
-footer img {
-    height: 30px;
-}
+        #qa {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            /* justify-content: left; */
+        }
 
-#score{
-    font-size: 2rem;
-    color: rgb(0, 31, 58);
-}
+        .title {
+            font-size: 35px;
+            margin-bottom: 20px;
+            margin-right: 20%;
+            display: inline-block;
+            margin-top: 50px;
 
-/* Media Queries */
-@media (max-width: 768px) {
-    header img {
-        height: 30px;
-    }
 
-    .menu-icons img {
-        height: 18px;
-    }
 
-    .step {
-        width: 25px;
-        height: 25px;
-        line-height: 25px;
-        font-size: 12px;
-    }
+        }
 
-    .title {
-        font-size: 20px;
-    }
+        .options {
+            /* margin-left: 20%; */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-    .options button {
-        padding: 12px 15px;
-        font-size: 14px;
-    }
-    footer{
-        font-size: 30px;
-    }
-    footer img {
-        height: 20px;
-    }
-}
+        .options input {
+            display: none;
+            background-color: transparent;
+            border: 2px solid #ffffff55;
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            min-width: 14rem;
+        }
 
-@media (max-width: 480px) {
-    header {
-        padding: 10px;
-    }
+        input:hover {
+            background-color: rgba(255, 255, 255, 0.452);
+        }
 
-    .container {
-        padding: 10px;
-    }
+        footer {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 40px;
+        }
 
-    .title {
-        font-size: 18px;
-    }
+        footer img {
+            height: 30px;
+        }
 
-    .options button {
-        padding: 10px;
-        font-size: 12px;
-    }
+        #score {
+            font-size: 2rem;
+            color: rgb(0, 31, 58);
+        }
 
-    footer {
-        padding: 10px;
-    }
-    footer{
-        font-size: 20px;
-    }
-    footer img {
-        height: 10px;
-    }
-}
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header img {
+                height: 30px;
+            }
 
-     </style>
+            .menu-icons img {
+                height: 18px;
+            }
+
+            .step {
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+                font-size: 12px;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            .options button {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            footer {
+                font-size: 30px;
+            }
+
+            footer img {
+                height: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 18px;
+            }
+
+            .options button {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            footer {
+                padding: 10px;
+            }
+
+            footer {
+                font-size: 20px;
+            }
+
+            footer img {
+                height: 10px;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <img src="logo3.png" alt="quiz">Quiz
         <div class="menu-icons">
             <a href="qutubminar.html"> <img src="back4.png"></a>
             <a><img src="home3.png" alt=""></a>
-            
+
         </div>
     </header>
     <div class="progress">
@@ -265,284 +273,284 @@ footer img {
         </form>
     </div>
     <div class="container">
-       
-        
-            <div class="title" id="ques"></div>
-            <div class="options">
-                <input type="button" id="optionA" value="" onclick="opt(optionA.value)">
-                <input type="button" id="optionB" value="" onclick="opt(optionB.value)">
-                <input type="button" id="optionC" value="" onclick="opt(optionC.value)">
-            </div>
-        
+
+
+        <div class="title" id="ques"></div>
+        <div class="options">
+            <input type="button" id="optionA" value="" onclick="opt(optionA.value)">
+            <input type="button" id="optionB" value="" onclick="opt(optionB.value)">
+            <input type="button" id="optionC" value="" onclick="opt(optionC.value)">
+        </div>
+
     </div>
-    <div id ="score">Score</div>
+    <div id="score">Score</div>
     <footer>
         Tales <img src="logo3.png" alt="Footer Logo">f Bharat
     </footer>
     <script>
         let ques = document.getElementById("ques");
-let optionA = document.getElementById("optionA");
-let optionB = document.getElementById("optionB");
-let optionC = document.getElementById("optionC");
-let start = document.getElementById("start");
-let counter = document.getElementById("counter");
-let score = document.getElementById("score");
-let one = document.getElementById("one");
-let two = document.getElementById("two");
-let three = document.getElementById("three");
-let four = document.getElementById("four");
-let five = document.getElementById("five");
-let o = document.getElementById("o");
-let t = document.getElementById("t");
-let th= document.getElementById("th");
-let f= document.getElementById("f");
-let s = 0;
+        let optionA = document.getElementById("optionA");
+        let optionB = document.getElementById("optionB");
+        let optionC = document.getElementById("optionC");
+        let start = document.getElementById("start");
+        let counter = document.getElementById("counter");
+        let score = document.getElementById("score");
+        let one = document.getElementById("one");
+        let two = document.getElementById("two");
+        let three = document.getElementById("three");
+        let four = document.getElementById("four");
+        let five = document.getElementById("five");
+        let o = document.getElementById("o");
+        let t = document.getElementById("t");
+        let th = document.getElementById("th");
+        let f = document.getElementById("f");
+        let s = 0;
 
-let conf;
-let num = 2;
-// score.style.display="none";
+        let conf;
+        let num = 2;
+        // score.style.display="none";
 
-function begin() {
+        function begin() {
 
-    question1();
-    score.style.display="flex";
+            question1();
+            score.style.display = "flex";
 
 
-}
+        }
 
-function question1() {
+        function question1() {
 
-    start.style.display = "none";
-        ques.textContent = "In which city is the Qutub Minar located?";
+            start.style.display = "none";
+            ques.textContent = "In which city is the Qutub Minar located?";
             optionA.value = "Mumbai";
             optionB.value = "Delhi";
             optionC.value = "Hyderabad";
 
-    optionA.style.display = "inline-block";
-    optionB.style.display = "inline-block";
-    optionC.style.display = "inline-block";
-    one.classList.add("current");
-    
+            optionA.style.display = "inline-block";
+            optionB.style.display = "inline-block";
+            optionC.style.display = "inline-block";
+            one.classList.add("current");
 
-}
 
-function question2() {
+        }
 
-    start.style.display = "none";
-        ques.textContent = "Who commissioned the construction of Qutub Minar?";
+        function question2() {
+
+            start.style.display = "none";
+            ques.textContent = "Who commissioned the construction of Qutub Minar?";
             optionA.value = "Shah Jahan";
             optionB.value = "Qutb-ud-din Aibak";
             optionC.value = "Akbar";
 
-    optionA.style.display = "inline-block";
-    optionB.style.display = "inline-block";
-    optionC.style.display = "inline-block";
-    // one.classList.remove("current");
-    two.classList.add("current");
-    o.classList.add("currentline");
+            optionA.style.display = "inline-block";
+            optionB.style.display = "inline-block";
+            optionC.style.display = "inline-block";
+            // one.classList.remove("current");
+            two.classList.add("current");
+            o.classList.add("currentline");
 
-}
+        }
 
-function question3() {
+        function question3() {
 
-    start.style.display = "none";
-        ques.textContent = "What is the height of Qutub Minar?";
+            start.style.display = "none";
+            ques.textContent = "What is the height of Qutub Minar?";
             optionA.value = "72.5 meters";
             optionB.value = "62.5 meters";
             optionC.value = "82.5 meters";
 
-    optionA.style.display = "inline-block";
-    optionB.style.display = "inline-block";
-    optionC.style.display = "inline-block";
-    // two.classList.remove("current");
-    three.classList.add("current");
-    t.classList.add("currentline");
+            optionA.style.display = "inline-block";
+            optionB.style.display = "inline-block";
+            optionC.style.display = "inline-block";
+            // two.classList.remove("current");
+            three.classList.add("current");
+            t.classList.add("currentline");
 
-}
+        }
 
-function question4() {
+        function question4() {
 
-    start.style.display = "none";
-        ques.textContent = "What material is primarily used in Qutub Minar?";
+            start.style.display = "none";
+            ques.textContent = "What material is primarily used in Qutub Minar?";
             optionA.value = "Marble";
             optionB.value = "Red sandstone";
             optionC.value = "Granite";
 
-    optionA.style.display = "inline-block";
-    optionB.style.display = "inline-block";
-    optionC.style.display = "inline-block";
-    // three.classList.remove("current");
-    four.classList.add("current");
-    th.classList.add("currentline");
+            optionA.style.display = "inline-block";
+            optionB.style.display = "inline-block";
+            optionC.style.display = "inline-block";
+            // three.classList.remove("current");
+            four.classList.add("current");
+            th.classList.add("currentline");
 
-}
+        }
 
-function question5() {
+        function question5() {
 
-    start.style.display = "none";
-        ques.textContent = "In which year was Qutub Minar completed?";
+            start.style.display = "none";
+            ques.textContent = "In which year was Qutub Minar completed?";
             optionA.value = "1193";
             optionB.value = "1368";
             optionC.value = "1326";
 
-    optionA.style.display = "inline-block";
-    optionB.style.display = "inline-block";
-    optionC.style.display = "inline-block";
-    // four.classList.remove("current");
-    five.classList.add("current");
-    f.classList.add("currentline");
-
-}
-
-function opt(ele) {
-
-    console.log(ele);
-    switch (ele) {
-
-        case 'Delhi': optionB.style.backgroundColor = " rgb(20, 255, 20)";
-            optionB.style.color = "black";
-            s++;
-            break;
-
-        case 'Mumbai': optionA.style.backgroundColor = " #ff0011"
-            optionA.style.color = "black";
-            break;
-
-        case 'Hyderabad': optionC.style.backgroundColor = " #ff0011"
-            optionC.style.color = "black";
-            break;
-
-        case 'Qutb-ud-din Aibak': optionB.style.backgroundColor = " rgb(20, 255, 20)";
-            s++;
-            optionB.style.color = "black";
-            break;
-
-        case 'Shah Jahan': optionA.style.backgroundColor = " #ff0011"
-            optionA.style.color = "black";
-            break;
-
-        case 'Akbar': optionC.style.backgroundColor = " #ff0011"
-            optionC.style.color = "black";
-            break;
-
-        case '82.5 meters': optionC.style.backgroundColor = " #ff0011";
-            optionC.style.color = "black";
-            break;
-
-        case '72.5 meters': optionA.style.backgroundColor = "rgb(20, 255, 20)";
-            s++;
-            optionA.style.color = "black";
-            break;
-
-        case '62.5 meters': optionB.style.backgroundColor = " #ff0011"
-            optionB.style.color = "black";
-            break;
-
-        case 'Granite': optionC.style.backgroundColor = " #ff0011";
-            optionC.style.color = "black";
-            break;
-
-        case 'Marble': optionA.style.backgroundColor = "#ff0011";
-            optionA.style.color = "black";
-            break;
-
-        case 'Red sandstone': optionB.style.backgroundColor = "rgb(20, 255, 20)";
-            s++;
-            optionB.style.color = "black";
-            break;
-
-        case '1326': optionC.style.backgroundColor = "#ff0011";
-            optionC.style.color = "black";
-            break;
-
-        case '1193': optionA.style.backgroundColor = "#ff0011";
-            optionA.style.color = "black";
-            break;
-
-        case '1368': optionB.style.backgroundColor = "rgb(20, 255, 20)";
-            s++;
-            optionB.style.color = "black";
-            break;
-
-
-    }
-
-    optionB.disabled = true;
-    optionA.disabled = true;
-    optionC.disabled = true;
-
-
-
-    score.textContent = `Score : ${s}`;
-
-    setTimeout(() => { clean(); }, 1500);
-    conf = true;
-    console.log(conf);
-    if (conf) {
-
-        switch (num) {
-            case 2: setTimeout(() => { question2(); }, 1500);
-                break;
-            case 3: setTimeout(() => { question3(); }, 1500);
-                break;
-            case 4: setTimeout(() => { question4(); }, 1500);
-                break;
-            case 5: setTimeout(() => { question5(); }, 1500);
-                break;
-            default: score.textContent = `Score ${s}/5`;
-                optionA.style.display = "none";
-                optionB.style.display = "none";
-                optionC.style.display = "none";
-                ques.textContent = "";
-                let nele=document.createElement("H1");
-                nele.textContent=`Score ${s}/5`;
-                if(confirm("want your score on gmail?")){
-                    document.getElementById("scorecontainer").style.display="block";
-                }
-                msg=`Your final socre for this quiz is ${s}.`;
-                // document.header.append(nele);
-                // setTimeout(()=>{
-                //     // window.location.replace("http://127.0.0.1:5500/quiz/quiz.html");
-                //     // window.location.href = "http://127.0.0.1:5500/quiz/quiz.html";
-                // },1500);
-
+            optionA.style.display = "inline-block";
+            optionB.style.display = "inline-block";
+            optionC.style.display = "inline-block";
+            // four.classList.remove("current");
+            five.classList.add("current");
+            f.classList.add("currentline");
 
         }
-        conf = false;
-        num++;
 
-    }
-    console.log(num);
+        function opt(ele) {
 
-    return ele;
+            console.log(ele);
+            switch (ele) {
 
-}
+                case 'Delhi': optionB.style.backgroundColor = " rgb(20, 255, 20)";
+                    optionB.style.color = "black";
+                    s++;
+                    break;
 
-function clean() {
-    // optionA.style.display="none";
-    // optionB.style.display="none";
-    // optionC.style.display="none";
-    optionC.style.backgroundColor = " transparent";
-    optionA.style.backgroundColor = " transparent";
-    optionB.style.backgroundColor = " transparent";
+                case 'Mumbai': optionA.style.backgroundColor = " #ff0011"
+                    optionA.style.color = "black";
+                    break;
 
-    optionA.style.color = "white";
-    optionB.style.color = "white";
-    optionC.style.color = "white";
+                case 'Hyderabad': optionC.style.backgroundColor = " #ff0011"
+                    optionC.style.color = "black";
+                    break;
 
-    optionC.disabled = false;
-    optionA.disabled = false;
-    optionB.disabled = false;
+                case 'Qutb-ud-din Aibak': optionB.style.backgroundColor = " rgb(20, 255, 20)";
+                    s++;
+                    optionB.style.color = "black";
+                    break;
 
-    console.log("this clean is called");
-}
+                case 'Shah Jahan': optionA.style.backgroundColor = " #ff0011"
+                    optionA.style.color = "black";
+                    break;
+
+                case 'Akbar': optionC.style.backgroundColor = " #ff0011"
+                    optionC.style.color = "black";
+                    break;
+
+                case '82.5 meters': optionC.style.backgroundColor = " #ff0011";
+                    optionC.style.color = "black";
+                    break;
+
+                case '72.5 meters': optionA.style.backgroundColor = "rgb(20, 255, 20)";
+                    s++;
+                    optionA.style.color = "black";
+                    break;
+
+                case '62.5 meters': optionB.style.backgroundColor = " #ff0011"
+                    optionB.style.color = "black";
+                    break;
+
+                case 'Granite': optionC.style.backgroundColor = " #ff0011";
+                    optionC.style.color = "black";
+                    break;
+
+                case 'Marble': optionA.style.backgroundColor = "#ff0011";
+                    optionA.style.color = "black";
+                    break;
+
+                case 'Red sandstone': optionB.style.backgroundColor = "rgb(20, 255, 20)";
+                    s++;
+                    optionB.style.color = "black";
+                    break;
+
+                case '1326': optionC.style.backgroundColor = "#ff0011";
+                    optionC.style.color = "black";
+                    break;
+
+                case '1193': optionA.style.backgroundColor = "#ff0011";
+                    optionA.style.color = "black";
+                    break;
+
+                case '1368': optionB.style.backgroundColor = "rgb(20, 255, 20)";
+                    s++;
+                    optionB.style.color = "black";
+                    break;
+
+
+            }
+
+            optionB.disabled = true;
+            optionA.disabled = true;
+            optionC.disabled = true;
 
 
 
-let msg;
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            score.textContent = `Score : ${s}`;
+
+            setTimeout(() => { clean(); }, 1500);
+            conf = true;
+            console.log(conf);
+            if (conf) {
+
+                switch (num) {
+                    case 2: setTimeout(() => { question2(); }, 1500);
+                        break;
+                    case 3: setTimeout(() => { question3(); }, 1500);
+                        break;
+                    case 4: setTimeout(() => { question4(); }, 1500);
+                        break;
+                    case 5: setTimeout(() => { question5(); }, 1500);
+                        break;
+                    default: score.textContent = `Score ${s}/5`;
+                        optionA.style.display = "none";
+                        optionB.style.display = "none";
+                        optionC.style.display = "none";
+                        ques.textContent = "";
+                        let nele = document.createElement("H1");
+                        nele.textContent = `Score ${s}/5`;
+                        if (confirm("want your score on gmail?")) {
+                            document.getElementById("scorecontainer").style.display = "block";
+                        }
+                        msg = `Your final socre for this quiz is ${s}.`;
+                    // document.header.append(nele);
+                    // setTimeout(()=>{
+                    //     // window.location.replace("http://127.0.0.1:5500/quiz/quiz.html");
+                    //     // window.location.href = "http://127.0.0.1:5500/quiz/quiz.html";
+                    // },1500);
+
+
+                }
+                conf = false;
+                num++;
+
+            }
+            console.log(num);
+
+            return ele;
+
+        }
+
+        function clean() {
+            // optionA.style.display="none";
+            // optionB.style.display="none";
+            // optionC.style.display="none";
+            optionC.style.backgroundColor = " transparent";
+            optionA.style.backgroundColor = " transparent";
+            optionB.style.backgroundColor = " transparent";
+
+            optionA.style.color = "white";
+            optionB.style.color = "white";
+            optionC.style.color = "white";
+
+            optionC.disabled = false;
+            optionA.disabled = false;
+            optionB.disabled = false;
+
+            console.log("this clean is called");
+        }
+
+
+
+        let msg;
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             const fromName = "Tales of Bharat"; // Change this to your desired sender name
             const templateParams = {
                 from_name: fromName,
@@ -568,64 +576,65 @@ let msg;
                     template_params: templateParams
                 })
             })
-            .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
-            .then(text => {
-                try {
-                    const data = JSON.parse(text);
-                    if (data.status === 'success') {
-                        console.log('SUCCESS!', data);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', data);
-                        alert('Failed to send email. Please try again.');
+                .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.status === 'success') {
+                            console.log('SUCCESS!', data);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', data);
+                            alert('Failed to send email. Please try again.');
+                        }
+                    } catch (error) {
+                        // Handle non-JSON response (e.g., plain text "OK")
+                        if (text === "OK") {
+                            console.log('SUCCESS!', text);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', text);
+                            alert('Failed to send email. Please try again.');
+                        }
                     }
-                } catch (error) {
-                    // Handle non-JSON response (e.g., plain text "OK")
-                    if (text === "OK") {
-                        console.log('SUCCESS!', text);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', text);
-                        alert('Failed to send email. Please try again.');
-                    }
-                }
-            })
-            .catch((error) => {
-                console.error('FAILED...', error);
-                alert('Failed to send email. Please try again.');
-            });
+                })
+                .catch((error) => {
+                    console.error('FAILED...', error);
+                    alert('Failed to send email. Please try again.');
+                });
         });
 
-const b1 = document.getElementById('optionA');
+        const b1 = document.getElementById('optionA');
 
-b1.addEventListener('mouseover', () => {
-    b1.style.backgroundColor = 'rgba(255, 255, 255, 0.452)';
-});
+        b1.addEventListener('mouseover', () => {
+            b1.style.backgroundColor = 'rgba(255, 255, 255, 0.452)';
+        });
 
-b1.addEventListener('mouseout', () => {
-    b1.style.backgroundColor = 'transparent';
-});
+        b1.addEventListener('mouseout', () => {
+            b1.style.backgroundColor = 'transparent';
+        });
 
-const b2 = document.getElementById('optionB');
+        const b2 = document.getElementById('optionB');
 
-b2.addEventListener('mouseover', () => {
-    b2.style.backgroundColor = 'rgba(255, 255, 255, 0.452)';
-});
+        b2.addEventListener('mouseover', () => {
+            b2.style.backgroundColor = 'rgba(255, 255, 255, 0.452)';
+        });
 
-b2.addEventListener('mouseout', () => {
-    b2.style.backgroundColor = 'transparent';
-});
+        b2.addEventListener('mouseout', () => {
+            b2.style.backgroundColor = 'transparent';
+        });
 
-const b3 = document.getElementById('optionC');
+        const b3 = document.getElementById('optionC');
 
-b3.addEventListener('mouseover', () => {
-    b3.style.backgroundColor = 'rgba(255, 255, 255, 0.452)';
-});
+        b3.addEventListener('mouseover', () => {
+            b3.style.backgroundColor = 'rgba(255, 255, 255, 0.452)';
+        });
 
-b3.addEventListener('mouseout', () => {
-    b3.style.backgroundColor = 'transparent';
-});
+        b3.addEventListener('mouseout', () => {
+            b3.style.backgroundColor = 'transparent';
+        });
 
     </script>
 </body>
+
 </html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diwali Quiz</title>
     <link rel="stylesheet" href="scorecontainer.css">
+    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -139,31 +141,35 @@
             color: rgb(0, 31, 58);
         }
 
-        #hint{
+        #hint {
             font-size: 2rem;
             /* margin-bottom: 10px; */
             color: #210d38;
         }
-        #answer{
+
+        #answer {
             /* font-size: 1.5rem; */
             text-align: center;
             border-radius: 5px;
-            height:2.5rem;
+            height: 2.5rem;
             font-size: 1.5rem;
-            margin:15px 10px;
+            margin: 15px 10px;
             background-color: rgb(213, 236, 255);
             border: none;
             transition: all 0.3s ease;
             color: #1d0304;
 
         }
-        #answer::placeholder{
-           color: rgb(0, 0, 0);
+
+        #answer::placeholder {
+            color: rgb(0, 0, 0);
         }
-        #answer:hover{
+
+        #answer:hover {
             background-color: rgb(201, 213, 225);
         }
-        #sub{
+
+        #sub {
             border-radius: 5px;
             border: none;
             background-color: rgb(247, 251, 255);
@@ -173,10 +179,11 @@
             padding: 5px 10px;
             transition: all 0.3s ease;
         }
-        #sub:hover{
+
+        #sub:hover {
             background-color: rgb(206, 227, 250);
         }
-        
+
 
         @media (max-width: 768px) {
             header img {
@@ -204,17 +211,20 @@
             footer img {
                 height: 20px;
             }
-            #hint{
-            font-size: 1.3rem;
+
+            #hint {
+                font-size: 1.3rem;
             }
-            #answer{
-            height:2rem;
-            font-size: 1rem;
+
+            #answer {
+                height: 2rem;
+                font-size: 1rem;
             }
-            #sub{
-            font-size: 1rem;
-            margin-top: 15px;
-            padding: 3px 7px;
+
+            #sub {
+                font-size: 1rem;
+                margin-top: 15px;
+                padding: 3px 7px;
             }
 
         }
@@ -239,22 +249,26 @@
             footer img {
                 height: 10px;
             }
-            #hint{
-            font-size: 0.8rem;
+
+            #hint {
+                font-size: 0.8rem;
             }
-            #answer{
-            /* font-size: 1.5rem; */
-            height:1.2rem;
-            font-size: 0.8rem;
+
+            #answer {
+                /* font-size: 1.5rem; */
+                height: 1.2rem;
+                font-size: 0.8rem;
             }
-            #sub{
-            font-size: 0.8rem;
-            margin-top: 15px;
-            padding: 2px 5px;
+
+            #sub {
+                font-size: 0.8rem;
+                margin-top: 15px;
+                padding: 2px 5px;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="logo3.png" alt="quiz">Quiz
@@ -288,7 +302,8 @@
         <div id="hint">Hint</div>
         <div class="title" id="ques"></div>
         <div><input type="text" id="answer" placeholder="Rearrange the letters" autocomplete="off">
-            <button onclick="checkAnswer()" id="sub">Submit</button></div>
+            <button onclick="checkAnswer()" id="sub">Submit</button>
+        </div>
     </div>
     <div id="score">Score</div>
     <footer>
@@ -314,9 +329,9 @@
         let s = 0;
         let num = 1;
         let currentQuestion = 0;
-        answerInput.style.display="none";
-        sub.style.display="none";
-        hint.style.display="none";
+        answerInput.style.display = "none";
+        sub.style.display = "none";
+        hint.style.display = "none";
         const questions = [
             { jumbled: "A R N G I O L", answer: "RANGOLI" },
             { jumbled: "D W I A L I", answer: "DIWALI" },
@@ -327,10 +342,10 @@
 
         function begin() {
             currentQuestion = 0;
-            answerInput.style.display="inline";
-            sub.style.display="inline";
-            hint.style.display="flex";
-            hint.textContent="Hint : It's a design made on floor with different colours."
+            answerInput.style.display = "inline";
+            sub.style.display = "inline";
+            hint.style.display = "flex";
+            hint.textContent = "Hint : It's a design made on floor with different colours."
             displayQuestion();
             start.style.display = "none";
             score.style.display = "flex";
@@ -373,15 +388,15 @@
 
             currentQuestion += 1;
             displayQuestion();
-            switch(currentQuestion){
-                case 1: hint.textContent="Hint : It's the festival of colours.";
-                        break;
-                case 2: hint.textContent="Hint : It's small explosive thing, makes noise when explodes  .";
-                        break;
-                case 3: hint.textContent="Hint : It's lit as a subsitute to earthen lamps.";
-                        break;
-                case 4: hint.textContent="Hint : It's is used to decorate houses, available in vibrant colours .";
-                        break;
+            switch (currentQuestion) {
+                case 1: hint.textContent = "Hint : It's the festival of colours.";
+                    break;
+                case 2: hint.textContent = "Hint : It's small explosive thing, makes noise when explodes  .";
+                    break;
+                case 3: hint.textContent = "Hint : It's lit as a subsitute to earthen lamps.";
+                    break;
+                case 4: hint.textContent = "Hint : It's is used to decorate houses, available in vibrant colours .";
+                    break;
             }
             score.textContent = `Score: ${s}`;
         }
@@ -390,18 +405,18 @@
             ques.style.display = "none";
             answerInput.style.display = "none";
             score.textContent = "Your Score is " + s + "/5";
-            sub.style.display="none";
-            hint.style.display="none";
-            if(confirm("want your score on gmail?")){
-                    document.getElementById("scorecontainer").style.display="block";
-                }
-            msg=`Your final socre for this quiz is ${s}.`;
+            sub.style.display = "none";
+            hint.style.display = "none";
+            if (confirm("want your score on gmail?")) {
+                document.getElementById("scorecontainer").style.display = "block";
+            }
+            msg = `Your final socre for this quiz is ${s}.`;
         }
 
         let msg;
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             const fromName = "Tales of Bharat"; // Change this to your desired sender name
             const templateParams = {
                 from_name: fromName,
@@ -427,34 +442,35 @@
                     template_params: templateParams
                 })
             })
-            .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
-            .then(text => {
-                try {
-                    const data = JSON.parse(text);
-                    if (data.status === 'success') {
-                        console.log('SUCCESS!', data);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', data);
-                        alert('Failed to send email. Please try again.');
+                .then(response => response.text()) // Changed from .json() to .text() to handle non-JSON responses
+                .then(text => {
+                    try {
+                        const data = JSON.parse(text);
+                        if (data.status === 'success') {
+                            console.log('SUCCESS!', data);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', data);
+                            alert('Failed to send email. Please try again.');
+                        }
+                    } catch (error) {
+                        // Handle non-JSON response (e.g., plain text "OK")
+                        if (text === "OK") {
+                            console.log('SUCCESS!', text);
+                            alert('Email sent successfully!');
+                        } else {
+                            console.error('FAILED...', text);
+                            alert('Failed to send email. Please try again.');
+                        }
                     }
-                } catch (error) {
-                    // Handle non-JSON response (e.g., plain text "OK")
-                    if (text === "OK") {
-                        console.log('SUCCESS!', text);
-                        alert('Email sent successfully!');
-                    } else {
-                        console.error('FAILED...', text);
-                        alert('Failed to send email. Please try again.');
-                    }
-                }
-            })
-            .catch((error) => {
-                console.error('FAILED...', error);
-                alert('Failed to send email. Please try again.');
-            });
+                })
+                .catch((error) => {
+                    console.error('FAILED...', error);
+                    alert('Failed to send email. Please try again.');
+                });
         });
 
     </script>
 </body>
+
 </html>
