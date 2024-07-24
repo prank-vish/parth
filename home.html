@@ -5,11 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tales of Bharat</title>
     <style>
-        body {
+        body,html {
             margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
             font-family: Arial, sans-serif;
             background-color: #121212;
             color: #e0e0e0;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 1;
+        }
+        .content, header, .section, footer {
+            position: relative;
+            z-index: 2;
         }
         header {
             display: flex;
@@ -159,11 +173,14 @@
             }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </head>
 <body>
+    <div id="particles-js"></div>
+    <div class="content">
     <header>
-        <h1>Tales <img src="logo3.png" style="height: 20px;border-radius: 20px;background-color: #ff5722;" alt="Tales of Bharat">f Bharat</h1>
+        <h1>Tales <img src="logo3.png" style="height: 20px;border-radius: 20px;background-color: #ff5722;" alt="Tales of Bharat"> of Bharat</h1>
         <nav>
             <a href="#monuments">Monuments</a>
             <a href="#cuisine">Cuisine</a>
@@ -258,7 +275,7 @@
                 <a href="literature.html">Learn More</a>
             </div>
             <div>
-                <img src="mahabharat10.jpg" alt="Indian Literature">
+                <img src="literature.jpg" alt="Indian Literature">
             </div>
         </div>
     </section>
@@ -304,14 +321,128 @@
 
     
     <footer id="contact">
-        <p>Contact us: <a href="mailto:wetalesofbharat@gmail.com">&#9993; Mail Us</a> | &#9742 +91 9695732481</p>
+        <p>Contact us: u23cs113@coed.svnit.ac.in | +91 9695732481</p>
         <p>
             <a href="#"><img src="facebook.png" alt="Facebook"></a>  
-            <a href="https://whatsapp.com/channel/0029VakmDzb89inlTvaSls30"><img src="whatsapplogo.jpg" alt="Whatsapp"></a>  
+            <a href="#"><img src="whatsapplogo.jpg" alt="Whatsapp"></a>  
             <a href="https://www.instagram.com/prankit.svnit/"><img src="Instagramlogo.webp" alt="Instagram"></a>
         </p>
         <p>&copy; 2024 Tales of Bharat. All rights reserved.</p>
     </footer>
+
+    <script>
+                particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#ffffff"
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    },
+                    image: {
+                        src: "img/github.svg",
+                        width: 100,
+                        height: 100
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+    </script>
 
     <script>
 
