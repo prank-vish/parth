@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     background-color: #fdf5e6; /* Light beige background */
 }
 

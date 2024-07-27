@@ -56,6 +56,13 @@
             float: right;
             margin-right: 10px;
         }
+         
+        .sb-slider li a img{
+            min-width: 100%;
+        }
+        /* .sb-slider {
+    max-width: 100vw !important;
+} */
     </style>
 </head>
 <body>
@@ -77,10 +84,10 @@
         </div>
     </nav>
     <div id="slider-container">
-        <ul id="sb-slider" class="sb-slider" style="max-width: 100%;">
-            <li><a href=""><img src="red fort.webp" alt="Image 1"></a></li>
-            <li><a href=""><img src="red10.jpg" alt="Image 2"></a></li>
-            <li><a href=""><img src="red11.jpg" alt="Image 3"></a></li>
+        <ul id="sb-slider" class="sb-slider" style="min-width: 100%;">
+            <li><a href=""><img src="red fort.webp" alt="Image 1" ></a></li>
+            <li><a href=""><img src="red10.jpg" alt="Image 2" ></a></li>
+            <li><a href=""><img src="red11.jpg" alt="Image 3" ></a></li>
         </ul>
         <div id="nav-arrows">
             <span id="nav-prev" class="nav-arrow">&#9664;</span>
@@ -104,22 +111,26 @@
     <script src="jquery.slicebox.min.js"></script>
     <script>
         $(document).ready(function() {
-            var slicebox = $('#sb-slider').slicebox({
-                orientation: 'r',
-                cuboidsRandom: true,
-                disperseFactor: 30
-            });
+    var slicebox = $('#sb-slider').slicebox({
+        orientation: 'r',
+        cuboidsRandom: true,
+        disperseFactor: 30
+    });
 
-            $('#nav-prev').on('click', function() {
-                slicebox.previous();
-                return false;
-            });
+    $('#sb-slider').css('max-width', '100%');
+    $('#sb-slider').css('width', '100%');
 
-            $('#nav-next').on('click', function() {
-                slicebox.next();
-                return false;
-            });
-        });
+    $('#nav-prev').on('click', function() {
+        slicebox.previous();
+        return false;
+    });
+
+    $('#nav-next').on('click', function() {
+        slicebox.next();
+        return false;
+    });
+});
+
 
         function toggleMenu() {
             const menu = document.querySelector('.navbar-menu');
