@@ -4,11 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Cuisines</title>
+    <title>cuisine</title>
+    <!-- Include Slicebox CSS -->
+    <link rel="stylesheet" href="slicebox.css">
     <link rel="stylesheet" href="cuisine.css">
     <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: -10px;
+            overflow: hidden; 
+        }
+        #slider-container {
+            position: relative;
+            width: 100%; /* Full width of the viewport */
+            height: 100%; /* Full height of the viewport */
+        }
+        .sb-slider li {
+            list-style: none;
+            max-width: 100%; /* Full width of the viewport */
+            height: 100vh; /* Full height of the viewport */
+        }
+        .sb-slider li img {
+            max-width: 100%; /* Full width of the viewport */
+            height: 100vh; /* Full height of the viewport */
+            object-fit: cover; /* Ensure the image covers the entire area */
+        }
+        #nav-arrows {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            margin-top: -30px;
+            z-index: 1000;
+        }
+        .nav-arrow {
+            width: 50px;
+            height: 50px;
+            background: #000;
+            color: #fff;
+            line-height: 50px;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+        .nav-arrow#nav-prev {
+            float: left;
+            margin-left: 10px;
+        }
+        .nav-arrow#nav-next {
+            float: right;
+            margin-right: 10px;
+        }
+         
+        .sb-slider li a img{
+            min-width: 100%;
+        }
+        /* .sb-slider {
+    max-width: 100vw !important;
+} */
+    </style>
 </head>
-
 <body>
     <nav class="navbar">
         <div class="navbar-header">
@@ -27,47 +84,20 @@
             </ul>
         </div>
     </nav>
-    <div class="slider">
-        <div class="slides">
-            <div class="slide">
-                <a href="panipuri.html">
-                    <img src="panipuri.jpg" alt="Pani Puri">
-                </a>
-            </div>
-            <div class="slide">
-                <a href="cholebhature.html">
-                    <img src="chhole10.jpg" alt="Chole Bhature">
-                </a>
-            </div>
-            <div class="slide">
-                <a href="dosa.html">
-                    <img src="dosa11.jpg" alt="Dosa">
-                </a>
-            </div>
-            <div class="slide">
-                <a href="idli-vada.html">
-                    <img src="idli10.jpg" alt="Idli Vada">
-                </a>
-            </div>
-            <div class="slide">
-                <a href="dahi jalebi.html">
-                    <img src="jalebi12.jpg" alt="Dahi Jalebi">
-                </a>
-            </div>
-            <div class="slide">
-                <a href="sarso ka saag.html">
-                    <img src="sarso10.jpg" alt="Sarso Ka Saag">
-                </a>
-            </div>
-            <div class="slide">
-                <a href="litti chokha.html">
-                    <img src="litti11.jpg" alt="Litti Chokha">
-                </a>
-            </div>
-        </div>
-        <div class="navigation">
-            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    <div id="slider-container">
+        <ul id="sb-slider" class="sb-slider" style="min-width: 100%;">
+            <li><a href="panipuri.html"><img src="panipuri.jpg" alt="Image 1" ></a></li>
+            <li><a href="cholebhature.html"><img src="chhole10.jpg" alt="Image 2" ></a></li>
+            <li><a href="dosa.html"><img src="dosa11.jpg" alt="Image 3" ></a></li>
+            <li><a href="idli-vada.html"><img src="idli10.jpg" alt="Image 1" ></a></li>
+            <li><a href="dahi jalebi.html"><img src="jalebi12.jpg" alt="Image 2" ></a></li>
+            <li><a href="sarso ka saag.html"><img src="sarso10.jpg" alt="Image 3" ></a></li>
+            <li><a href="litti chokha.html"><img src="litti11.jpg" alt="Image 3" ></a></li>
+
+        </ul>
+        <div id="nav-arrows">
+            <span id="nav-prev" class="nav-arrow">&#9664;</span>
+            <span id="nav-next" class="nav-arrow">&#9654;</span>
         </div>
     </div>
     <footer class="footer">
@@ -79,7 +109,39 @@
             <p>&#9742; 9695732481</p>
         </div>
     </footer>
-    <script src="monument.js"></script>
-</body>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Include Modernizr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <!-- Include Slicebox JS -->
+    <script src="jquery.slicebox.min.js"></script>
+    <script>
+        $(document).ready(function() {
+    var slicebox = $('#sb-slider').slicebox({
+        orientation: 'r',
+        cuboidsRandom: true,
+        disperseFactor: 30
+    });
 
+    $('#sb-slider').css('max-width', '100%');
+    $('#sb-slider').css('width', '100%');
+
+    $('#nav-prev').on('click', function() {
+        slicebox.previous();
+        return false;
+    });
+
+    $('#nav-next').on('click', function() {
+        slicebox.next();
+        return false;
+    });
+});
+
+
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
 </html>

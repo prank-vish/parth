@@ -51,12 +51,13 @@ body {
 
 .navbar-menu li a {
     display: block;
-    color: #ffd700; /* Golden color */
+    color: #fa270b; /* Golden color */
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
+    text-shadow: 2px 0px #5c2424;
     font-size: 20px;
-    font-weight: bold;
+    font-weight: bolder;
     transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
