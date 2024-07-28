@@ -203,7 +203,13 @@
             cursor: pointer;
             margin-right: 20px;
         }
+        .hover-zoom {
+            transition: transform 0.3s;
+        }
 
+        .hover-zoom:hover {
+            transform: scale(1.1);
+        }
         @media (max-width: 1024px) {
             .hamburger {
                 display: block;
@@ -297,7 +303,7 @@
     </div>
 
     <div class="section">
-        <img src="redfort1.avif" alt="Red Fort">
+        <img src="redfort1.avif" alt="Red Fort" class="hover-zoom" >
     </div>
 
     <div class="section">

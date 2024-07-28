@@ -203,7 +203,13 @@
             cursor: pointer;
             margin-right: 20px;
         }
+        .hover-zoom {
+            transition: transform 0.3s;
+        }
 
+        .hover-zoom:hover {
+            transform: scale(1.1);
+        }
         @media (max-width: 1024px) {
             .hamburger {
                 display: block;
@@ -292,7 +298,7 @@
     </div>
 
     <div class="section">
-        <img src="durga11.jpg" alt="Durga Puja">
+        <img src="durga11.jpg" alt="Durga Puja" class="hover-zoom" >
     </div>
 
     <div class="section">

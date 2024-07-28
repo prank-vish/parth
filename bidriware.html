@@ -208,6 +208,13 @@
             cursor: pointer;
             margin-right: 20px;
         }
+        .hover-zoom {
+            transition: transform 0.3s;
+        }
+
+        .hover-zoom:hover {
+            transform: scale(1.1);
+        }
 
         @media (max-width: 1024px) {
             .hamburger {
@@ -296,7 +303,7 @@
     </div>
 
     <div class="section">
-        <img src="bidriware.jpg" alt="Bidriware Image">
+        <img src="bidriware.jpg" alt="Bidriware Image" class="hover-zoom">
     </div>
 
     <div class="section">

@@ -215,7 +215,13 @@
             cursor: pointer;
             margin-right: 20px;
         }
+        .hover-zoom {
+            transition: transform 0.3s;
+        }
 
+        .hover-zoom:hover {
+            transform: scale(1.1);
+        }
         @media (max-width: 1024px) {
             .hamburger {
                 display: block;
@@ -303,7 +309,7 @@
     </div>
 
     <div class="section">
-        <img src="golgappa10.jpg" alt="Panipuri Image"> <!-- Update with an appropriate image -->
+        <img src="golgappa10.jpg" alt="Panipuri Image"  class="hover-zoom" > <!-- Update with an appropriate image -->
     </div>
 
     <div class="section">

@@ -203,7 +203,13 @@
             cursor: pointer;
             margin-right: 20px;
         }
+        .hover-zoom {
+            transition: transform 0.3s;
+        }
 
+        .hover-zoom:hover {
+            transform: scale(1.1);
+        }
         @media (max-width: 1024px) {
             .hamburger {
                 display: block;
@@ -296,7 +302,7 @@
     </div>
 
     <div class="section">
-        <img src="hawa11.jpg" alt="Hawa Mahal">
+        <img src="hawa11.jpg" alt="Hawa Mahal" class="hover-zoom" >
     </div>
 
     <div class="section">
