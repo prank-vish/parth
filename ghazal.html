@@ -60,7 +60,7 @@
             gap: 15px;
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #008000;
             margin: 0 10px;
@@ -71,9 +71,11 @@
             box-shadow: 2px 2px #20B2AA;
             font-size: 1.2em;
             transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #008000;
             color: #FFD700;
         }
@@ -282,8 +284,8 @@
             <p>Ghazal is a poetic form of music originating from Persia and popular in South Asia. It is characterized
                 by its poetic structure and soulful expression, conveying themes of love, loss, and mysticism.</p>
             <div class="links">
-                <a href="music.html">Back to Music</a>
-                <a href="quizghazal.html">Try Quiz</a>
+                <button onclick="window.location.href='music.html'">Back to Music & Dance</button>
+                <button onclick="window.location.href='quizghazal'">Try Quiz</button>
             </div>
         </div>
     </div>

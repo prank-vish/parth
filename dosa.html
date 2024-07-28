@@ -67,7 +67,7 @@
             /* Adjust spacing between buttons */
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #fff;
             transition: background-color 0.3s, color 0.3s;
@@ -77,9 +77,11 @@
             padding: 12px 24px;
             border-radius: 15px;
             font-size: 1.2em;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #fff;
             color: #556b2f;
         }
@@ -297,8 +299,8 @@
             <p>Dosa is a popular South Indian dish made from fermented rice and lentil batter. It's a crispy, savory
                 pancake often served with chutneys and sambar.</p>
             <div class="links">
-                <a href="cuisine.html">Back to Cuisine</a>
-                <a href="dosaquiz.html">Try Quiz</a>
+                <button onclick="window.location.href='cusine.html'">Back to Cusine</button>
+                <button onclick="window.location.href='dosaquiz.html'">Try Quiz</button>
             </div>
         </div>
     </div>

@@ -62,7 +62,7 @@
             /* Adjust spacing between buttons */
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #008000;
             font-weight: bold;
@@ -72,9 +72,11 @@
             box-shadow: 2px 2px #20B2AA;
             font-size: 1.2em;
             transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #20B2AA;
             color: #ffd700;
         }
@@ -291,8 +293,8 @@
             <p>This art form is practiced by the women of the region, and it has gained international recognition for
                 its unique style and beauty.</p>
             <div class="links">
-                <a href="arts.html">Back to Arts</a>
-                <a href="quizmadhubani.html">Try Quiz</a>
+                <button onclick="window.location.href='arts.html'">Back to Arts</button>
+                <button onclick="window.location.href='quizmadhubani.html'">Try Quiz</button>
             </div>
         </div>
     </div>

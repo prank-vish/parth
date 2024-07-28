@@ -61,7 +61,7 @@
             gap: 15px;
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #8B0000;
             font-weight: bold;
@@ -70,9 +70,11 @@
             border-radius: 15px;
             box-shadow: 2px 2px #DAA520;
             transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #8B0000;
             color: #FFD700;
         }
@@ -287,8 +289,8 @@
                 stucco decorations.</p>
             <p>The Charminar is a significant landmark in Hyderabad and a popular tourist destination.</p>
             <div class="links">
-                <a href="monument.html">Back to Monuments</a>
-                <a href="quizchar.html">Try Quiz</a>
+                <button onclick="window.location.href='monument.html'">Back to Monuments</button>
+                <button onclick="window.location.href='quizcharminar.html'">Try Quiz</button>
             </div>
         </div>
     </div>

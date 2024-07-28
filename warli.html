@@ -62,7 +62,7 @@
             /* Adjust spacing between buttons */
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #008000;
             font-weight: bold;
@@ -72,9 +72,11 @@
             box-shadow: 2px 2px #20B2AA;
             font-size: 1.2em;
             transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #20B2AA;
             color: #ffd700;
         }
@@ -291,8 +293,8 @@
             <p>This art form has been passed down through generations and continues to be a vital part of the Warli
                 community's cultural identity.</p>
             <div class="links">
-                <a href="arts.html">Back to Arts</a>
-                <a href="quizwarli.html">Try Quiz</a>
+                <button onclick="window.location.href='arts.html'">Back to Arts</button>
+                <button onclick="window.location.href='quizwarli.html'">Try Quiz</button>
             </div>
         </div>
     </div>

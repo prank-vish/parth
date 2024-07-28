@@ -62,7 +62,7 @@
             /* Adjust spacing between buttons */
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #800000;
             transition: background-color 0.3s, color 0.3s;
@@ -72,9 +72,11 @@
             border-radius: 15px;
             box-shadow: 2px 2px #800000;
             font-size: 1.2em;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #800000;
             color: #ffd700;
         }
@@ -286,8 +288,8 @@
             <p>Gitanjali, or Song Offerings, is a collection of 103 poems written by the Bengali poet Rabindranath
                 Tagore. It was published in 1910 and won Tagore the Nobel Prize for Literature in 1913.</p>
             <div class="links">
-                <a href="literature.html">Back to Literature</a>
-                <a href="quizgitanjali.html">Try Quiz</a>
+                <button onclick="window.location.href='literature.html'">Back to Literature</button>
+                <button onclick="window.location.href='quizgitanjali.html'">Try Quiz</button>
             </div>
         </div>
     </div>

@@ -62,7 +62,7 @@
             /* Adjust spacing between buttons */
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #800000;
             font-weight: bold;
@@ -72,9 +72,11 @@
             box-shadow: 2px 2px #800000;
             font-size: 1.2em;
             transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #800000;
             color: #ffd700;
         }
@@ -287,8 +289,8 @@
                 metaphorical work is noted for its profound philosophical insights and its reflection on life and
                 humanity.</p>
             <div class="links">
-                <a href="literature.html">Back to Literature</a>
-                <a href="quizmadhushala.html">Try Quiz</a>
+                <button onclick="window.location.href='literature.html'">Back to Literature</button>
+                <button onclick="window.location.href='quizmadhushala.html'">Try Quiz</button>
             </div>
         </div>
     </div>

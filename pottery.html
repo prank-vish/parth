@@ -62,7 +62,7 @@
             /* Adjust spacing between buttons */
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #008000;
             font-weight: bold;
@@ -72,9 +72,11 @@
             box-shadow: 2px 2px #20B2AA;
             font-size: 1.2em;
             transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #20B2AA;
             color: #ffd700;
         }
@@ -292,8 +294,8 @@
             <p>Pottery has been used for both functional and decorative purposes, with exquisite designs and patterns
                 that reflect India's rich cultural heritage.</p>
             <div class="links">
-                <a href="arts.html">Back to Arts</a>
-                <a href="quizpottery.html">Try Quiz</a>
+                <button onclick="window.location.href='arts.html'">Back to Arts</button>
+                <button onclick="window.location.href='quizpottery.html'">Try Quiz</button>
             </div>
         </div>
     </div>

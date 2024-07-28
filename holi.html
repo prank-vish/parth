@@ -61,7 +61,7 @@
             /* Adjust spacing between buttons */
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #ff0400;
             margin: 0 10px;
@@ -71,9 +71,11 @@
             border-radius: 15px;
             box-shadow: 2px 2px #ffd700;
             transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #ff0400;
             color: #FFD700;
         }
@@ -284,8 +286,8 @@
             <p>The festival is deeply rooted in Indian mythology, with stories about the demoness Holika and the triumph
                 of Prahlad, a devotee of Lord Vishnu.</p>
             <div class="links">
-                <a href="festival.html">Back to Festivals</a>
-                <a href="quizholi.html">Try Quiz</a>
+                <button onclick="window.location.href='festival.html'">Back to Festival</button>
+                <button onclick="window.location.href='quizholi.html'">Try Quiz</button>
             </div>
         </div>
     </div>

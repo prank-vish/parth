@@ -61,7 +61,7 @@
             gap: 15px;
         }
 
-        .links a {
+        .links button {
             text-decoration: none;
             color: #8B0000;
             font-weight: bold;
@@ -70,9 +70,11 @@
             border-radius: 15px;
             box-shadow: 2px 2px #DAA520;
             transition: background-color 0.3s, color 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
-        .links a:hover {
+        .links button:hover {
             background-color: #8B0000;
             color: #FFD700;
         }
@@ -288,8 +290,8 @@
             <p>Hawa Mahal is a prominent landmark in Jaipur and attracts visitors from all over the world who come to
                 admire its beauty and historical significance.</p>
             <div class="links">
-                <a href="monument.html">Back to Monuments</a>
-                <a href="quizhawa.html">Try Quiz</a>
+                <button onclick="window.location.href='monument.html'">Back to Monuments</button>
+                <button onclick="window.location.href='quizhawa.html'">Try Quiz</button>
             </div>
         </div>
     </div>
