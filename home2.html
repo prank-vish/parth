@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tales of Bharat</title>
+    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 1;
+        }
+
+        .content,
+        header,
+        .section,
+        footer {
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1f1f1f00;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #ff5722;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        nav a:hover {
+            color: #ff5722;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #e0e0e0;
+            margin: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: hsl(0, 0%, 100%);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-menu a {
+            font-size: 1em;
+            padding: 5px 0;
+            text-decoration: none;
+            color:rgb(0, 162, 255);
+        }
+
+        .nav-menu a:visited{
+            color: rgb(0, 162, 255);
+        }
+        .section {
+            padding: 40px 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        .section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            color: #ff5722;
+        }
+
+        .section p {
+            margin: 10px 0;
+        }
+
+        .poll {
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .poll h2 {
+            margin-top: 0;
+        }
+
+        footer {
+            color: #e0e0e0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+        }
+
+        footer p a img {
+            height: 50px;
+            width: 50px;
+            border-radius: 25px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .responsive {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .responsive div {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .responsive div a {
+            text-decoration: none;
+        }
+
+        .responsive div img {
+            height: 400px;
+            width: 615px;
+        }
+
+        .displayDiv {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            margin-left: 5px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            max-width: 200px;
+            max-height: 200px;
+            min-width: 200px;
+            display: none;
+            text-align: center;
+            border-radius: 10px;
+            background-color: antiquewhite;
+            color: #ff5722;
+        }
+
+        #feedemail {
+            width: 290px;
+            margin-bottom: 10px;
+        }
+
+        #showbox {
+            display: flex;
+            justify-content: center;
+        }
+
+        .feedback {
+            text-align: center;
+        }
+
+        #level {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        #save {
+            margin-left: 10px;
+        }
+
+        .hover-zoom {
+            transition: transform 0.3s;
+        }
+
+        .hover-zoom:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .responsive {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .displayDiv {
+                margin-left: 5px;
+                padding: 3px;
+                font-size: small;
+                max-width: 100px;
+                max-height: 200px;
+                min-width: 100px;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+    <div class="content">
+        <header>
+            <h1>Tales <img src="logo3.png" style="height: 20px;border-radius: 20px;background-color: #ff5722;" alt="Tales of Bharat">f Bharat</h1>
+            <nav>
+                <a href="#monuments">Monuments</a>
+                <a href="#cuisine">Cuisine</a>
+                <a href="#arts">Arts and Crafts</a>
+                <a href="#festivals">Festivals</a>
+                <a href="#music">Music and Dance</a>
+                <a href="#literature">Literature</a>
+                <a href="#contact">Contact Us</a>
+            </nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#monuments">Monuments</a>
+                <a href="#cuisine">Cuisine</a>
+                <a href="#arts">Arts and Crafts</a>
+                <a href="#festivals">Festivals</a>
+                <a href="#music">Music and Dance</a>
+                <a href="#literature">Literature</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+        </header>
+
+        <section class="section" id="welcome">
+            <h2>Welcome to Tales of Bharat</h2>
+            <p>Welcome to Tales of Bharat, where we celebrate the rich heritage and culture of India. Explore our sections on monuments, cuisine, arts and crafts, festivals, music and dance, and literature to dive into the essence of our nation's legacy.</p>
+        </section>
+
+        <section class="section" id="monuments">
+            <div class="responsive">
+                <div>
+                    <h2>Monuments</h2>
+                    <p>Explore the architectural marvels of India, from the majestic Taj Mahal to the historic Red Fort.</p>
+                    <a href="monument.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="monument.html"><img src="qutub minar.jpg" alt="Historical Monuments" class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="cuisine">
+            <div class="responsive">
+                <div>
+                    <h2>Cuisine</h2>
+                    <p>Discover the flavors of Indian cuisine, from spicy street food to traditional home-cooked meals.</p>
+                    <a href="cuisine.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="cuisine.html"><img src="dahipuri1.jpeg" alt="Indian Cuisine" class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="arts">
+            <div class="responsive">
+                <div>
+                    <h2>Arts and Crafts</h2>
+                    <p>Dive into the world of Indian arts and crafts, showcasing traditional skills and contemporary creativity.</p>
+                    <a href="arts.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="arts.html"><img src="pottery10.jpg" alt="Arts and Crafts" class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="festivals">
+            <div class="responsive">
+                <div>
+                    <h2>Festivals</h2>
+                    <p>Join in the celebrations of India's vibrant festivals, from Diwali to Holi and beyond.</p>
+                    <a href="festivals.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="festivals.html"><img src="diwali10.jpg" alt="Festivals" class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="music">
+            <div class="responsive">
+                <div>
+                    <h2>Music and Dance</h2>
+                    <p>Experience the rhythm and melodies of India's music and dance traditions, from classical to folk.</p>
+                    <a href="music.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="music.html"><img src="garba11.jpg" alt="Music and Dance" class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="literature">
+            <div class="responsive">
+                <div>
+                    <h2>Literature</h2>
+                    <p>Explore the rich literary heritage of India, from ancient epics to modern classics.</p>
+                    <a href="literature.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="literature.html"><img src="mahabharat10.jpg" alt="Literature" class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section poll">
+            <h2>Poll</h2>
+            <div id="poll">
+
+                <p>Which is your favorite Indian festival?</p>
+                <form>
+                    <input type="radio" id="diwali" name="festival" value="Diwali">
+                    <label for="diwali">Diwali</label><br>
+                    <input type="radio" id="holi" name="festival" value="Holi">
+                    <label for="holi">Holi</label><br>
+                    <input type="radio" id="eid" name="festival" value="Eid">
+                    <label for="eid">Eid</label><br>
+                    <input type="radio" id="christmas" name="festival" value="Christmas">
+                    <label for="christmas">Christmas</label><br>
+                    <input type="radio" id="pongal" name="festival" value="Pongal">
+                    <label for="pongal">Pongal</label><br><br>
+                    <button type="button" onclick="submitPoll()">Submit</button>
+                </form>
+            </div>
+            <div id="chartContainer" style="width: 50%; max-width: 600px; margin: 0 auto;">
+                <canvas id="pollChart"></canvas>
+            </div>
+        </section>
+        <section class="section feedback">
+            <h1>Let Us Know!</h1>
+            <input type="email" id="feedemail" style="background-color: #fff1bc;border-radius: 10px;" placeholder="enter your email">
+            <div id="level"> <textarea id="userInput" rows="2" cols="30" style="background-color: #fff1bc;border-radius: 10px;"></textarea>
+                <button onclick="saveInput()" style="background-color: #fed439;border-radius: 10px;" id="save">Save</button>
+            </div>
+            <div id="showbox">
+                <div class="displayDiv" id="displayD"></div>
+                <div class="displayDiv" id="displayI"></div>
+                <div class="displayDiv" id="displayV"></div>
+                <div class="displayDiv" id="displayC"></div>
+                <div class="displayDiv" id="displayE"></div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <h2>About Us</h2>
+            <p>Tales of Bharat is dedicated to showcasing the diverse cultural heritage of India. Our mission is to educate, inspire, and connect people through the stories and traditions that define our nation.</p>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Reach out to us at <a href="mailto: wetalesofbharat@gmail.com" style="text-decoration: none;color: rgb(89, 255, 47);">By Mail</a> or call us at 9695732481.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Tales of Bharat. All rights reserved.</p>
+            <p>
+                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+                <a href="https://whatsapp.com/channel/0029VakmDzb89inlTvaSls30"><img src="whatsapplogo.jpg" alt="Whatsapp"></a>
+                <a href="https://www.instagram.com/prankit.svnit/"><img src="Instagramlogo.webp" alt="Instagram"></a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        particlesJS("particles-js", {
+                particles: {
+                    number: {
+                        value: 100,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: "#ffffff"
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        },
+                        polygon: {
+                            nb_sides: 5
+                        },
+                        image: {
+                            src: "img/github.svg",
+                            width: 100,
+                            height: 100
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false,
+                        anim: {
+                            enable: false,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: false,
+                            speed: 40,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ffffff",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 6,
+                        direction: "none",
+                        random: false,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false,
+                        attract: {
+                            enable: false,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "repulse"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 400,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        bubble: {
+                            distance: 400,
+                            size: 40,
+                            duration: 2,
+                            opacity: 8,
+                            speed: 3
+                        },
+                        repulse: {
+                            distance: 200,
+                            duration: 0.4
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                        remove: {
+                            particles_nb: 2
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+        
+            var pollResults = {
+                "Diwali": 0,
+                "Holi": 0,
+                "Eid": 0,
+                "Christmas": 0,
+                "Pongal": 0
+            };
+
+
+            document.addEventListener('DOMContentLoaded', (event) => {
+                // Load saved content from localStorage
+                const d = localStorage.getItem('uD');
+                if (d) {
+                    pollResults["Diwali"] = d;
+                }
+
+                const h = localStorage.getItem('uH');
+                if (h) {
+                    pollResults["Holi"] = h;
+                }
+
+                const e = localStorage.getItem('uE');
+                if (e) {
+                    pollResults["Eid"] = e;
+                }
+
+                const c = localStorage.getItem('uC');
+                if (c) {
+                    pollResults["Christmas"] = c;
+                }
+
+                const p = localStorage.getItem('uP');
+                if (p) {
+                    pollResults["Pongal"] = p;
+                }
+            });
+
+
+
+
+            function submitPoll() {
+                var selectedFestival = document.querySelector('input[name="festival"]:checked').value;
+                pollResults[selectedFestival]++;
+                console.log(selectedFestival);
+
+
+                if (selectedFestival == "Diwali") {
+                    const D = pollResults[selectedFestival];
+                    localStorage.setItem('uD', D);
+                    console.log(D);
+                }
+
+                else if (selectedFestival == "Holi") {
+                    const H = pollResults[selectedFestival];
+                    localStorage.setItem('uH', H);
+                }
+
+                else if (selectedFestival == "Eid") {
+                    const E = pollResults[selectedFestival];
+                    localStorage.setItem('uE', E);
+                }
+
+                else if (selectedFestival == "Christmas") {
+                    const C = pollResults[selectedFestival];
+                    localStorage.setItem('uC', C);
+                }
+
+                else if (selectedFestival == "Pongal") {
+                    const P = pollResults[selectedFestival];
+                    localStorage.setItem('uP', P);
+                }
+
+
+
+
+
+                displayChart();
+                document.getElementById("poll").style.display = "none";
+            }
+
+            function displayChart() {
+                var ctx = document.getElementById('pollChart').getContext('2d');
+                var chartData = {
+                    labels: Object.keys(pollResults),
+                    datasets: [{
+                        label: 'Poll Results',
+                        data: Object.values(pollResults),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1,
+                        barThickness: 5 // Adjust this value to change the bar width
+                    }]
+                };
+
+                var pollChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: chartData,
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+
+
+
+
+            let count = 0;
+            console.log(count);
+
+            document.addEventListener('DOMContentLoaded', (event) => {
+
+                const savedC = localStorage.getItem('userC');
+                const savedEE = localStorage.getItem('userEE');
+
+                console.log(savedC);
+                if (savedC) {
+                    document.getElementById('displayD').innerText = savedC;
+                    document.getElementById('displayD').prepend(savedEE);
+                    document.getElementById('displayD').style.display = "inline";
+
+                    // count=1;
+                }
+
+                const savedO = localStorage.getItem('userO');
+                const savedM = localStorage.getItem('userM');
+                if (savedO) {
+                    document.getElementById('displayI').innerText = savedO;
+                    document.getElementById('displayI').prepend(savedM);
+                    document.getElementById('displayI').style.display = "inline";
+
+                    // count=2;
+                }
+
+                const savedN = localStorage.getItem('userN');
+                const savedA = localStorage.getItem('userA');
+                if (savedN) {
+                    document.getElementById('displayV').innerText = savedN;
+                    document.getElementById('displayV').prepend(savedA);
+                    document.getElementById('displayV').style.display = "inline";
+
+                    // count=3;
+                }
+
+                const savedT = localStorage.getItem('userT');
+                const savedI = localStorage.getItem('userI');
+                if (savedT) {
+                    document.getElementById('displayC').innerText = savedT;
+                    document.getElementById('displayC').prepend(savedI);
+                    document.getElementById('displayC').style.display = "inline";
+
+                    // count=4;
+                }
+
+                const savedE = localStorage.getItem('userE');
+                const savedL = localStorage.getItem('userL');
+                if (savedN) {
+                    document.getElementById('displayE').innerText = savedE;
+                    document.getElementById('displayE').prepend(savedL);
+                    document.getElementById('displayE').style.display = "inline";
+
+                    // count=5;
+                }
+
+
+
+
+            });
+
+            function saveInput() {
+                if (count == 0) {
+                    const userInput = document.getElementById('userInput').value;
+                    let userEmail = document.getElementById('feedemail').value;
+                    userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+
+                    localStorage.setItem('userC', userInput);
+                    localStorage.setItem('userEE', userEmail);
+                    document.getElementById('displayD').innerText = userInput;
+                    document.getElementById('displayD').prepend(userEmail);
+                    document.getElementById('displayD').style.display = "inline";
+
+                }
+                else if (count == 1) {
+                    const userInput = document.getElementById('userInput').value;
+                    let userEmail = document.getElementById('feedemail').value;
+                    userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+                    localStorage.setItem('userO', userInput);
+                    localStorage.setItem('userM', userEmail);
+
+                    document.getElementById('displayI').innerText = userInput;
+                    document.getElementById('displayI').prepend(userEmail);
+                    document.getElementById('displayI').style.display = "inline";
+
+                }
+
+                else if (count == 2) {
+                    const userInput = document.getElementById('userInput').value;
+                    let userEmail = document.getElementById('feedemail').value;
+                    userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+
+                    localStorage.setItem('userN', userInput);
+                    localStorage.setItem('userA', userEmail);
+                    document.getElementById('displayV').innerText = userInput;
+                    document.getElementById('displayV').prepend(userEmail);
+                    document.getElementById('displayV').style.display = "inline";
+
+                }
+                else if (count == 3) {
+                    const userInput = document.getElementById('userInput').value;
+                    let userEmail = document.getElementById('feedemail').value;
+                    userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+
+                    localStorage.setItem('userT', userInput);
+                    localStorage.setItem('userI', userEmail);
+                    document.getElementById('displayC').innerText = userInput;
+                    document.getElementById('displayC').prepend(userEmail);
+                    document.getElementById('displayC').style.display = "inline";
+
+                }
+                else if (count == 4) {
+                    const userInput = document.getElementById('userInput').value;
+                    let userEmail = document.getElementById('feedemail').value;
+                    userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+                    localStorage.setItem('userE', userInput);
+                    localStorage.setItem('userL', userEmail);
+                    document.getElementById('displayE').innerText = userInput;
+                    document.getElementById('displayE').prepend(userEmail);
+                    document.getElementById('displayE').style.display = "inline";
+
+                }
+
+
+
+                document.getElementById('userInput').value = "";
+                count++;
+            }
+
+
+            // document.addEventListener('DOMContentLoaded', (event) => {
+            //     // Load saved content from localStorage
+            //     const savedContent = localStorage.getItem('userContent');
+            //     if (savedContent) {
+            //         document.getElementById('displayD').innerText = savedContent;
+            //     }
+            // });
+
+            // function saveInput() {
+            //     const userInput = document.getElementById('userInput').value;
+            //     localStorage.setItem('userContent', userInput);
+            //     document.getElementById('displayD').innerText = userInput;
+            // }
+
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+
+</html>
