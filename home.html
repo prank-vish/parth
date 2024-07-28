@@ -181,11 +181,11 @@
         }
 
         .hover-zoom {
-            transition: transform 0.3s;
-        }
+         transition: transform 0.3s;
+         }
 
         .hover-zoom:hover {
-            transform: scale(1.1);
+        transform: scale(1.1);
         }
 
 
@@ -200,109 +200,21 @@
 
             .section {
                 padding: 20px;
-        .navbar {
-            background-color: rgba(0, 0, 0, 0.7);
-            position: relative;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            margin-bottom: vh;
-        }
-
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: row;
-        }
-
-        .navbar ul li {
-            padding: 10px 20px;
-        }
-
-        .navbar ul li a {
-            color: #ccc;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 20px;
-            border-radius: 10px;
-            display: block;
-        }
-
-        .navbar ul li a:hover {
-            /* background-color: #008080; */
-            color: #ff5722;
-        }
-
-        .navbar .title {
-            flex-grow: 1;
-            text-align: left;
-            font-weight: bold;
-            color: #ff5722;
-            font-size: 30px;
-        }
-
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            color: #ff5722;
-            font-size: 24px;
-            cursor: pointer;
-            margin-right: -5%;
-        }
-
-        @media (max-width: 1024px) {
-            .hamburger {
-                display: block;
             }
 
-            .navbar ul {
-                display: none;
+            .responsive {
                 flex-direction: column;
-                width: 100%;
-                background-color: #ffffff;
-                position: absolute;
-                top: 60px;
-                left: 0;
+                gap: 10px;
             }
 
-            .navbar ul.active {
-                display: flex;
-            }
-
-            .navbar ul li {
-                text-align: center;
-                padding: 10px 0;
-            }
-
-            .navbar ul li a {
-                font-size: 18px;
-                color: #121212;
-            }
-
-        }
-
-        @media (max-width: 768px) {
-            .navbar ul li a {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar ul li a {
-                font-size: 14px;
-            }
-
-            .footer {
-                padding: 10px 0;
+            .displayDiv {
+                margin-left: 5px;
+                padding: 3px;
+                font-size: small;
+                /* border: none; */
+                max-width: 100px;
+                max-height: 200px;
+                min-width: 100px;
             }
         }
     </style>
@@ -314,20 +226,16 @@
     <div id="particles-js"></div>
     <div class="content">
         <header>
-            <nav class="navbar">
-                <div class="title">Tales <img src="logo3.png"
-                        style="height: 20px;background-color: #ff5722;border-radius: 20px;" alt="Tales of Bharat">f
-                    Bharat</div>
-                <button class="hamburger" onclick="toggleMenu()">☰</button>
-                <ul>
-                    <li><a href="#monuments">Monuments</a></li>
-                    <li><a href="#cuisine">Cuisine</a></li>
-                    <li><a href="#arts">Arts and Crafts</a></li>
-                    <li><a href="#festivals">Festivals</a></li>
-                    <li><a href="#music">Music and Dance</a></li>
-                    <li><a href="#literature">Literature</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
+            <h1>Tales <img src="logo3.png" style="height: 20px;border-radius: 20px;background-color: #ff5722;"
+                    alt="Tales of Bharat"> of Bharat</h1>
+            <nav>
+                <a href="#monuments">Monuments</a>
+                <a href="#cuisine">Cuisine</a>
+                <a href="#arts">Arts and Crafts</a>
+                <a href="#festivals">Festivals</a>
+                <a href="#music">Music and Dance</a>
+                <a href="#literature">Literature</a>
+                <a href="#contact">Contact Us</a>
             </nav>
         </header>
 
@@ -456,12 +364,9 @@
         </section>
         <section class="feedback">
             <h1>Let Us Know!</h1>
-            <input type="email" id="feedemail" style="background-color: #fff1bc;border-radius: 10px;"
-                placeholder="enter your email">
-            <div id="level"> <textarea id="userInput" rows="2" cols="30"
-                    style="background-color: #fff1bc;border-radius: 10px;"></textarea>
-                <button onclick="saveInput()" style="background-color: #fed439;border-radius: 10px;"
-                    id="save">Save</button>
+            <input type="email" id="feedemail" style="background-color: #fff1bc;border-radius: 10px;" placeholder="enter your email">
+            <div id="level"> <textarea id="userInput" rows="2" cols="30" style="background-color: #fff1bc;border-radius: 10px;"></textarea>
+                <button onclick="saveInput()" style="background-color: #fed439;border-radius: 10px;" id="save">Save</button>
             </div>
             <div id="showbox">
                 <div class="displayDiv" id="displayD"></div>
@@ -474,8 +379,7 @@
 
 
         <footer id="contact">
-            <p>Contact us: <a href="mailto:wetalesofbharat@gmail.com">&#9993; : Mail Us</a> | &#9742; : +91 9695732481
-            </p>
+            <p>Contact us: <a href="mailto:wetalesofbharat@gmail.com">&#9993; : Mail Us</a> | &#9742; : +91 9695732481</p>
             <p>
                 <a href="#"><img src="facebook.png" alt="Facebook"></a>
                 <a href="#"><img src="whatsapplogo.jpg" alt="Whatsapp"></a>
@@ -869,11 +773,6 @@
             //     localStorage.setItem('userContent', userInput);
             //     document.getElementById('displayD').innerText = userInput;
             // }
-
-            function toggleMenu() {
-                var menu = document.querySelector('.navbar ul');
-                menu.classList.toggle('active');
-            }
         </script>
 </body>
 
