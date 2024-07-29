@@ -360,7 +360,7 @@
                     <a href="monument.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="monument.html"><img src="qutub minar.jpg" alt="Historical Monuments"
+                    <a href="monument.html"><img id="monument-img" src="qutub minar.jpg" alt="Historical Monuments"
                             class="hover-zoom"></a>
                 </div>
             </div>
@@ -375,7 +375,7 @@
                     <a href="cuisine.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="cuisine.html"><img src="dahipuri1.jpeg" alt="Indian Cuisine" class="hover-zoom"></a>
+                    <a href="cuisine.html"><img id="cuisine-img" src="dahipuri1.jpeg" alt="Indian Cuisine" class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -389,7 +389,7 @@
                     <a href="arts.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="arts.html"><img src="pottery10.jpg" alt="Arts and Crafts" class="hover-zoom"></a>
+                    <a href="arts.html"><img img id="arts-img" src="pottery10.jpg" alt="Arts and Crafts" class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -402,7 +402,7 @@
                     <a href="festival.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="festival.html"><img src="diwali10.jpg" alt="Festivals" class="hover-zoom"></a>
+                    <a href="festival.html"><img id="festivals-img" src="diwali10.jpg" alt="Festivals" class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -416,7 +416,7 @@
                     <a href="music.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="music.html"><img src="garba11.jpg" alt="Music and Dance" class="hover-zoom"></a>
+                    <a href="music.html"><img id="music-img" src="garba11.jpg" alt="Music and Dance" class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -429,7 +429,7 @@
                     <a href="literature.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="literature.html"><img src="mahabharat10.jpg" alt="Literature" class="hover-zoom"></a>
+                    <a href="literature.html"><img id="literature-img" src="mahabharat10.jpg" alt="Literature" class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -898,6 +898,36 @@
                 document.removeEventListener('click', handleClickOutside);
             }
         }
+
+        const images = {
+            monuments: ["qutub minar.jpg", "red10.jpg", "taj10.jpg"],
+            cuisine: ["dahipuri1.jpeg", "idli11.jpg", "dosa11.jpg"],
+            arts: ["madhubani11.jpg", "pottery10.jpg", "warli10.jpg"],
+            festivals: ["makar10.jpg", "diwali.jpg", "holi10.jpg"],
+            music: ["hindustani11.jpg", "lavani11.jpg", "kathakali11.jpg"],
+            literature: ["mahabharat11.jpg", "godan11.jpg", "bhagwat11.jpg"],
+        };
+
+        let currentIndex = {
+            monuments: 0,
+            cuisine: 0,
+            arts: 0,
+            festivals: 0,
+            music: 0,
+            literature: 0,
+        };
+
+        function changeImage(section, imgId) {
+            currentIndex[section] = (currentIndex[section] + 1) % images[section].length;
+            document.getElementById(imgId).src = images[section][currentIndex[section]];
+        }
+
+        setInterval(() => changeImage('monuments', 'monument-img'), 3000);
+        setInterval(() => changeImage('cuisine', 'cuisine-img'), 4000);
+        setInterval(() => changeImage('arts', 'arts-img'), 5000);
+        setInterval(() => changeImage('festivals', 'festivals-img'), 6000);
+        setInterval(() => changeImage('music', 'music-img'), 7000);
+        setInterval(() => changeImage('literature', 'literature-img'), 8000);
     </script>
 </body>
 
