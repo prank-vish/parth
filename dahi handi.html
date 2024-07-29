@@ -261,6 +261,54 @@
                 padding: 10px 0;
             }
         }
+        .button {
+            background-color: #333; /* Dark Gray */
+            border: 2px solid transparent;
+            color: white; /* Text color */
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before, .button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff; /* White */
+            transition: transform 0.4s;
+            z-index: 0;
+            transform: scaleX(0);
+        }
+
+        .button::before {
+            left: 0;
+            transform-origin: left;
+        }
+
+        .button::after {
+            right: 0;
+            transform-origin: right;
+        }
+
+        .button:hover::before, .button:hover::after {
+            transform: scaleX(1);
+        }
+
+        .button:hover {
+            color: #333; /* Dark Gray */
+        }
+
+        .button-text {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -287,8 +335,8 @@
             <p>The celebration is particularly popular in Maharashtra, where teams compete to break the handi, and is
                 accompanied by devotional songs, dances, and festive foods.</p>
             <div class="links">
-                <button onclick="window.location.href='festival.html'">Back to Festival</button>
-                <button onclick="window.location.href='quizdahi.html'">Try Quiz</button>
+                <button class="button"  onclick="window.location.href='festival.html'"><span class="button-text">Back to Festival</span></button>
+                <button class="button"  onclick="window.location.href='quizdahi.html'"><span class="button-text">Try Quiz</span></button>
             </div>
         </div>
     </div>

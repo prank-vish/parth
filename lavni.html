@@ -190,6 +190,54 @@
         .hover-zoom:hover {
             transform: scale(1.1);
         }
+        .button {
+            background-color: #333; /* Dark Gray */
+            border: 2px solid transparent;
+            color: white; /* Text color */
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before, .button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff; /* White */
+            transition: transform 0.4s;
+            z-index: 0;
+            transform: scaleX(0);
+        }
+
+        .button::before {
+            left: 0;
+            transform-origin: left;
+        }
+
+        .button::after {
+            right: 0;
+            transform-origin: right;
+        }
+
+        .button:hover::before, .button:hover::after {
+            transform: scaleX(1);
+        }
+
+        .button:hover {
+            color: #333; /* Dark Gray */
+        }
+
+        .button-text {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -208,8 +256,8 @@
             <h1>About Lavni</h1>
             <p>Lavni dance is known for its powerful rhythms and quick tempo, which are executed with precise footwork and expressive movements. The performers often wear traditional nine-yard sarees and heavy jewelry, adding to the visual appeal of the dance.</p>
             <div class="links">
-                <button onclick="window.location.href='music.html'">Back to Music & Dance</button>
-                <button onclick="window.location.href='quizlavani.html'">Try Quiz</button>
+                <button class="button"  onclick="window.location.href='music.html'"><span class="button-text">Back to Music & Dance</span></button>
+                <button class="button"  onclick="window.location.href='quizlavani.html'"><span class="button-text">Try Quiz</span></button>
             </div>
         </div>
     </div>

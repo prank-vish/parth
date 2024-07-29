@@ -260,6 +260,54 @@
                 padding: 10px 0;
             }
         }
+        .button {
+            background-color: #333; /* Dark Gray */
+            border: 2px solid transparent;
+            color: white; /* Text color */
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before, .button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff; /* White */
+            transition: transform 0.4s;
+            z-index: 0;
+            transform: scaleX(0);
+        }
+
+        .button::before {
+            left: 0;
+            transform-origin: left;
+        }
+
+        .button::after {
+            right: 0;
+            transform-origin: right;
+        }
+
+        .button:hover::before, .button:hover::after {
+            transform: scaleX(1);
+        }
+
+        .button:hover {
+            color: #333; /* Dark Gray */
+        }
+
+        .button-text {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -290,8 +338,8 @@
             <p>This UNESCO World Heritage site is a prominent tourist attraction and a significant landmark in Indian
                 history.</p>
             <div class="links">
-                <button onclick="window.location.href='monument.html'">Back to Monuments</button>
-                <button onclick="window.location.href='quizred.html'">Try Quiz</button>
+                <button class="button"  onclick="window.location.href='monument.html'"><span class="button-text">Back to Monuments</span></button>
+                <button  class="button" onclick="window.location.href='quizred.html'"><span class="button-text">Try Quiz</span></button>
             </div>
         </div>
     </div>

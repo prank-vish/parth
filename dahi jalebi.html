@@ -273,6 +273,54 @@
                 padding: 10px 0;
             }
         }
+        .button {
+            background-color: #333; /* Dark Gray */
+            border: 2px solid transparent;
+            color: white; /* Text color */
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::before, .button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff; /* White */
+            transition: transform 0.4s;
+            z-index: 0;
+            transform: scaleX(0);
+        }
+
+        .button::before {
+            left: 0;
+            transform-origin: left;
+        }
+
+        .button::after {
+            right: 0;
+            transform-origin: right;
+        }
+
+        .button:hover::before, .button:hover::after {
+            transform: scaleX(1);
+        }
+
+        .button:hover {
+            color: #333; /* Dark Gray */
+        }
+
+        .button-text {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 
@@ -299,8 +347,8 @@
             <p>Dahi Jalebi is a sweet and savory Indian dessert consisting of crispy jalebis soaked in chilled yogurt.
                 It's a popular treat in various parts of India.</p>
             <div class="links">
-                <button onclick="window.location.href='cusine.html'">Back to Cusine</button>
-                <button onclick="window.location.href='dahiquiz.html'">Try Quiz</button>
+                <button class="button"  onclick="window.location.href='cuisine.html'"><span class="button-text">Back to Cuisine</span></button>
+                <button  class="button" onclick="window.location.href='dahiquiz.html'"><span class="button-text">Try Quiz</span></button>
             </div>
         </div>
     </div>
