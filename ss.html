@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Durga Puja</title>
+    <title>About Sarso Ka Saag</title>
     <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
     <style>
         body,
@@ -12,13 +12,14 @@
             margin: 0;
             padding: 0;
             height: 100%;
-            font-family: 'Times New Roman', serif;
+            font-family: 'Georgia', serif;
             scroll-behavior: smooth;
-            background-color: #f5f5dc;
+            background-color: #fffaf0;
         }
 
         .parallax {
-            background-image: url('durga12.jpg');
+            background-image: url('sarso ka saag.jpg');
+            /* Update with an appropriate image */
             height: 100vh;
             background-attachment: fixed;
             background-position: center;
@@ -30,26 +31,31 @@
         }
 
         .content {
-            background: rgba(255, 255, 224, 0.6);
+            background: rgba(255, 255, 255, 0.85);
             padding: 20px;
             border-radius: 10px;
             max-width: 600px;
             text-align: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #f55a07;
             margin: 0 10px;
         }
 
         h1 {
-            font-size: 4vh;
-            color: #ff0400;
+            font-size: 3.5em;
+            color: #2f4f4f;
+            /* Tomato color for a vibrant look */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            /* Dark red shadow for contrast */
         }
 
         p {
-            font-size: 1.2em;
-            color: #ff0400;
+            font-size: 1.3em;
+            color: #005782;
+            /* Dark red color for text */
             line-height: 1.8;
         }
 
@@ -61,44 +67,44 @@
             /* Adjust spacing between buttons */
         }
 
-        .links button {
+        .links a {
             text-decoration: none;
-            color: #ff0400;
-            margin: 0 10px;
+            color: #fff;
+            transition: background-color 0.3s, color 0.3s;
             font-weight: bold;
-            background-color: #FFD700;
+            background-color: #6b8e23;
+            /* Yellow for a vibrant look */
             padding: 12px 24px;
             border-radius: 15px;
-            box-shadow: 2px 2px #ffd700;
-            transition: background-color 0.3s, color 0.3s;
-            border: none;
-            cursor: pointer;
+            font-size: 1.2em;
         }
 
-        .links button:hover {
-            background-color: #ff0400;
-            color: #FFD700;
+        .links a:hover {
+            background-color: #fff;
+            color: #556b2f;
         }
 
         .section {
             padding: 50px 20px;
             text-align: center;
-            background-color: #FFDEAD;
+            background-color: #fdf5e6;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            color: #ff0400;
+            color: #f55a07;
             align-items: center;
         }
 
         .section h2 {
-            font-size: 2.5em;
-            color: #ff0400;
+            font-size: 2.8em;
+            color: #ff6347;
+            /* Tomato color for headings */
+            text-shadow: 2px 2px #8f2901;
         }
 
         .section p {
-            font-size: 1.2em;
-            color: #ff0400;
+            font-size: 1.3em;
+            color: #fb3d17;
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.8;
@@ -108,13 +114,16 @@
             width: 85%;
             height: 85vh;
             margin: 20px 0;
-            border: 5px solid #ff0400;
+            border: 5px solid #ff6347;
+            /* Tomato color border */
             border-radius: 10px;
         }
 
         .footer {
-            background-color: #ff0400;
-            color: #FFD700;
+            background-color: #fdf5e6;
+            /* Yellow background for footer */
+            color: #f55a07;
+            /* Dark red text color */
             padding: 20px;
             text-align: center;
             font-size: 1em;
@@ -122,18 +131,19 @@
 
         .footer p {
             margin: 5px 0;
-            color: #FFD700;
+            color: #8f2901;
         }
 
         .footer a {
-            color: #FFD700;
+            color: #ffa500;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9em;
         }
 
         .footer a:hover {
-            color: #ff0400;
+            color: #c62828;
+            /* Darker red for hover effect */
         }
 
         .navbar {
@@ -161,7 +171,7 @@
         }
 
         .navbar ul li a {
-            color: #ff0400;
+            color: #f55a07;
             /* Yellow color for nav links */
             text-align: center;
             padding: 14px 20px;
@@ -173,13 +183,13 @@
         }
 
         .navbar ul li a:hover {
-            background-color: #ff0400;
-            color: #ffd700;
+            background-color: #f55a07;
+            color: #ffa500;
         }
 
         .navbar ul a.active {
-            background-color: #dc2501;
-            color: #ffd700;
+            background-color: #fb3d17;
+            color: #ffa500;
             font-size: 22px;
         }
 
@@ -187,12 +197,12 @@
             flex-grow: 1;
             text-align: left;
             font-weight: bold;
-            color: #ffd700;
+            color: #ffa500;
             font-size: 30px;
         }
 
         .navbar .title a {
-            color: #ff0400;
+            color: #f55a07;
             text-decoration: none;
         }
 
@@ -200,7 +210,7 @@
             display: none;
             background: none;
             border: none;
-            color: #FFD700;
+            color: #ffa500;
             font-size: 24px;
             cursor: pointer;
             margin-right: 20px;
@@ -212,6 +222,7 @@
         .hover-zoom:hover {
             transform: scale(1.1);
         }
+
         @media (max-width: 1024px) {
             .hamburger {
                 display: block;
@@ -260,107 +271,58 @@
                 padding: 10px 0;
             }
         }
-        .button {
-            background-color: #333; /* Dark Gray */
-            border: 2px solid transparent;
-            color: white; /* Text color */
-            padding: 10px 24px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            transition: all 0.4s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .button::before, .button::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #ffffff; /* White */
-            transition: transform 0.4s;
-            z-index: 0;
-            transform: scaleX(0);
-        }
-
-        .button::before {
-            left: 0;
-            transform-origin: left;
-        }
-
-        .button::after {
-            right: 0;
-            transform-origin: right;
-        }
-
-        .button:hover::before, .button:hover::after {
-            transform: scaleX(1);
-        }
-
-        .button:hover {
-            color: #333; /* Dark Gray */
-        }
-
-        .button-text {
-            position: relative;
-            z-index: 1;
-        }
     </style>
 </head>
 
 <body>
     <nav class="navbar">
         <div class="title"><a href="home.html"> Tales <img src="logo3.png"
-                style="height: 20px;background-color: #DAA520;border-radius: 20px;" alt="Tales of Bharat">of Bharat
+                style="height: 20px;background-color: #ffa500;border-radius: 20px;" alt="Tales of Bharat"> of Bharat
         </div>
         <button class="hamburger" onclick="toggleMenu()">☰</button>
         <ul>
-            <li><a href="diwali.html">Diwali</a></li>
-            <li><a href="holi.html">Holi</a></li>
-            <li><a href="makar sankranti.html">Makar Sankranti</a></li>
-            <li><a href="durga puja.html" class="active">Durga Puja</a></li>
-            <li><a href="dahi handi.html">Dahi Handi</a></li>
+            <li><a href="panipuri.html">Panipuri</a></li>
+            <li><a href="cholebhature.html">Chole Bhature</a></li>
+            <li><a href="dahi jalebi.html">Dahi Jalebi</a></li>
+            <li><a href="dosa.html">Dosa</a></li>
+            <li><a href="idli-vada.html">Idli-Vada</a></li>
+            <li><a href="litti chokha.html">Litti Chokha</a></li>
+            <li><a href="sarso ka saag.html" class="active">Sarso Ka Saag</a></li>
         </ul>
     </nav>
+
     <div class="parallax">
         <div class="content">
-            <h1>About Durga Puja</h1>
-            <p>Durga Puja is a major Hindu festival celebrated predominantly in West Bengal, India. It honors the
-                goddess Durga and her victory over the demon Mahishasura. The festival is marked by elaborate
-                decorations, traditional dance performances, and ritualistic worship.</p>
-            <p>Durga Puja is celebrated with great grandeur and enthusiasm, with people participating in cultural
-                events, enjoying festive foods, and visiting beautifully decorated pandals (temporary temples).</p>
+            <h1>About Sarso Ka Saag</h1>
+            <p>Sarso Ka Saag is a traditional Punjabi dish made from mustard greens cooked with spices. It is commonly
+                enjoyed with makki di roti (cornflatbread).</p>
             <div class="links">
-                <button class="button"  onclick="window.location.href='festival.html'"><span class="button-text">Back to Festival</span></button>
-                <button class="button"  onclick="window.location.href='quizdurga.html'"><span class="button-text">Try Quiz</span></button>
+                <button onclick="func()"><img width="94" height="94" src="https://img.icons8.com/3d-fluency/94/home.png" alt="home"/></button>
+                <a href="sarsoquiz.html">Try Quiz</a>
             </div>
         </div>
     </div>
 
     <div class="section">
+        <h2>Overview</h2>
+        <p>Sarso Ka Saag is a comforting and flavorful dish that showcases the richness of Punjabi cuisine. It is
+            typically enjoyed during the winter months and is known for its spicy and hearty nature.</p>
+    </div>
+
+    <div class="section">
+        <img src="sarso11.jpg" alt="Sarso Ka Saag Image"  class="hover-zoom" > <!-- Update with an appropriate image -->
+    </div>
+
+    <div class="section">
         <h2>Significance</h2>
-        <p>Durga Puja symbolizes the triumph of good over evil, as goddess Durga is revered for her victory over the
-            demon Mahishasura. The festival is a celebration of feminine power and divine protection, marked by vibrant
-            processions, rituals, and cultural performances.</p>
+        <p>Sarso Ka Saag is an integral part of Punjabi cuisine and is often prepared during festive seasons. It
+            represents the agricultural traditions of Punjab and is enjoyed by people across the region.</p>
     </div>
 
-    <div class="section">
-        <img src="durga11.jpg" alt="Durga Puja" class="hover-zoom" >
-    </div>
-
-    <div class="section">
-        <h2>Traditions</h2>
-        <p>Traditions include setting up elaborate pandals, performing devotional dances and songs, and participating in
-            community feasts. The festival is a time for cultural and social gatherings, with many people coming
-            together to celebrate and honor goddess Durga.</p>
-    </div>
     <footer class="footer">
         <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
         <p>
-            <a href="mailto:wetalesofbharat@gmail.com">&#9993; Mail Us</a>
+            <a href="mailto:u23cs113@coed.svnit.ac.in">&#9993; Mail Us</a>
         </p>
         <p>&#9742; 9695732481</p>
     </footer>
@@ -369,6 +331,9 @@
         function toggleMenu() {
             var menu = document.querySelector('.navbar ul');
             menu.classList.toggle('active');
+        }
+        function func(){
+            window.location.href="cuisine.html";
         }
     </script>
 </body>
