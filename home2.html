@@ -233,8 +233,13 @@
             flex-grow: 1;
         }
 
-        #save {
+        .bt1 {
             margin-left: 10px;
+            background-color: orangered;
+        }
+        .bt1 :hover{
+            background-color: tomato;
+            cursor:pointer;
         }
 
         .hover-zoom {
@@ -302,7 +307,7 @@
         button {
             border-radius: 25px;
             font-weight: bold;
-            background-color: orangered;
+            /* background-color: orangered; */
             color: white;
             padding: 10px 20px;
             font-family: 'Raleway', sans-serif;
@@ -465,8 +470,7 @@
                 placeholder="enter your email">
             <div id="level"> <textarea id="userInput" rows="2" cols="30"
                     style="background-color: #fff1bc;border-radius: 10px;"></textarea>
-                <button onclick="saveInput()" style="background-color: orangered;color: white;border-radius: 10px;"
-                    id="save">Save</button>
+                <button onclick="saveInput()" class="bt1" id="save">Save</button>
             </div>
             <div id="showbox">
                 <div class="displayDiv" id="displayD"></div>
