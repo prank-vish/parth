@@ -23,7 +23,7 @@
             width: 100%;
             height: 100%;
             /* background-color: #d2a06e; */
-            background: radial-gradient(circle,#bbbbbb,#626060, #333333);
+            background: radial-gradient(circle, #bbbbbb, #626060, #333333);
             z-index: 1;
         }
 
@@ -134,9 +134,11 @@
             border-radius: 8px;
             text-align: center;
         }
-
         .poll h2 {
             margin-top: 0;
+        }
+        .poll label{
+            display: block;
         }
 
         footer p {
@@ -162,7 +164,7 @@
             height: 40px;
             width: 40px;
             border-radius: 50%;
-            margin:2px;
+            margin: 2px;
         }
 
         footer a:hover {
@@ -233,15 +235,19 @@
             flex-grow: 1;
         }
 
-        .bt1 {
+        .bt1,
+        .bt2 {
             margin-left: 10px;
-            background-color: orangered;
-            
+            background : linear-gradient(135deg,rgb(253, 206, 189),orangered);
+
         }
-        .bt1:hover{
-            background-color: tomato;
-            cursor:pointer;
+
+        .bt1:hover,
+        .bt2:hover {
+            background : linear-gradient(135deg,tomato,rgb(251, 164, 148));
+            cursor: pointer;
         }
+
 
         .hover-zoom {
             transition: transform 0.3s;
@@ -290,12 +296,13 @@
             text-shadow: 0 0 3px rgb(227, 215, 215);
         }
 
-        a {
-            color: #ff00ff;
+        .responsive a{
+            color: #ff69b4;
+            font-size: 2.5vh;
         }
 
-        .responsive div a:visited {
-            color: #ff00ff;
+        .responsive div a:hover {
+            color: #ff1493;
         }
 
         label {
@@ -314,6 +321,11 @@
             font-family: 'Raleway', sans-serif;
             font-weight: 600;
             font-size: 1em;
+        }
+
+        input[type="email"], textarea {
+            background-color: #FFFFE0;
+            border: 2px solid #FFD700;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -383,7 +395,8 @@
                     <a href="cuisine.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="cuisine.html"><img id="cuisine-img" src="dahipuri1.jpeg" alt="Indian Cuisine" class="hover-zoom"></a>
+                    <a href="cuisine.html"><img id="cuisine-img" src="dahipuri1.jpeg" alt="Indian Cuisine"
+                            class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -397,7 +410,8 @@
                     <a href="arts.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="arts.html"><img img id="arts-img" src="pottery10.jpg" alt="Arts and Crafts" class="hover-zoom"></a>
+                    <a href="arts.html"><img img id="arts-img" src="pottery10.jpg" alt="Arts and Crafts"
+                            class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -410,7 +424,8 @@
                     <a href="festival.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="festival.html"><img id="festivals-img" src="diwali10.jpg" alt="Festivals" class="hover-zoom"></a>
+                    <a href="festival.html"><img id="festivals-img" src="diwali10.jpg" alt="Festivals"
+                            class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -424,7 +439,8 @@
                     <a href="music.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="music.html"><img id="music-img" src="garba11.jpg" alt="Music and Dance" class="hover-zoom"></a>
+                    <a href="music.html"><img id="music-img" src="garba11.jpg" alt="Music and Dance"
+                            class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -437,7 +453,8 @@
                     <a href="literature.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="literature.html"><img id="literature-img" src="mahabharat10.jpg" alt="Literature" class="hover-zoom"></a>
+                    <a href="literature.html"><img id="literature-img" src="mahabharat10.jpg" alt="Literature"
+                            class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -448,17 +465,17 @@
 
                 <p>Which is your favorite Indian festival?</p>
                 <form>
-                    <input type="radio" id="diwali" name="festival" value="Diwali">
-                    <label for="diwali">Diwali</label><br>
-                    <input type="radio" id="holi" name="festival" value="Holi">
-                    <label for="holi">Holi</label><br>
-                    <input type="radio" id="eid" name="festival" value="Eid">
-                    <label for="eid">Eid</label><br>
-                    <input type="radio" id="christmas" name="festival" value="Christmas">
-                    <label for="christmas">Christmas</label><br>
-                    <input type="radio" id="pongal" name="festival" value="Pongal">
-                    <label for="pongal">Pongal</label><br><br>
-                    <button type="button" onclick="submitPoll()">Submit</button>
+                    <label for="diwali"><input type="radio" id="diwali" name="festival" value="Diwali">
+                    Diwali</label>
+                    <label for="holi"><input type="radio" id="holi" name="festival" value="Holi">
+                    Holi</label>
+                    <label for="eid"><input type="radio" id="eid" name="festival" value="Eid">
+                    Eid</label>
+                    <label for="christmas"><input type="radio" id="christmas" name="festival" value="Christmas">
+                    Christmas</label>
+                    <label for="pongal"><input type="radio" id="pongal" name="festival" value="Pongal">
+                    Pongal</label><br>
+                    <button type="button" class="bt2" onclick="submitPoll()">Submit</button>
                 </form>
             </div>
             <div id="chartContainer" style="width: 50%; max-width: 600px; margin: 0 auto;">
@@ -467,10 +484,10 @@
         </section>
         <section class="section feedback">
             <h3>Let Us Know!</h3>
-            <input type="email" id="feedemail" style="background-color: #fff1bc;border-radius: 10px;height: 4vh;"
+            <input type="email" id="feedemail" style="background-color: #ffffe0;border-radius: 10px;height: 4vh;"
                 placeholder="enter your email">
             <div id="level"> <textarea id="userInput" rows="2" cols="30"
-                    style="background-color: #fff1bc;border-radius: 10px;"></textarea>
+                    style="background-color: #ffffe0;border-radius: 10px;"></textarea>
                 <button onclick="saveInput()" class="bt1" id="save">Save</button>
             </div>
             <div id="showbox">
@@ -482,8 +499,8 @@
             </div>
         </section>
 
-        <section class="section" id="about">
-            <h2>About Us</h2>
+        <section class="section" id="about" >
+            <h2 >About Us</h2>
             <p>Tales of Bharat is dedicated to showcasing the diverse cultural heritage of India. Our mission is to
                 educate, inspire, and connect people through the stories and traditions that define our nation.</p>
         </section>
@@ -491,13 +508,13 @@
         <section class="section" id="contact">
             <h2>Contact Us</h2>
             <p>We'd love to hear from you! Reach out to us at <a href="mailto: wetalesofbharat@gmail.com"
-                    style="text-decoration: none;color: rgb(60, 68, 63);">By Mail</a> or call us at 9695732481.</p>
+                    style="text-decoration: none;color: rgb(0, 0, 0);">By Mail</a> or call us at 9695732481.</p>
         </section>
 
         <footer>
             <span style="font-size: 3vh;color: #ffffff;text-shadow: 0 0 2px black;">Get Connected With Us :</span>
             <p>
-    
+
                 <a href="#"><img src="facebook.png" alt="Facebook"></a>
                 <a href="https://whatsapp.com/channel/0029VakmDzb89inlTvaSls30"><img src="whatsapplogo.jpg"
                         alt="Whatsapp"></a>
