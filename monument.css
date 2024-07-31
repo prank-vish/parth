@@ -12,7 +12,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .navbar-header {
@@ -164,7 +164,7 @@ body {
       position: fixed; /* Position it fixed relative to viewport */
       top: 60px; /*Adjust based on the height of the navbar */
       left: 0;
-      z-index: 1000; /* Ensure it is below the hamburger button */
+      z-index: 1100; /* Ensure it is below the hamburger button */
   }
 
   .navbar-menu li{
@@ -213,4 +213,7 @@ body {
   .footer {
       padding: 10px 0;
   }
+}
+#nav-arrows{
+  z-index: 1000;
 }
