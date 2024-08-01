@@ -4,337 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Sarso Ka Saag</title>
-    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
+    <title>Image Slider Debug</title>
     <style>
-        body,
-        html {
+        body {
             margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Georgia', serif;
-            scroll-behavior: smooth;
-            background-color: #fffaf0;
-        }
-
-        .parallax {
-            background-image: url('sarso ka saag.jpg');
-            /* Update with an appropriate image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: #333;
         }
 
-        .content {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #f55a07;
-            margin: 0 10px;
-        }
-
-        h1 {
-            font-size: 3.5em;
-            color: #2f4f4f;
-            /* Tomato color for a vibrant look */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            /* Dark red shadow for contrast */
-        }
-
-        p {
-            font-size: 1.3em;
-            color: #005782;
-            /* Dark red color for text */
-            line-height: 1.8;
-        }
-
-        .links {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            /* Adjust spacing between buttons */
-        }
-
-        .links a {
-            text-decoration: none;
-            color: #fff;
-            transition: background-color 0.3s, color 0.3s;
-            font-weight: bold;
-            background-color: #6b8e23;
-            /* Yellow for a vibrant look */
-            padding: 12px 24px;
-            border-radius: 15px;
-            font-size: 1.2em;
-        }
-
-        .links a:hover {
-            background-color: #fff;
-            color: #556b2f;
-        }
-
-        .section {
-            padding: 50px 20px;
-            text-align: center;
-            background-color: #fdf5e6;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: #f55a07;
-            align-items: center;
-        }
-
-        .section h2 {
-            font-size: 2.8em;
-            color: #ff6347;
-            /* Tomato color for headings */
-            text-shadow: 2px 2px #8f2901;
-        }
-
-        .section p {
-            font-size: 1.3em;
-            color: #fb3d17;
+        .slider {
+            position: relative;
+            width: 80%;
             max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
+            overflow: hidden;
         }
 
-        .section img {
-            width: 85%;
-            height: 85vh;
-            margin: 20px 0;
-            border: 5px solid #ff6347;
-            /* Tomato color border */
-            border-radius: 10px;
-        }
-
-        .footer {
-            background-color: #fdf5e6;
-            /* Yellow background for footer */
-            color: #f55a07;
-            /* Dark red text color */
-            padding: 20px;
-            text-align: center;
-            font-size: 1em;
-        }
-
-        .footer p {
-            margin: 5px 0;
-            color: #8f2901;
-        }
-
-        .footer a {
-            color: #ffa500;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
-
-        .footer a:hover {
-            color: #c62828;
-            /* Darker red for hover effect */
-        }
-
-        .navbar {
-            background-color: rgba(0, 0, 0, 0.7);
-            position: fixed;
+        .slide {
+            display: none;
             width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
+            height: auto;
         }
 
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: row;
-        }
-
-        .navbar ul li {
-            padding: 10px 20px;
-        }
-
-        .navbar ul li a {
-            color: #f55a07;
-            /* Yellow color for nav links */
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 20px;
-            border-radius: 10px;
+        .slide.active {
             display: block;
         }
 
-        .navbar ul li a:hover {
-            background-color: #f55a07;
-            color: #ffa500;
+        .slide img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out;
+            object-fit: cover;
         }
 
-        .navbar ul a.active {
-            background-color: #fb3d17;
-            color: #ffa500;
-            font-size: 22px;
+        .slide img:hover {
+            filter: grayscale(0%);
         }
 
-        .navbar .title {
-            flex-grow: 1;
-            text-align: left;
-            font-weight: bold;
-            color: #ffa500;
-            font-size: 30px;
-        }
-
-        .navbar .title a {
-            color: #f55a07;
-            text-decoration: none;
-        }
-
-        .hamburger {
-            display: none;
-            background: none;
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
             border: none;
-            color: #ffa500;
-            font-size: 24px;
+            padding: 10px;
             cursor: pointer;
-            margin-right: 20px;
-        }
-        .hover-zoom {
-            transition: transform 0.3s;
+            z-index: 10;
         }
 
-        .hover-zoom:hover {
-            transform: scale(1.1);
+        .prev {
+            left: 10px;
         }
 
-        @media (max-width: 1024px) {
-            .hamburger {
-                display: block;
-            }
-
-            .navbar ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.7);
-                position: absolute;
-                top: 60px;
-                left: 0;
-            }
-
-            .navbar ul.active {
-                display: flex;
-            }
-
-            .navbar ul li {
-                text-align: center;
-                padding: 10px 0;
-            }
-
-            .navbar ul li a {
-                font-size: 18px;
-            }
-
-            .parallax {
-                margin-top: 50px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar ul li a {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar ul li a {
-                font-size: 14px;
-            }
-
-            .footer {
-                padding: 10px 0;
-            }
+        .next {
+            right: 10px;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="title"><a href="home.html"> Tales <img src="logo3.png"
-                style="height: 20px;background-color: #ffa500;border-radius: 20px;" alt="Tales of Bharat"> of Bharat
+    <div class="slider">
+        <div class="slide active">
+            <img src="red11.jpg" alt="Image 1">
         </div>
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
-        <ul>
-            <li><a href="panipuri.html">Panipuri</a></li>
-            <li><a href="cholebhature.html">Chole Bhature</a></li>
-            <li><a href="dahi jalebi.html">Dahi Jalebi</a></li>
-            <li><a href="dosa.html">Dosa</a></li>
-            <li><a href="idli-vada.html">Idli-Vada</a></li>
-            <li><a href="litti chokha.html">Litti Chokha</a></li>
-            <li><a href="sarso ka saag.html" class="active">Sarso Ka Saag</a></li>
-        </ul>
-    </nav>
-
-    <div class="parallax">
-        <div class="content">
-            <h1>About Sarso Ka Saag</h1>
-            <p>Sarso Ka Saag is a traditional Punjabi dish made from mustard greens cooked with spices. It is commonly
-                enjoyed with makki di roti (cornflatbread).</p>
-            <div class="links">
-                <button onclick="func()"><img width="94" height="94" src="https://img.icons8.com/3d-fluency/94/home.png" alt="home"/></button>
-                <a href="sarsoquiz.html">Try Quiz</a>
-            </div>
+        <div class="slide">
+            <img src="india gate.avif" alt="Image 2">
         </div>
+        <div class="slide">
+            <img src="pottery.jpg" alt="Image 3">
+        </div>
+        <button class="arrow prev">&#10094;</button>
+        <button class="arrow next">&#10095;</button>
     </div>
-
-    <div class="section">
-        <h2>Overview</h2>
-        <p>Sarso Ka Saag is a comforting and flavorful dish that showcases the richness of Punjabi cuisine. It is
-            typically enjoyed during the winter months and is known for its spicy and hearty nature.</p>
-    </div>
-
-    <div class="section">
-        <img src="sarso11.jpg" alt="Sarso Ka Saag Image"  class="hover-zoom" > <!-- Update with an appropriate image -->
-    </div>
-
-    <div class="section">
-        <h2>Significance</h2>
-        <p>Sarso Ka Saag is an integral part of Punjabi cuisine and is often prepared during festive seasons. It
-            represents the agricultural traditions of Punjab and is enjoyed by people across the region.</p>
-    </div>
-
-    <footer class="footer">
-        <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
-        <p>
-            <a href="mailto:u23cs113@coed.svnit.ac.in">&#9993; Mail Us</a>
-        </p>
-        <p>&#9742; 9695732481</p>
-    </footer>
-
     <script>
-        function toggleMenu() {
-            var menu = document.querySelector('.navbar ul');
-            menu.classList.toggle('active');
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
         }
-        function func(){
-            window.location.href="cuisine.html";
-        }
+
+        prevButton.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+
+        nextButton.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
     </script>
 </body>
 
