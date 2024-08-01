@@ -17,13 +17,14 @@
 
         .slider {
             position: relative;
-            width: 80%;
+            width: 90%;
             max-width: 800px;
             overflow: hidden;
         }
 
         .slide {
             display: none;
+            position: relative;
             width: 100%;
             height: auto;
         }
@@ -44,6 +45,22 @@
             filter: grayscale(0%);
         }
 
+        .slide h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            z-index: 10;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            font-size: 6vw;
+        }
+
         .arrow {
             position: absolute;
             top: 50%;
@@ -54,6 +71,8 @@
             padding: 10px;
             cursor: pointer;
             z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .prev {
@@ -63,6 +82,29 @@
         .next {
             right: 10px;
         }
+
+        .slider:hover .arrow {
+            opacity: 1;
+        }
+
+        /* Ensure that arrows only appear when hovering near the edges */
+        .slider:hover .prev:hover,
+        .slider:hover .next:hover {
+            opacity: 1;
+        }
+
+        /* Media Queries for Smaller Screens */
+        @media (max-width: 768px) {
+            .slide h2 {
+                font-size: 8vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide h2 {
+                font-size: 10vw;
+            }
+        }
     </style>
 </head>
 
@@ -70,12 +112,15 @@
     <div class="slider">
         <div class="slide active">
             <img src="red11.jpg" alt="Image 1">
+            <h2>Red Fort</h2>
         </div>
         <div class="slide">
             <img src="india gate.avif" alt="Image 2">
+            <h2>India Gate</h2>
         </div>
         <div class="slide">
             <img src="pottery.jpg" alt="Image 3">
+            <h2>Pottery</h2>
         </div>
         <button class="arrow prev">&#10094;</button>
         <button class="arrow next">&#10095;</button>
