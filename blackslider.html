@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>literature</title>
+    <!-- Include Slicebox CSS -->
+    <link rel="stylesheet" href="slicebox.css">
+    <link rel="stylesheet" href="blackslider.css">
+    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* margin-top: -10px; */
+            overflow: hidden; 
+        }
+        body {
+            margin: 0;
+            display: flex;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+        }
+
+        .slider {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            overflow: hidden;
+            margin: 100px auto 0;
+            
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(90%);
+            transition: filter 0.3s ease-in-out;
+            object-fit:fill;
+            /* border: 5px solid #fffefe; */
+            
+        }
+
+        .slide img:hover {
+            filter: grayscale(0%);
+            
+        }
+        
+
+        .slide h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            z-index: 10;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            font-size: 6vw;
+            pointer-events: none; 
+        }
+        .slide:hover h2 {
+            font-size: 8vw; /* Increase font size on hover */
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .slider:hover .arrow {
+            opacity: 1;
+        }
+
+        /* Ensure that arrows only appear when hovering near the edges */
+        .slider:hover .prev:hover,
+        .slider:hover .next:hover {
+            opacity: 1;
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        /* Media Queries for Smaller Screens */
+        @media (max-width: 768px) {
+            .slide h2 {
+                font-size: 8vw;
+            }
+            .slide img{
+                height: 600px;
+            }
+            .slide:hover h2 {
+            font-size: 10vw; /* Increase font size on hover */
+        }
+        }
+
+        @media (max-width: 480px) {
+            .slide h2 {
+                font-size: 10vw;
+            }
+            .slide img{
+                height: 400px;
+            }
+            .slide:hover h2 {
+            font-size: 12vw; /* Increase font size on hover */
+        }
+        }
+        
+        
+    </style>
+</head>
+<body>
+<div id="container">
+    <nav class="navbar">
+        <div class="navbar-header">
+            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+            <ul class="navbar-menu">
+                <li><a href="home.html"><strong>Tales <img src="logo3.png"
+                                style="height: 20px;width: 20px; background-color: #fa270b;border-radius: 20px;"
+                                alt="Tales Of Bharat">f Bharat</strong></a></li>
+                <li><a href="monument.html">Historical Monuments</a></li>
+                <li><a href="festival.html">Cultural Festivals</a></li>
+                <li><a href="cuisine.html">Traditional Indian Cuisine</a></li>
+                <li><a href="arts.html">Arts n Crafts</a></li>
+                <li><a href="music.html">Music n Dance</a></li>
+                <li><a href="literature.html" class="active">Literature</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+    <div class="slider">
+        <div class="slide active">
+            <a href=""><img src="red11.jpg" alt="Image 1"></a>
+            <h2>Red Fort</h2>
+        </div>
+        <div class="slide">
+            <a href=""><img src="red10.jpg" alt="Image 2"></a>
+            <h2>India Gate</h2>
+        </div>
+        <div class="slide">
+            <a href=""><img src="red10.jpg" alt="Image 3"></a>
+            <h2>Pottery</h2>
+        </div>
+        <button class="arrow prev">&#10094;</button>
+        <button class="arrow next">&#10095;</button>
+    </div>
+</div>
+
+    
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        prevButton.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+
+        nextButton.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+
+
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
