@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider Debug</title>
+    <style>
+                @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            font-family: 'Oswald',sans-serif;
+        }
+
+        .slider {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out;
+            object-fit: cover;
+        }
+
+        .slide img:hover {
+            filter: grayscale(0%);
+        }
+
+        .slide h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: rgba(244, 239, 239, 0);
+            font-weight: bold;
+            text-align: center;
+            z-index: 10;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            font-size: 6vw;
+            transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out;
+        }
+
+        .slide:hover h2 {
+            transform: translate(-50%, -100%) scale(1.2);
+            font-size: 8vw;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .slider:hover .arrow {
+            opacity: 1;
+        }
+
+        .slider:hover .prev:hover,
+        .slider:hover .next:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .slide h2 {
+                font-size: 8vw;
+            }
+
+            .slide:hover h2 {
+                font-size: 10vw;
+                transform: translate(-50%, -100%) scale(1.3);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide h2 {
+                font-size: 10vw;
+            }
+
+            .slide:hover h2 {
+                font-size: 12vw;
+                transform: translate(-50%, -100%) scale(1.4);
+            }
+        }
+
+        .neon-text {
+            font-size: 80px;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 10px;
+            -webkit-text-stroke: 2px #fcf6f6;
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slide active">
+            <img src="red11.jpg" alt="Image 1">
+            <h2 class="neon-text">Red Fort</h2>
+        </div>
+        <div class="slide">
+            <img src="india gate.avif" alt="Image 2">
+            <h2>India Gate</h2>
+        </div>
+        <div class="slide">
+            <img src="pottery.jpg" alt="Image 3">
+            <h2>Pottery</h2>
+        </div>
+        <button class="arrow prev">&#9664;</button>
+        <button class="arrow next">&#9654;</button>
+    </div>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        prevButton.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+
+        nextButton.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+    </script>
+</body>
+
+</html> 
+
+
