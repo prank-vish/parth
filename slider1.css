@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4; /* Light background for contrast */
+    margin: 0;
+}
+
+.quiz-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #000; /* Black background */
+    color: #ff0; /* Yellow text */
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quiz-button:hover {
+    background-color: #ff0; /* Yellow background on hover */
+    color: #000; /* Black text on hover */
+}
