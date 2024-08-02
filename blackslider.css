@@ -1,0 +1,191 @@
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0); /* Slightly transparent dark background */
+    overflow: hidden;
+    /* position: relative; */
+    width: 100%;
+    top: 0;
+    z-index: 1100;
+    position: fixed;
+}
+
+.navbar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    color: #ffd700; /* Golden color */
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    position: fixed; /* Fix the button to the viewport */
+    top: 10px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    z-index: 1001; /* Ensure it is above other content */
+}
+
+.navbar-menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.3s ease-out;
+}
+
+.navbar-menu li {
+    position: relative;
+    color: #ffd700; /* Golden color */
+    font-family: 'Garamond', serif; /* Traditional, elegant font style */
+    padding: 0px 10px;
+}
+
+.navbar-menu li a {
+    display: block;
+    color: #fa270b; /* Golden color */
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-shadow: 2px 0px #5c2424;
+    font-size: 20px;
+    font-weight: bolder;
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.navbar-menu li a:hover {
+    background-color: #800000; /* Deep maroon background color on hover */
+    color: #ffd700; /* Golden text on hover */
+    border-radius: 10px;
+}
+
+.navbar-menu li a.active {
+    background-color: #800000;
+    color: #ffd700;
+    border-radius: 10px;
+}
+
+.navbar-menu li:first-child {
+    font-size: 22px;
+}
+
+/* .slider {
+    position: relative;
+    width: 100%;
+    margin: 0; 
+    overflow: hidden;
+    border: 0; 
+} */
+
+/* .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+} */
+
+/* .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+} */
+
+/* .slide img {
+    width: 100%;
+    vertical-align: middle;
+    height: 100vh; 
+} */
+
+/* .navigation {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+} */
+
+/* .navigation button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+} */
+
+/* .navigation button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+} */
+
+
+
+/* Styles for screens 1024px and below (tablets and mobile devices) */
+@media (max-width: 1024px) {
+    .hamburger {
+        display: block; /* Show hamburger button */
+    }
+    
+    .navbar-menu {
+        display: none; /* Hide menu items by default */
+        flex-direction: column; /* Stack menu items vertically */
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7); /* Background color for dropdown */
+        position: fixed; /* Position it fixed relative to viewport */
+        top: 60px; /*Adjust based on the height of the navbar */
+        left: 0;
+        z-index: 1100; /* Ensure it is below the hamburger button */
+    }
+
+    .navbar-menu li{
+        padding: 10px 10px;
+    }
+
+    .navbar-menu.active {
+        display: flex; /* Show menu items when active */
+        max-height: auto; /* Adjust as needed for menu height */
+    }
+
+    .slider {
+        margin-top: 50px; /* Adjust for navbar height */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-menu li {
+        padding: 10px 10px;
+    }
+
+    .navbar-menu li a {
+        font-size: 16px;
+    }
+
+    .navigation button {
+        padding: 8px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-menu li {
+        padding: 10px 10px;
+    }
+
+    .navbar-menu li a {
+        font-size: 14px;
+    }
+
+    .navigation button {
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 10px 0;
+    }
+}
+#nav-arrows{
+    z-index: 1000;
+}
