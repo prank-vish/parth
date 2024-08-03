@@ -17,6 +17,14 @@
             background-color: #f4f4f4;
         }
 
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
         /* Header Styling */
         header {
             background-color: #000000;
@@ -78,32 +86,47 @@
             width: 30px;
             height: 3px;
             background-color: #fff;
-            margin: 6px 0;
-            transition: 0.3s;
+            margin: 4px 0;
+            transition: all 0.3s;
         }
 
         /* Navigation Menu (for mobile) */
-        .nav-menu {
+        /* .nav-menu {
             display: flex;
             position: absolute;
             top: 60px;
             right: 0;
-            background-color: #333;
+            background-color: #000000;
             flex-direction: column;
             width: 250px;
             display: none;
+            border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        } */
+
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: hsla(0, 0%, 100%, 0.995);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
         }
 
         .nav-menu a {
             padding: 15px;
-            color: #fff;
+            color: #000000;
             text-decoration: none;
             font-size: 16px;
         }
 
         .nav-menu a:hover {
-            background-color: #444;
+            color: #007bff;
         }
 
         /* Sections */
@@ -174,7 +197,7 @@
             object-fit: cover;
         }
 
-        
+
 
         /* Media queries to adjust video height for different screen sizes */
         @media (max-width: 1200px) {
@@ -420,8 +443,50 @@
                 max-width: 300px;
             }
         }
+        .contact {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .contact h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .contact .card {
+            display: inline-block;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            width: 300px;
+        }
+
+        .contact .card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .contact .card p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .contact .card a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .contact .card a:hover {
+            color: #0056b3;
+        }
     </style>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </head>
 
 <body>
@@ -593,10 +658,23 @@
                 educate, inspire, and connect people through the stories and traditions that define our nation.</p>
         </section>
 
-        <section class="section" id="contact">
-            <h2>Contact Us</h2>
-            <p>We'd love to hear from you! Reach out to us at <a href="mailto: wetalesofbharat@gmail.com"
-                    style="text-decoration: none; color: rgb(0, 0, 0);">By Mail</a> or call us at 9695732481.</p>
+        <section id="contact" class="section contact">
+            <h3>Contact Us</h3>
+            <div class="card">
+                <h4>Email</h4>
+                <p>Reach us at:</p>
+                <a href="mailto:wetalesofbharat@gmail.com">wetalesofbharat@gmail.com</a>
+            </div>
+            <div class="card">
+                <h4>Phone</h4>
+                <p>Call us:</p>
+                <a href="tel:+1234567890">+1 234 567 890</a>
+            </div>
+            <div class="card">
+                <h4>Address</h4>
+                <p>Visit us at:</p>
+                <p>DoCSE SVNIT,<br>India</p>
+            </div>
         </section>
 
     </div>
@@ -891,9 +969,6 @@
             document.getElementById('userInput').value = "";
             count++;
         }
-
-
-
 
         function toggleMenu() {
             const navMenu = document.getElementById('navMenu');
