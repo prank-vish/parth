@@ -1,3 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literature</title>
+    <!-- <link rel="stylesheet" href="blackslider.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
+    <style>
+        body {
+            /* font-family: Arial, sans-serif; */
+            /* overflow: hidden;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            justify-content:flex-start;
+            align-items: center;
+            height: 100vh;
+            background-color: #333; */
+
+            font-family: 'Cinzel', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #050404;
+            
+        }
+
+        .slider {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            overflow: hidden;
+            margin: 80px auto 0;
+
+        }
+
+        .slide {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(90%);
+            object-fit: fill;
+            transition: filter 0.2s ease-in-out;
+            padding: 5px;
+        }
+
+        .slide img.transition {
+            animation: colorTransition 2s ease-in-out;
+        }
+
+        @keyframes colorTransition {
+            0% {
+                filter: grayscale(90%);
+            }
+
+            25% {
+                filter: grayscale(0%);
+            }
+
+            100%{
+                filter: grayscale(90%);
+            }
+        }
+
+        .slide h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            z-index: 10;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            font-size: 6vw;
+            pointer-events: none;
+        }
+
+        .slide:hover h2 {
+            font-size: 8vw;
+        }
+        .slide img:hover{
+            filter: grayscale(0%);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .slider:hover .arrow {
+            opacity: 1;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            /* Space between header title and nav */
+            align-items: center;
+            color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* width: 100vw; */
+        }
+
+        /* Header Title Styling */
+        header h1 {
+            margin: 0;
+            font-size: 4vh;
+            font-family: 'Cinzel', serif;
+            /* display: flex; */
+            align-items: center;
+        }
+
+        /* Logo Styling (if applicable) */
+        header img {
+            margin-left: 10px;
+            height: 3.5vh;
+        }
+
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* Align nav items vertically center */
+            margin-left: auto;
+            /* Pushes the nav to the right */
+        }
+
+        /* Navigation Links */
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 15px;
+            line-height: 30px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff9f00;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 20px;
+            height: 2px;
+            background-color: #fff;
+            margin: 2px 2px;
+            transition: 0.3s;
+        }
+
+        /* Navigation Menu (for mobile) */
+        .nav-menu {
+            display: flex;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: #333;
+            flex-direction: column;
+            width: 250px;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .nav-menu a {
+            padding: 15px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-menu a:hover {
+            background-color: #444;
+        }
+        @media (max-width:1472px){
+            header {
+                background-color: #000000;
+                padding: 9px 14px;
+                    display: flex;
+                    justify-content: space-between;
+                    /* Space between header title and nav */
+                    align-items: center;
+                    color: #fff;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+            
+                /* Header Title Styling */
+                header h1 {
+
+                    font-size: 3.7vh;
+
+                }
+            
+                /* Logo Styling (if applicable) */
+                header img {
+                    margin-left: 8px;
+                    height: 3.3vh;
+                }
+            
+                nav a {
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 0 9px;
+                    font-size: 13px;
+                    line-height: 24px;
+                    transition: color 0.3s;
+                }
+        }
+
+        @media (max-width:1020px){
+            header {
+                background-color: #000000;
+                padding: 9px 13px;
+                    display: flex;
+                    justify-content: space-between;
+                    /* Space between header title and nav */
+                    align-items: center;
+                    color: #fff;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+            
+                /* Header Title Styling */
+                header h1 {
+
+                    font-size: 3.5vh;
+
+                }
+            
+                /* Logo Styling (if applicable) */
+                header img {
+                    margin-left: 7px;
+                    height: 3vh;
+                }
+            
+                nav a {
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 0 10px;
+                    font-size: 10px;
+                    line-height: 20px;
+                    transition: color 0.3s;
+                }
+        }
+
+        @media (max-width: 768px) {
+            .slide h2 {
+                font-size: 8vw;
+            }
+
+            /* .slide img {
+                height: 600px;
+            } */
+
+            .slide:hover h2 {
+                font-size: 10vw;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide h2 {
+                font-size: 10vw;
+            }
+
+            /* .slide img {
+                height: 400px;
+            } */
+
+            .slide:hover h2 {
+                font-size: 12vw;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Tales <img src="logo3.png" alt="Tales of Bharat">f Bharat</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="#monuments">Monuments</a>
+            <a href="#cuisine">Cuisine</a>
+            <a href="#arts">Arts & Crafts</a>
+            <a href="#festivals">Festivals</a>
+            <a href="#music">Music & Dance</a>
+            <a href="#literature">Literature</a>
+           
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <a href="home.html">Welcome</a>
+            <a href="#monuments">Monuments</a>
+            <a href="#cuisine">Cuisine</a>
+            <a href="#arts">Arts and Crafts</a>
+            <a href="#festivals">Festivals</a>
+            <a href="#music">Music and Dance</a>
+            <a href="#literature">Literature</a>
+            
+        </div>
+    </header>
+    
+        <div class="slider">
+            <div class="slide active">
+                <a href=""><img src="red11.jpg" alt="Image 1"></a>
+                <h2>Red Fort</h2>
+            </div>
+            <div class="slide">
+                <a href=""><img src="red10.jpg" alt="Image 2"></a>
+                <h2>India Gate</h2>
+            </div>
+            <div class="slide">
+                <a href=""><img src="red10.jpg" alt="Image 3"></a>
+                <h2>Pottery</h2>
+            </div>
+            <button class="arrow prev">&#10094;</button>
+            <button class="arrow next">&#10095;</button>
+        </div>
+   
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            slides[currentSlide].querySelector('img').classList.remove('transition');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            slides[currentSlide].querySelector('img').classList.add('transition');
+        }
+
+        prevButton.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+
+        nextButton.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+
+        function toggleMenu() {
+            const menu = document.querySelector('.navbar-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
+
 
 
 
