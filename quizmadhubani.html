@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madhubani Paintings Quiz</title>
     <link rel="stylesheet" href="scorecontainer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #483550, #765088, #9a78aa);
+             /* font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom right, #2a013d, #590181, #9602db); */
+            background-color: #0b5c5c;
             color: #fff;
             margin: 0;
             padding: 0;
@@ -41,10 +43,21 @@
         }
 
         #start {
-            font-size: 2rem;
-            border-radius: 5px;
-            padding: 0 10px;
+            font-size: 1.5rem;
+            text-align: center;
             margin-top: 5rem;
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+            border: none;
+            font-family: 'Cinzel', serif;
+            
+            
+        }
+        #start:hover{
+            background-color: black;
+            color: white;
+
         }
 
         .container {
@@ -278,15 +291,15 @@
         </div>
     </header>
     <div class="progress">
-        <div class="step" id="one">01</div>
+        <div class="step" id="one">1</div>
         <div class="line" id="o"></div>
-        <div class="step" id="two">02</div>
+        <div class="step" id="two">2</div>
         <div class="line" id="t"></div>
-        <div class="step" id="three">03</div>
+        <div class="step" id="three">3</div>
         <div class="line" id="th"></div>
-        <div class="step" id="four">04</div>
+        <div class="step" id="four">4</div>
         <div class="line" id="f"></div>
-        <div class="step" id="five">05</div>
+        <div class="step" id="five">5</div>
     </div>
     <button id="start" onclick="begin()">Start</button><br>
     <div id="scorecontainer">
