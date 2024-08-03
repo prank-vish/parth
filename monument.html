@@ -4,141 +4,460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historical Monuments</title>
-    <link rel="stylesheet" href="slicebox.css">
-    <link rel="stylesheet" href="monument.css">
+    <title>Literature</title>
+    <!-- <link rel="stylesheet" href="blackslider.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin-top: -10px;
-            overflow: hidden; 
+            /* font-family: Arial, sans-serif; */
+            /* overflow: hidden;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            justify-content:flex-start;
+            align-items: center;
+            height: 100vh;
+            background-color: #333; */
+
+            font-family: 'Cinzel', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #050404;
+            
         }
-        #slider-container {
+
+        .slider {
             position: relative;
-            width: 100%; /* Full width of the viewport */
-            height: 100%; /* Full height of the viewport */
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            overflow: hidden;
+            margin: 80px auto 0;
+
         }
-        .sb-slider li {
-            list-style: none;
-            max-width: 100%; /* Full width of the viewport */
-            height: 100vh; /* Full height of the viewport */
-        }
-        .sb-slider li img {
-            max-width: 100%; /* Full width of the viewport */
-            height: 100vh; /* Full height of the viewport */
-            object-fit: fill; /* Ensure the image covers the entire area */
-        }
-        #nav-arrows {
-            position: absolute;
+
+        .slide {
+            display: none;
+            position: relative;
             width: 100%;
+            height: auto;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 500px;
+            filter: grayscale(90%);
+            object-fit:fill;
+            transition: filter 0.2s ease-in-out;
+            padding: 5px;
+        }
+
+        .slide img.transition {
+            animation: colorTransition 2s ease-in-out;
+        }
+
+        @keyframes colorTransition {
+            0% {
+                filter: grayscale(90%);
+            }
+
+            25% {
+                filter: grayscale(0%);
+            }
+
+            100%{
+                filter: grayscale(90%);
+            }
+        }
+
+        .slide h2 {
+            position: absolute;
             top: 50%;
-            left: 0;
-            margin-top: -30px;
-            z-index: 1000;
-        }
-        .nav-arrow {
-            width: 50px;
-            height: 50px;
-            background: #000;
-            color: #fff;
-            line-height: 50px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            color: white;
+            font-weight: bold;
             text-align: center;
-            font-size: 20px;
+            z-index: 10;
+            width: 100%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            font-size: 6vw;
+            pointer-events: none;
+        }
+
+        .slide:hover h2 {
+            font-size: 8vw;
+        }
+        .slide img:hover{
+            filter: grayscale(0%);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
             cursor: pointer;
-            opacity: 0.7;
+            z-index: 5;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .nav-arrow#nav-prev {
-            float: left;
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .slider:hover .arrow {
+            opacity: 1;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            /* Space between header title and nav */
+            align-items: center;
+            color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* width: 100vw; */
+        }
+
+        /* Header Title Styling */
+        header h1 {
+            margin: 0;
+            font-size: 4vh;
+            font-family: 'Cinzel', serif;
+            /* display: flex; */
+            align-items: center;
+        }
+
+        /* Logo Styling (if applicable) */
+        header img {
             margin-left: 10px;
+            height: 3.5vh;
         }
-        .nav-arrow#nav-next {
-            float: right;
-            margin-right: 10px;
+
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            /* Align nav items vertically center */
+            margin-left: auto;
+            /* Pushes the nav to the right */
         }
-         
-        .sb-slider li a img{
-            min-width: 100%;
+
+        /* Navigation Links */
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 15px;
+            line-height: 30px;
+            transition: color 0.3s;
         }
-        /* .sb-slider {
-    max-width: 100vw !important;
-} */
+
+        nav a:hover {
+            color: #ff9f00;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 20px;
+            height: 2px;
+            background-color: #fff;
+            margin: 2px 2px;
+            transition: 0.3s;
+        }
+
+        /* Navigation Menu (for mobile) */
+        .nav-menu {
+            display: flex;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #ffffff;
+            flex-direction: column;
+            width: 250px;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .nav-menu a {
+            padding: 15px;
+            color: #070707;
+            text-decoration: none;
+            font-size: 16px;
+            
+        }
+
+        .nav-menu a:hover {
+            color: blue;
+        }
+        @media (max-width:1472px){
+            header {
+                background-color: #000000;
+                padding: 9px 14px;
+                    display: flex;
+                    justify-content: space-between;
+                    /* Space between header title and nav */
+                    align-items: center;
+                    color: #fff;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+            
+                /* Header Title Styling */
+                header h1 {
+
+                    font-size: 3.7vh;
+
+                }
+            
+                /* Logo Styling (if applicable) */
+                header img {
+                    margin-left: 8px;
+                    height: 3.3vh;
+                }
+            
+                nav a {
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 0 9px;
+                    font-size: 13px;
+                    line-height: 24px;
+                    transition: color 0.3s;
+                }
+        }
+
+        @media (max-width:1020px){
+            header {
+                background-color: #000000;
+                padding: 9px 13px;
+                    display: flex;
+                    justify-content: space-between;
+                    /* Space between header title and nav */
+                    align-items: center;
+                    color: #fff;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+            
+                /* Header Title Styling */
+                header h1 {
+
+                    font-size: 3.5vh;
+
+                }
+            
+                /* Logo Styling (if applicable) */
+                header img {
+                    margin-left: 7px;
+                    height: 3vh;
+                }
+            
+                nav a {
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 0 10px;
+                    font-size: 10px;
+                    line-height: 20px;
+                    transition: color 0.3s;
+                }
+        }
+
+        @media (max-width: 768px) {
+            .slide h2 {
+                font-size: 8vw;
+            }
+
+            /* .slide img {
+                height: 600px;
+            } */
+
+            .slide:hover h2 {
+                font-size: 10vw;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide h2 {
+                font-size: 10vw;
+            }
+
+            /* .slide img {
+                height: 400px;
+            } */
+
+            .slide:hover h2 {
+                font-size: 12vw;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="navbar-header">
-            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
-            <ul class="navbar-menu">
-                <li><a href="home.html"><strong>Tales <img src="logo3.png"
-                                style="height: 20px;width: 20px; background-color: #8b4513;border-radius: 20px;"
-                                alt="Tales Of Bharat">f Bharat</strong></a></li>
-                <li><a href="monument.html" class="active">Historical Monuments</a></li>
-                <li><a href="festival.html">Cultural Festivals</a></li>
-                <li><a href="cuisine.html" >Traditional Indian Cuisine</a></li>
-                <li><a href="arts.html">Arts n Crafts</a></li>
-                <li><a href="music.html">Music n Dance</a></li>
-                <li><a href="literature.html">Literature</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-            </ul>
+    <header>
+        <h1>Tales <img src="logo3.png" alt="Tales of Bharat">f Bharat</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="monument.html">Monuments</a>
+            <a href="cuisine.html">Cuisine</a>
+            <a href="arts.html">Arts & Crafts</a>
+            <a href="festival.html">Festivals</a>
+            <a href="music.html">Music & Dance</a>
+            <a href="literature.html">Literature</a>
+           
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-    </nav>
-    <div id="slider-container">
-        <ul id="sb-slider" class="sb-slider" style="min-width: 100%;">
-            <li><a href="tajmahal.html"><img src="taj10.jpg" alt="Image 1" ></a></li>
-            <li><a href="qutubminar.html"><img src="qutub10.jpg" alt="Image 2" ></a></li>
-            <li><a href="hawamahal.html"><img src="hawa10.jpg" alt="Image 3" ></a></li>
-            <li><a href="redfort.html"><img src="red10.jpg" alt="Image 1" ></a></li>
-            <li><a href="charminar.html"><img src="charminar12.jpg" alt="Image 2" ></a></li>
+        <div class="nav-menu" id="navMenu">
+            <a href="home.html">Home</a>
+            <a href="monument.html">Monuments</a>
+            <a href="cuisine.html">Cuisine</a>
+            <a href="arts.html">Arts & Crafts</a>
+            <a href="festival.html">Festivals</a>
+            <a href="music.html">Music & Dance</a>
+            <a href="literature.html">Literature</a>
             
-        </ul>
-        <div id="nav-arrows">
-            <span id="nav-prev" class="nav-arrow">&#9664;</span>
-            <span id="nav-next" class="nav-arrow">&#9654;</span>
         </div>
-    </div>
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
-            <p>
-                <a href="mailto:wetalesofbharat@gmail.com">&#9993; Mail Us</a>
-            </p>
-            <p>&#9742; 9695732481</p>
+    </header>
+    
+        <div class="slider">
+            <div class="slide active">
+                <a href="tajmahal.html"><img src="taj10.jpg" alt="Image 1"></a>
+                <h2>Taj Mahal</h2>
+            </div>
+            <div class="slide">
+                <a href="qutubminar.html"><img src="qutub10.jpg" alt="Image 2"></a>
+                <h2>Qutub Minar</h2>
+            </div>
+            <div class="slide">
+                <a href="hawamahal.html"><img src="hawa10.jpg" alt="Image 3"></a>
+                <h2>Hawa Mahal</h2>
+            </div>
+            <div class="slide">
+                <a href="redfort.html"><img src="red10.jpg" alt="Image 3"></a>
+                <h2>Red Fort</h2>
+            </div>
+            <div class="slide">
+                <a href="charminar.html"><img src="charminar12.jpg" alt="Image 3"></a>
+                <h2>Charminar</h2>
+            </div>
+            <button class="arrow prev">&#10094;</button>
+            <button class="arrow next">&#10095;</button>
         </div>
-    </footer>
-    <!-- Include jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Include Modernizr -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <!-- Include Slicebox JS -->
-    <script src="jquery.slicebox.min.js"></script>
+   
+
     <script>
-        $(document).ready(function() {
-    var slicebox = $('#sb-slider').slicebox({
-        orientation: 'r',
-        cuboidsRandom: true,
-        disperseFactor: 30
-    });
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentSlide = 0;
 
-    $('#sb-slider').css('max-width', '100%');
-    $('#sb-slider').css('width', '100%');
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            slides[currentSlide].querySelector('img').classList.remove('transition');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            slides[currentSlide].querySelector('img').classList.add('transition');
+        }
 
-    $('#nav-prev').on('click', function() {
-        slicebox.previous();
-        return false;
-    });
+        prevButton.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
 
-    $('#nav-next').on('click', function() {
-        slicebox.next();
-        return false;
-    });
-});
-
+        nextButton.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
 
         function toggleMenu() {
-            const menu = document.querySelector('.navbar-menu');
-            menu.classList.toggle('active');
+            const navMenu = document.getElementById('navMenu');
+            const isMenuOpen = navMenu.style.display === 'flex';
+
+            if (isMenuOpen) {
+                navMenu.style.display = 'none';
+                document.removeEventListener('click', handleClickOutside);
+            } else {
+                navMenu.style.display = 'flex';
+                setTimeout(() => document.addEventListener('click', handleClickOutside), 0);
+            }
+        }
+
+        function handleClickOutside(event) {
+            const navMenu = document.getElementById('navMenu');
+            if (!navMenu.contains(event.target) && event.target !== document.querySelector('button')) {
+                navMenu.style.display = 'none';
+                document.removeEventListener('click', handleClickOutside);
+            }
         }
     </script>
 </body>
+
 </html>
+
