@@ -1,141 +1,918 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slicebox Slider</title>
-    <!-- Include Slicebox CSS -->
-    <link rel="stylesheet" href="slicebox.css">
-    <link rel="stylesheet" href="cuisine.css">
-    <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
+    <title>Tales of Bharat - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Basic Reset and Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cinzel', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            overflow: hidden; 
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
         }
-        #slider-container {
-            position: relative;
-            width: 100%; /* Full width of the viewport */
-            height: 100%; /* Full height of the viewport */
-        }
-        .sb-slider li {
-            list-style: none;
-            max-width: 100%; /* Full width of the viewport */
-            height: 100vh; /* Full height of the viewport */
-        }
-        .sb-slider li img {
-            max-width: 100%; /* Full width of the viewport */
-            height: 100vh; /* Full height of the viewport */
-            object-fit: cover; /* Ensure the image covers the entire area */
-        }
-        #nav-arrows {
-            position: absolute;
-            width: 100%;
-            top: 50%;
-            left: 0;
-            margin-top: -30px;
-            z-index: 1000;
-        }
-        .nav-arrow {
-            width: 50px;
-            height: 50px;
-            background: #000;
+
+        /* Header Styling */
+        header {
+            background-color: #000000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            /* Space between header title and nav */
+            align-items: center;
             color: #fff;
-            line-height: 50px;
-            text-align: center;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0.7;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .nav-arrow#nav-prev {
-            float: left;
+
+        /* Header Title Styling */
+        header h1 {
+            margin: 0;
+            font-size: 4.16vh;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Logo Styling (if applicable) */
+        header img {
             margin-left: 10px;
+            height: 4vh;
         }
-        .nav-arrow#nav-next {
-            float: right;
-            margin-right: 10px;
+
+        /* Navigation Styling */
+        nav {
+            display: flex;
+            align-items: center;
+            /* Align nav items vertically center */
+            margin-left: auto;
+            /* Pushes the nav to the right */
         }
-         
-        .sb-slider li a img{
-            min-width: 100%;
+
+        /* Navigation Links */
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 20px;
+            font-size: 18px;
+            line-height: 40px;
+            transition: color 0.3s;
         }
-        /* .sb-slider {
-    max-width: 100vw !important;
-} */
+
+        nav a:hover {
+            color: #ff9f00;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background-color: #fff;
+            margin: 6px 0;
+            transition: 0.3s;
+        }
+
+        /* Navigation Menu (for mobile) */
+        .nav-menu {
+            display: flex;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: #333;
+            flex-direction: column;
+            width: 250px;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-menu a {
+            padding: 15px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-menu a:hover {
+            background-color: #444;
+        }
+
+        /* Sections */
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .section.reverse .content {
+            flex-direction: row-reverse;
+        }
+
+        .section .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .section .content>div {
+            flex: 1;
+        }
+
+        .section img,
+        .section video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .section img:hover,
+        .section video:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Layout */
+        .responsive img,
+        .responsive video {
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .responsive img:hover,
+        .responsive video:hover {
+            transform: scale(1.05);
+        }
+
+        .responsive {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .responsive div {
+            flex: 1 1 45%;
+            max-width: 45%;
+        }
+
+        .responsive video {
+            max-height: 60vh;
+            object-fit: cover;
+        }
+
+        /* Media queries to adjust video height for different screen sizes */
+        @media (max-width: 1200px) {
+            .responsive video {
+                max-height: 50vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .responsive video {
+                max-height: 40vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .responsive video {
+                max-height: 30vh;
+            }
+        }
+
+        /* Buttons */
+        .bt1,
+        .bt2 {
+            padding: 12px 25px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .bt1:hover,
+        .bt2:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .footer-logo h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .footer-logo p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-links div {
+            flex: 1;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ff9f00;
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            color: #fff;
+            font-size: 20px;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #ff9f00;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                width: 100%;
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links div {
+                margin-bottom: 20px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+
+        /* Feedback Section */
+        .feedback {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .feedback h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .feedback input,
+        .feedback textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .feedback input {
+            border-radius: 10px;
+            height: 40px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .feedback textarea {
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .feedback button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .feedback button:hover {
+            background-color: #0056b3;
+        }
+
+        #showbox {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .displayDiv {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            min-height: 150px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .displayDiv p {
+            margin: 0;
+            color: #333;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #showbox {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .displayDiv {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="navbar-header">
-            <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
-            <ul class="navbar-menu">
-                <li><a href="home.html"><strong>Tales <img src="logo3.png"
-                                style="height: 20px;width: 20px; background-color: #c85400;border-radius: 20px;"
-                                alt="Tales Of Bharat">f Bharat</strong></a></li>
-                <li><a href="monument.html">Historical Monuments</a></li>
-                <li><a href="festival.html">Cultural Festivals</a></li>
-                <li><a href="cuisine.html" class="active">Traditional Indian Cuisine</a></li>
-                <li><a href="arts.html">Arts n Crafts</a></li>
-                <li><a href="music.html">Music n Dance</a></li>
-                <li><a href="literature.html">Literature</a></li>
-                <li><a href="aboutus.html">About Us</a></li>
-            </ul>
+    <header>
+        <h1>Tales <img src="logo3.png" alt="Tales of Bharat">f Bharat</h1>
+        <nav>
+            <a href="#monuments">Monuments</a>
+            <a href="#cuisine">Cuisine</a>
+            <a href="#arts">Arts and Crafts</a>
+            <a href="#festivals">Festivals</a>
+            <a href="#music">Music and Dance</a>
+            <a href="#literature">Literature</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-    </nav>
-    <div id="slider-container">
-        <ul id="sb-slider" class="sb-slider" style="min-width: 100%;">
-            <li><a href=""><img src="red fort.webp" alt="Image 1" ></a></li>
-            <li><a href=""><img src="red10.jpg" alt="Image 2" ></a></li>
-            <li><a href=""><img src="red11.jpg" alt="Image 3" ></a></li>
-        </ul>
-        <div id="nav-arrows">
-            <span id="nav-prev" class="nav-arrow">&#9664;</span>
-            <span id="nav-next" class="nav-arrow">&#9654;</span>
+        <div class="nav-menu" id="navMenu">
+            <a href="#welcome">Welcome</a>
+            <a href="#monuments">Monuments</a>
+            <a href="#cuisine">Cuisine</a>
+            <a href="#arts">Arts and Crafts</a>
+            <a href="#festivals">Festivals</a>
+            <a href="#music">Music and Dance</a>
+            <a href="#literature">Literature</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
         </div>
+    </header>
+
+    <div class="content">
+        <section class="section" id="welcome">
+            <h2>Welcome to Tales of Bharat</h2>
+            <p>Welcome to Tales of Bharat, where we celebrate the rich heritage and culture of India. Explore our
+                sections on monuments, cuisine, arts and crafts, festivals, music and dance, and literature to dive into
+                the essence of our nation's legacy.</p>
+        </section>
+
+        <section class="section" id="monuments">
+            <div class="content">
+                <div>
+                    <h2>Monuments</h2>
+                    <p>Explore the architectural marvels of India, from the majestic Taj Mahal to the historic Red Fort.
+                    </p>
+                    <a href="monument.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="monument.html"><img src="red10.jpg" alt="Historical Monuments" class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reverse" id="cuisine">
+            <div class="content">
+                <div>
+                    <h2>Cuisine</h2>
+                    <p>Discover the flavors of Indian cuisine, from spicy street food to traditional home-cooked meals.
+                    </p>
+                    <a href="cuisine.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="cuisine.html"><img id="cuisine-img" src="dahipuri1.jpeg" alt="Indian Cuisine"
+                            class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="arts">
+            <div class="content">
+                <div>
+                    <h2>Arts and Crafts</h2>
+                    <p>Dive into the world of Indian arts and crafts, showcasing traditional skills and contemporary
+                        creativity.</p>
+                    <a href="arts.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="arts.html"><img id="arts-img" src="pottery10.jpg" alt="Arts and Crafts"
+                            class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reverse" id="festivals">
+            <div class="content">
+                <div>
+                    <h2>Festivals</h2>
+                    <p>Join in the celebrations of India's vibrant festivals, from Diwali to Holi and beyond.</p>
+                    <a href="festival.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="festival.html"><img id="festivals-img" src="diwali10.jpg" alt="Festivals"
+                            class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="music">
+            <div class="content">
+                <div>
+                    <h2>Music and Dance</h2>
+                    <p>Experience the rhythm and melodies of India's music and dance traditions, from classical to folk.
+                    </p>
+                    <a href="music.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="music.html"><img id="music-img" src="garba11.jpg" alt="Music and Dance"
+                            class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reverse" id="literature">
+            <div class="content">
+                <div>
+                    <h2>Literature</h2>
+                    <p>Explore the rich literary heritage of India, from ancient epics to modern classics.</p>
+                    <a href="literature.html">Learn More</a>
+                </div>
+                <div>
+                    <a href="literature.html"><img id="literature-img" src="mahabharat10.jpg" alt="Literature"
+                            class="hover-zoom"></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section poll">
+            <h3>Poll</h3>
+            <div id="poll">
+                <p>Which is your favorite Indian festival?</p>
+                <form>
+                    <label for="diwali"><input type="radio" id="diwali" name="festival" value="Diwali"> Diwali</label>
+                    <label for="holi"><input type="radio" id="holi" name="festival" value="Holi"> Holi</label>
+                    <label for="eid"><input type="radio" id="eid" name="festival" value="Eid"> Eid</label>
+                    <label for="christmas"><input type="radio" id="christmas" name="festival" value="Christmas">
+                        Christmas</label>
+                    <label for="pongal"><input type="radio" id="pongal" name="festival" value="Pongal">
+                        Pongal</label><br>
+                    <button type="button" class="bt2" onclick="submitPoll()">Submit</button>
+                </form>
+            </div>
+            <div id="chartContainer" style="width: 50%; max-width: 600px; margin: 0 auto;">
+                <canvas id="pollChart"></canvas>
+            </div>
+        </section>
+
+        <section class="section feedback">
+            <h3>Let Us Know!</h3>
+            <input type="email" id="feedemail" placeholder="Enter your email">
+            <div id="level">
+                <textarea id="userInput" rows="4" placeholder="Your feedback here..."></textarea>
+            </div>
+            <div><button onclick="saveInput()" id="save">Save</button></div>
+            <div class="showbox" id="showbox">
+                <div class="displayDiv" id="displayD"></div>
+                <div class="displayDiv" id="displayI"></div>
+                <div class="displayDiv" id="displayV"></div>
+                <div class="displayDiv" id="displayC"></div>
+                <div class="displayDiv" id="displayE"></div>
+            </div>
+        </section>
+
+
+        <section class="section" id="about">
+            <h2>About Us</h2>
+            <p>Tales of Bharat is dedicated to showcasing the diverse cultural heritage of India. Our mission is to
+                educate, inspire, and connect people through the stories and traditions that define our nation.</p>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Reach out to us at <a href="mailto: wetalesofbharat@gmail.com"
+                    style="text-decoration: none; color: rgb(0, 0, 0);">By Mail</a> or call us at 9695732481.</p>
+        </section>
+
     </div>
-    <footer class="footer">
+
+    <footer>
         <div class="footer-content">
-            <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
-            <p>
-                <a href="mailto:wetalesofbharat@gmail.com">&#9993; Mail Us</a>
-            </p>
-            <p>&#9742; 9695732481</p>
+            <div class="footer-logo">
+                <h2>Tales of Bharat</h2>
+                <p>Exploring India's Rich Culture</p>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div>
+                    <a href="#monuments">Monuments</a>
+                    <a href="#cuisine">Cuisine</a>
+                </div>
+                <div>
+                    <a href="#arts">Arts and Crafts</a>
+                    <a href="#festivals">Festivals</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-youtube"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tales of Bharat. All Rights Reserved.</p>
         </div>
     </footer>
-    <!-- Include jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Include Modernizr -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-    <!-- Include Slicebox JS -->
-    <script src="jquery.slicebox.min.js"></script>
+
     <script>
-        $(document).ready(function() {
-    var slicebox = $('#sb-slider').slicebox({
-        orientation: 'r',
-        cuboidsRandom: true,
-        disperseFactor: 30
-    });
+        function toggleMenu() {
+            var menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+        var pollResults = {
+            "Diwali": 0,
+            "Holi": 0,
+            "Eid": 0,
+            "Christmas": 0,
+            "Pongal": 0
+        };
 
-    $('#sb-slider').css('max-width', '100%');
-    $('#sb-slider').css('width', '100%');
 
-    $('#nav-prev').on('click', function() {
-        slicebox.previous();
-        return false;
-    });
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Load saved content from localStorage
+            const d = localStorage.getItem('uD');
+            if (d) {
+                pollResults["Diwali"] = d;
+            }
 
-    $('#nav-next').on('click', function() {
-        slicebox.next();
-        return false;
-    });
-});
+            const h = localStorage.getItem('uH');
+            if (h) {
+                pollResults["Holi"] = h;
+            }
+
+            const e = localStorage.getItem('uE');
+            if (e) {
+                pollResults["Eid"] = e;
+            }
+
+            const c = localStorage.getItem('uC');
+            if (c) {
+                pollResults["Christmas"] = c;
+            }
+
+            const p = localStorage.getItem('uP');
+            if (p) {
+                pollResults["Pongal"] = p;
+            }
+        });
+
+
+
+
+        function submitPoll() {
+            var selectedFestival = document.querySelector('input[name="festival"]:checked').value;
+            pollResults[selectedFestival]++;
+            console.log(selectedFestival);
+
+
+            if (selectedFestival == "Diwali") {
+                const D = pollResults[selectedFestival];
+                localStorage.setItem('uD', D);
+                console.log(D);
+            }
+
+            else if (selectedFestival == "Holi") {
+                const H = pollResults[selectedFestival];
+                localStorage.setItem('uH', H);
+            }
+
+            else if (selectedFestival == "Eid") {
+                const E = pollResults[selectedFestival];
+                localStorage.setItem('uE', E);
+            }
+
+            else if (selectedFestival == "Christmas") {
+                const C = pollResults[selectedFestival];
+                localStorage.setItem('uC', C);
+            }
+
+            else if (selectedFestival == "Pongal") {
+                const P = pollResults[selectedFestival];
+                localStorage.setItem('uP', P);
+            }
+
+
+
+
+
+            displayChart();
+            document.getElementById("poll").style.display = "none";
+        }
+
+        function displayChart() {
+            var ctx = document.getElementById('pollChart').getContext('2d');
+            var chartData = {
+                labels: Object.keys(pollResults),
+                datasets: [{
+                    label: 'Poll Results',
+                    data: Object.values(pollResults),
+                    backgroundColor: [
+                        'rgba(255, 99, 32, 0.9)',
+                        'rgba(54, 162, 235, 0.9)',
+                        'rgba(255, 206, 86, 0.9)',
+                        'rgba(75, 192, 192, 0.9)',
+                        'rgba(153, 102, 255, 0.9)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1,
+                    barThickness: 5 // Adjust this value to change the bar width
+                }]
+            };
+
+            var pollChart = new Chart(ctx, {
+                type: 'bar',
+                data: chartData,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+
+
+
+        let count = 0;
+        console.log(count);
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+
+            const savedC = localStorage.getItem('userC');
+            const savedEE = localStorage.getItem('userEE');
+
+            console.log(savedC);
+            if (savedC) {
+                document.getElementById('displayD').innerText = savedC;
+                document.getElementById('displayD').prepend(savedEE);
+                document.getElementById('displayD').style.display = "inline";
+
+                // count=1;
+            }
+
+            const savedO = localStorage.getItem('userO');
+            const savedM = localStorage.getItem('userM');
+            if (savedO) {
+                document.getElementById('displayI').innerText = savedO;
+                document.getElementById('displayI').prepend(savedM);
+                document.getElementById('displayI').style.display = "inline";
+
+                // count=2;
+            }
+
+            const savedN = localStorage.getItem('userN');
+            const savedA = localStorage.getItem('userA');
+            if (savedN) {
+                document.getElementById('displayV').innerText = savedN;
+                document.getElementById('displayV').prepend(savedA);
+                document.getElementById('displayV').style.display = "inline";
+
+                // count=3;
+            }
+
+            const savedT = localStorage.getItem('userT');
+            const savedI = localStorage.getItem('userI');
+            if (savedT) {
+                document.getElementById('displayC').innerText = savedT;
+                document.getElementById('displayC').prepend(savedI);
+                document.getElementById('displayC').style.display = "inline";
+
+                // count=4;
+            }
+
+            const savedE = localStorage.getItem('userE');
+            const savedL = localStorage.getItem('userL');
+            if (savedN) {
+                document.getElementById('displayE').innerText = savedE;
+                document.getElementById('displayE').prepend(savedL);
+                document.getElementById('displayE').style.display = "inline";
+
+                // count=5;
+            }
+
+
+
+
+        });
+
+        function saveInput() {
+            if (count == 0) {
+                const userInput = document.getElementById('userInput').value;
+                let userEmail = document.getElementById('feedemail').value;
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+
+                localStorage.setItem('userC', userInput);
+                localStorage.setItem('userEE', userEmail);
+                document.getElementById('displayD').innerText = userInput;
+                document.getElementById('displayD').prepend(userEmail);
+                document.getElementById('displayD').style.display = "inline";
+
+            }
+            else if (count == 1) {
+                const userInput = document.getElementById('userInput').value;
+                let userEmail = document.getElementById('feedemail').value;
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+                localStorage.setItem('userO', userInput);
+                localStorage.setItem('userM', userEmail);
+
+                document.getElementById('displayI').innerText = userInput;
+                document.getElementById('displayI').prepend(userEmail);
+                document.getElementById('displayI').style.display = "inline";
+
+            }
+
+            else if (count == 2) {
+                const userInput = document.getElementById('userInput').value;
+                let userEmail = document.getElementById('feedemail').value;
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+
+                localStorage.setItem('userN', userInput);
+                localStorage.setItem('userA', userEmail);
+                document.getElementById('displayV').innerText = userInput;
+                document.getElementById('displayV').prepend(userEmail);
+                document.getElementById('displayV').style.display = "inline";
+
+            }
+            else if (count == 3) {
+                const userInput = document.getElementById('userInput').value;
+                let userEmail = document.getElementById('feedemail').value;
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+
+                localStorage.setItem('userT', userInput);
+                localStorage.setItem('userI', userEmail);
+                document.getElementById('displayC').innerText = userInput;
+                document.getElementById('displayC').prepend(userEmail);
+                document.getElementById('displayC').style.display = "inline";
+
+            }
+            else if (count == 4) {
+                const userInput = document.getElementById('userInput').value;
+                let userEmail = document.getElementById('feedemail').value;
+                userEmail = userEmail.slice(0, userEmail.indexOf("@")).toUpperCase() + " :   ";
+                localStorage.setItem('userE', userInput);
+                localStorage.setItem('userL', userEmail);
+                document.getElementById('displayE').innerText = userInput;
+                document.getElementById('displayE').prepend(userEmail);
+                document.getElementById('displayE').style.display = "inline";
+
+            }
+
+
+
+            document.getElementById('userInput').value = "";
+            count++;
+        }
+
+
 
 
         function toggleMenu() {
-            const menu = document.querySelector('.navbar-menu');
-            menu.classList.toggle('active');
+            const navMenu = document.getElementById('navMenu');
+            const isMenuOpen = navMenu.style.display === 'flex';
+
+            if (isMenuOpen) {
+                navMenu.style.display = 'none';
+                document.removeEventListener('click', handleClickOutside);
+            } else {
+                navMenu.style.display = 'flex';
+                setTimeout(() => document.addEventListener('click', handleClickOutside), 0);
+            }
+        }
+
+        function handleClickOutside(event) {
+            const navMenu = document.getElementById('navMenu');
+            if (!navMenu.contains(event.target) && event.target !== document.querySelector('button')) {
+                navMenu.style.display = 'none';
+                document.removeEventListener('click', handleClickOutside);
+            }
         }
     </script>
 </body>
+
 </html>
