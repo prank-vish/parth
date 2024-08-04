@@ -113,28 +113,90 @@
             border-radius: 10px;
         }
 
-        .footer {
-            background-color: #4CAF50;
-            color: #FFD700;
-            padding: 20px;
+        footer {
+            background-color: #4caf50;
+            color: #ffd700;
+            padding: 40px 20px;
             text-align: center;
-            font-size: 1em;
+            font-size: 16px;
         }
 
-        .footer p {
-            margin: 5px 0;
-            color: #FFD700;
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20px;
         }
 
-        .footer a {
-            color: #FFD700;
+        .footer-logo {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .footer-logo h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-family: 'Cardo', serif;
+        }
+        .footer-logo h2 img{
+            height:20px;
+            border-radius: 50%;
+            background-color: #ffd700;
+        }
+        .footer-logo p {
+            font-size: 16px;
+            color: #ffd700;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-links div {
+            flex: 1;
+        }
+
+        .footer-links a {
+            color: #ffd700;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 1rem;
+            transition: color 0.3s;
         }
 
-        .footer a:hover {
-            color: #20B2AA;
+        .footer-links a:hover {
+            color: #f96604;
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            color: #ffd700;
+            font-size: 20px;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #f96604;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ffd700;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: #ffd700;
         }
 
         .navbar {
@@ -251,6 +313,22 @@
             .navbar ul li a {
                 font-size: 16px;
             }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                width: 100%;
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links div {
+                margin-bottom: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -360,7 +438,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <h2>Tales of Bharat</h2>
+                <h2>Tales <img src="logo3.png" alt="">f Bharat</h2>
                 <p>Exploring India's Rich Culture</p>
             </div>
             <div class="footer-links">
