@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Dahi Jalebi</title>
     <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body,
         html {
@@ -121,31 +122,90 @@
             border-radius: 10px;
         }
 
-        .footer {
+        footer {
             background-color: #fdf5e6;
-            /* Yellow background for footer */
             color: #f55a07;
-            /* Dark red text color */
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
-            font-size: 1em;
+            font-size: 16px;
         }
 
-        .footer p {
-            margin: 5px 0;
-            color: #8f2901;
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20px;
         }
 
-        .footer a {
+        .footer-logo {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .footer-logo h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            font-family: 'Cardo', serif;
+        }
+        .footer-logo h2 img{
+            height:20px;
+            border-radius: 50%;
+            background-color: #f55a07;
+        }
+        .footer-logo p {
+            font-size: 16px;
+            color: #8f4025;
+        }
+
+        .footer-links {
+            flex: 2;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-links div {
+            flex: 1;
+        }
+
+        .footer-links a {
             color: #ffa500;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9em;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 1rem;
+            transition: color 0.3s;
         }
 
-        .footer a:hover {
+        .footer-links a:hover {
             color: #c62828;
-            /* Darker red for hover effect */
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            color: #ffa500;
+            font-size: 20px;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #c62828;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #f55a07;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: #f55a07;
         }
 
         .navbar {
@@ -262,6 +322,22 @@
             .navbar ul li a {
                 font-size: 16px;
             }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                width: 100%;
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links div {
+                margin-bottom: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -327,7 +403,7 @@
 <body>
     <nav class="navbar">
         <div class="title"><a href="home.html"> Tales <img src="logo3.png"
-                style="height: 20px;background-color: #f55a07;border-radius: 20px;" alt="Tales of Bharat">f Bharat</a>
+                style="height: 20px;background-color: #f55a07;border-radius: 50%;" alt="Tales of Bharat">f Bharat</a>
         </div>
         <button class="hamburger" onclick="toggleMenu()">☰</button>
         <ul>
@@ -369,12 +445,37 @@
             dessert traditions of Indian cuisine, often enjoyed during festivals and special occasions.</p>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2024 Tales of Bharat - All rights reserved</p>
-        <p>
-            <a href="mailto:u23cs113@coed.svnit.ac.in">&#9993; Mail Us</a>
-        </p>
-        <p>&#9742; 9695732481</p>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Tales <img src="logo3.png" alt="">f Bharat</h2>
+                <p>Exploring India's Rich Culture</p>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div>
+                    <a href="#monuments">Monuments</a>
+                    <a href="#cuisine">Cuisine</a>
+                </div>
+                <div>
+                    <a href="#arts">Arts and Crafts</a>
+                    <a href="#festivals">Festivals</a>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-whatsapp"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-youtube"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tales of Bharat. All Rights Reserved.</p>
+        </div>
     </footer>
 
     <script>
