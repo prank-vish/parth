@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tales of Bharat</title>
     <link rel="icon" href="logo7.png" style="background-color: black;" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body,
         html {
@@ -134,14 +135,16 @@
             border-radius: 8px;
             text-align: center;
         }
+
         .poll h2 {
             margin-top: 0;
         }
-        .poll label{
+
+        .poll label {
             display: block;
         }
 
-        .poll p{
+        .poll p {
             color: #00ffff;
         }
 
@@ -242,13 +245,13 @@
         .bt1,
         .bt2 {
             margin-left: 10px;
-            background : linear-gradient(135deg,rgb(253, 206, 189),orangered);
+            background: linear-gradient(135deg, rgb(253, 206, 189), orangered);
 
         }
 
         .bt1:hover,
         .bt2:hover {
-            background : linear-gradient(135deg,tomato,rgb(251, 164, 148));
+            background: linear-gradient(135deg, tomato, rgb(251, 164, 148));
             cursor: pointer;
         }
 
@@ -300,7 +303,7 @@
             text-shadow: 0 0 3px rgb(227, 215, 215);
         }
 
-        .responsive a{
+        .responsive a {
             color: #ff69b4;
             font-size: 2.5vh;
         }
@@ -327,7 +330,8 @@
             font-size: 1em;
         }
 
-        input[type="email"], textarea {
+        input[type="email"],
+        textarea {
             background-color: #FFFFE0;
             border: 2px solid #FFD700;
         }
@@ -341,7 +345,7 @@
     <div class="content">
         <header>
             <h1>Tales <img src="logo3.png"
-                    style="height: 20px;border-radius: 20px;font-family: 'Oswald', sans-serif;background-color: black;"
+                    style="height: 20px;border-radius: 50%;font-family: 'Oswald', sans-serif;background-color: black;"
                     alt="Tales of Bharat">f Bharat</h1>
             <nav>
                 <a href="#monuments">Monuments</a>
@@ -384,8 +388,7 @@
                     <a href="monument.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="monument.html"><img id="monument-img" src="qutub minar.jpg" alt="Historical Monuments"
-                            class="hover-zoom"></a>
+                    <a href="monument.html"><img src="qutub.mp4 " alt="Historical Monuments" class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -470,15 +473,15 @@
                 <p>Which is your favorite Indian festival?</p>
                 <form>
                     <label for="diwali"><input type="radio" id="diwali" name="festival" value="Diwali">
-                    Diwali</label>
+                        Diwali</label>
                     <label for="holi"><input type="radio" id="holi" name="festival" value="Holi">
-                    Holi</label>
+                        Holi</label>
                     <label for="eid"><input type="radio" id="eid" name="festival" value="Eid">
-                    Eid</label>
+                        Eid</label>
                     <label for="christmas"><input type="radio" id="christmas" name="festival" value="Christmas">
-                    Christmas</label>
+                        Christmas</label>
                     <label for="pongal"><input type="radio" id="pongal" name="festival" value="Pongal">
-                    Pongal</label><br>
+                        Pongal</label><br>
                     <button type="button" class="bt2" onclick="submitPoll()">Submit</button>
                 </form>
             </div>
@@ -503,8 +506,8 @@
             </div>
         </section>
 
-        <section class="section" id="about" >
-            <h2 >About Us</h2>
+        <section class="section" id="about">
+            <h2>About Us</h2>
             <p>Tales of Bharat is dedicated to showcasing the diverse cultural heritage of India. Our mission is to
                 educate, inspire, and connect people through the stories and traditions that define our nation.</p>
         </section>
@@ -516,15 +519,36 @@
         </section>
 
         <footer>
-            <span style="font-size: 3vh;color: #ffffff;text-shadow: 0 0 2px black;">Get Connected With Us :</span>
-            <p>
-
-                <a href="#"><img src="facebook.png" alt="Facebook"></a>
-                <a href="https://whatsapp.com/channel/0029VakmDzb89inlTvaSls30"><img src="whatsapplogo.jpg"
-                        alt="Whatsapp"></a>
-                <a href="https://www.instagram.com/prankit.svnit/"><img src="Instagramlogo.webp" alt="Instagram"></a>
-            </p>
-            <p>&copy; 2024 Tales of Bharat. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Tales of Bharat</h2>
+                    <p>Exploring India's Rich Culture</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <a href="#about">About Us</a>
+                        <a href="#contact">Contact Us</a>
+                    </div>
+                    <div>
+                        <a href="#monuments">Monuments</a>
+                        <a href="#cuisine">Cuisine</a>
+                    </div>
+                    <div>
+                        <a href="#arts">Arts and Crafts</a>
+                        <a href="#festivals">Festivals</a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-whatsapp"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tales of Bharat. All Rights Reserved.</p>
+            </div>
         </footer>
     </div>
     <script>
@@ -892,9 +916,6 @@
             document.getElementById('userInput').value = "";
             count++;
         }
-
-
-        
 
         function toggleMenu() {
             const navMenu = document.getElementById('navMenu');
