@@ -138,11 +138,13 @@
             margin-bottom: 10px;
             font-family: 'Cardo', serif;
         }
-        .footer-logo h2 img{
-            height:20px;
+
+        .footer-logo h2 img {
+            height: 20px;
             border-radius: 50%;
             background-color: #ffd700;
         }
+
         .footer-logo p {
             font-size: 16px;
             color: #ffd700;
@@ -268,6 +270,7 @@
             cursor: pointer;
             margin-right: 20px;
         }
+
         .hover-zoom {
             transition: transform 0.3s;
         }
@@ -340,10 +343,13 @@
                 padding: 10px 0;
             }
         }
+
         .button {
-            background-color: #333; /* Dark Gray */
+            background-color: #333;
+            /* Dark Gray */
             border: 2px solid transparent;
-            color: white; /* Text color */
+            color: white;
+            /* Text color */
             padding: 10px 24px;
             text-align: center;
             text-decoration: none;
@@ -354,13 +360,15 @@
             overflow: hidden;
         }
 
-        .button::before, .button::after {
+        .button::before,
+        .button::after {
             content: '';
             position: absolute;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: #ffffff; /* White */
+            background-color: #ffffff;
+            /* White */
             transition: transform 0.4s;
             z-index: 0;
             transform: scaleX(0);
@@ -376,12 +384,14 @@
             transform-origin: right;
         }
 
-        .button:hover::before, .button:hover::after {
+        .button:hover::before,
+        .button:hover::after {
             transform: scaleX(1);
         }
 
         .button:hover {
-            color: #333; /* Dark Gray */
+            color: #333;
+            /* Dark Gray */
         }
 
         .button-text {
@@ -394,7 +404,8 @@
 <body>
     <nav class="navbar">
         <div class="title"><a href="home.html"> Tales <img src="logo3.png"
-                style="height: 20px;background-color: #ff0400;border-radius: 50%;" alt="Tales of Bharat">f Bharat</a>
+                    style="height: 20px;background-color: #ff0400;border-radius: 50%;" alt="Tales of Bharat">f
+                Bharat</a>
         </div>
         <button class="hamburger" onclick="toggleMenu()">☰</button>
         <ul>
@@ -414,12 +425,20 @@
             <p>The festival signifies the end of winter and the arrival of longer days, symbolizing the beginning of a
                 new harvest season.</p>
             <div class="links">
-                <button class="button"  onclick="window.location.href='festival.html'"><span class="button-text">Back to Festival</span></button>
-                <button class="button"  onclick="window.location.href='quizmakarsankranti.html'"><span class="button-text">Try Quiz</span></button>
+                <button class="button" onclick="window.location.href='festival.html'"><span class="button-text">Back to
+                        Festival</span></button>
+                <button class="button" onclick="window.location.href='quizmakarsankranti.html'"><span
+                        class="button-text">Try Quiz</span></button>
             </div>
-            
+        </div>
+    </div>
     <div class="section">
-        <img src="makar12.jpg" alt="Makar Sankranti"  class="hover-zoom" >
+        <h2>Significance</h2>
+        <p>Diwali signifies the spiritual victory of light over darkness, good over evil, and knowledge over ignorance.
+            It is celebrated with the lighting of oil lamps, decorating homes, and performing religious rituals.</p>
+    </div>
+    <div class="section">
+        <img src="makar12.jpg" alt="Makar Sankranti" class="hover-zoom">
     </div>
 
     <div class="section">
