@@ -608,7 +608,7 @@
                     <a href="monument.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="monument.html"><img src="giftaj1.gif" alt="Historical Monuments" class="hover-zoom"></a>
+                    <a href="monument.html"><img src="giftaj1.gif" id="monument-img" alt="Historical Monuments" class="hover-zoom"></a>
                 </div>
             </div>
         </section>
@@ -622,7 +622,7 @@
                     <a href="cuisine.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="cuisine.html"><img id="cuisine-img" src="gifpanipuri1.gif" alt="Indian Cuisine"
+                    <a href="cuisine.html"><img id="cuisine-img" src="gchhole1.gif" alt="Indian Cuisine"
                             class="hover-zoom"></a>
                 </div>
             </div>
@@ -637,7 +637,7 @@
                     <a href="arts.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="arts.html"><img id="arts-img" src="gifjalebi1.gif" alt="Arts and Crafts"
+                    <a href="arts.html"><img id="arts-img" src="pottery.gif" alt="Arts and Crafts"
                             class="hover-zoom"></a>
                 </div>
             </div>
@@ -651,7 +651,7 @@
                     <a href="festival.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="festival.html"><img id="festivals-img" src="pottery.gif" alt="Festivals"
+                    <a href="festival.html"><img id="festivals-img" src="holi.gif" alt="Festivals"
                             class="hover-zoom"></a>
                 </div>
             </div>
@@ -666,7 +666,7 @@
                     <a href="music.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="music.html"><img id="music-img" src="gifjalebi1.gif" alt="Music and Dance"
+                    <a href="music.html"><img id="music-img" src="gdance2.gif" alt="Music and Dance"
                             class="hover-zoom"></a>
                 </div>
             </div>
@@ -680,7 +680,7 @@
                     <a href="literature.html">Learn More</a>
                 </div>
                 <div>
-                    <a href="literature.html"><img id="literature-img" src="gifpanipuri1.gif" alt="Literature"
+                    <a href="literature.html"><img id="literature-img" src="gmaha1.gif" alt="Literature"
                             class="hover-zoom"></a>
                 </div>
             </div>
@@ -1062,6 +1062,36 @@
                 document.removeEventListener('click', handleClickOutside);
             }
         }
+        const images = {
+            monuments: ["gqutub1.gif", "taj.gif", "gtaj1.gif"],
+            cuisine: ["gifjalebi1.gif", "gfood2.gif", "gfood1.gif"],
+            arts: ["gifjalebi1.gif", "gfood2.gif", "gfood1.gif"],
+            festivals: ["gdahi.gif", "gfood2.gif", "gfood1.gif"],
+            music: ["gdance2.gif", "gdance3.gif", "gdance1.gif"],
+            literature: ["gmaha1.gif", "gfood2.gif", "gfood1.gif"],
+        };
+
+        let currentIndex = {
+            monuments: 0,
+            cuisine: 0,
+            arts: 0,
+            festivals: 0,
+            music: 0,
+            literature: 0,
+        };
+
+        function changeImage(section, imgId) {
+            currentIndex[section] = (currentIndex[section] + 1) % images[section].length;
+            document.getElementById(imgId).src = images[section][currentIndex[section]];
+        }
+
+        setInterval(() => changeImage('monuments', 'monument-img'), 3000);
+        setInterval(() => changeImage('cuisine', 'cuisine-img'), 1000);
+        setInterval(() => changeImage('arts', 'arts-img'), 5000);
+        setInterval(() => changeImage('festivals', 'festivals-img'), 3000);
+        setInterval(() => changeImage('music', 'music-img'), 7000);
+        setInterval(() => changeImage('literature', 'literature-img'), 8000);
+    
     </script>
 </body>
 
