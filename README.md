@@ -1,1 +1,1 @@
-https://github.com/prank-vish/parth
+https://github.com/prank-vish/parth/home.html
